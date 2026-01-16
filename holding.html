@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Holding - NexusDigital</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            /* Warna NexusDigital */
+            --nd-blue-dark: #002855;
+            --nd-blue-light: #004e92;
+            --nd-yellow: #FFC107;
+            --nd-green: #28a745;
+            --nd-bg-light: #f4f7f6;
+            --nd-text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--nd-blue-dark);
+        }
+
+        /* --- NAVBAR STYLES (Sama dengan Index & Subholding) --- */
+        /* --- NAVBAR STYLES (Clean Style dengan Panah) --- */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 0;
+            transition: all 0.3s;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--nd-blue-dark);
+            padding: 20px 0;
+            margin-right: 3rem;
+        }
+
+        .navbar-brand span {
+            color: var(--nd-green);
+        }
+
+        .navbar-nav .nav-item {
+            position: relative;
+            padding: 10px 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--nd-blue-dark) !important;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 15px 15px !important;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            display: none !important;
+        }
+
+        /* Panah Chevron */
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+            color: var(--nd-blue-dark);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover State */
+        .navbar-nav .nav-item:hover .nav-link,
+        .navbar-nav .nav-link.active {
+            color: var(--nd-green) !important;
+        }
+
+        .navbar-nav .nav-item:hover .dropdown-toggle::after {
+            color: var(--nd-green);
+            transform: rotate(180deg);
+        }
+
+        /* Mega Menu */
+        .dropdown-menu-mega {
+            width: 100%;
+            margin-top: 0;
+            border: none;
+            border-top: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px 0;
+            background-color: white;
+            left: 0;
+            right: 0;
+            position: absolute;
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            .navbar .dropdown:hover .dropdown-menu {
+                display: block;
+                animation: slideDown 0.3s ease;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mega-menu-icon {
+            font-size: 2.5rem;
+            color: var(--nd-blue-dark);
+            margin-bottom: 15px;
+        }
+
+        .mega-menu-title {
+            font-weight: 700;
+            color: var(--nd-blue-dark);
+            font-size: 1.1rem;
+        }
+
+        .mega-menu-desc {
+            font-size: 0.9rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .mega-menu-link {
+            color: var(--nd-green);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .mega-menu-link:hover {
+            color: var(--nd-blue-dark);
+        }
+
+        .nav-search {
+            background: #f4f4f4;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+
+        /* --- HERO SECTION (HOLDING) --- */
+        .page-hero {
+            /* Background Image dengan Overlay Gelap agar teks Putih terbaca */
+            background: linear-gradient(rgba(0, 40, 85, 0.85), rgba(0, 40, 85, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 0 100px;
+            color: white;
+            /* Pastikan warna dasar putih */
+            text-align: left;
+        }
+
+        .hero-title-main {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white !important;
+            /* Force White */
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9) !important;
+            /* Force White/Light */
+        }
+
+        .breadcrumb-item a {
+            color: var(--nd-yellow);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* --- CONTENT STYLES --- */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* About Image & Overlay */
+        .about-img-container {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .about-img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .about-logo-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 80px;
+        }
+
+        /* Vision Mission */
+        .visimis-section {
+            background-color: #fff;
+            padding: 60px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .mission-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .mission-list li::before {
+            content: "•";
+            color: var(--nd-yellow);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Leadership */
+        .leader-section {
+            background-color: var(--nd-bg-light);
+            padding: 80px 0;
+        }
+
+        .leader-img {
+            max-height: 500px;
+            object-fit: contain;
+            filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.15));
+        }
+
+        .quote-box {
+            border-left: 4px solid var(--nd-yellow);
+            padding-left: 20px;
+            font-style: italic;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Timeline Tabs */
+        .nav-pills-custom .nav-link {
+            color: #aaa;
+            background: transparent;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-bottom: 3px solid transparent;
+            border-radius: 0;
+        }
+
+        .nav-pills-custom .nav-link.active {
+            color: var(--nd-blue-dark);
+            background: transparent;
+            border-bottom: 3px solid var(--nd-blue-dark);
+        }
+
+        .timeline-content-box {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--nd-blue-dark);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--nd-yellow);
+            margin-bottom: 0;
+            line-height: 1;
+        }
+
+        .stats-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* --- FOOTER STYLES (SAMA DENGAN SUBHOLDING) --- */
+        footer {
+            background-color: var(--nd-blue-dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--nd-yellow);
+        }
+
+        .btn-yellow {
+            background-color: var(--nd-yellow);
+            color: var(--nd-blue-dark);
+            font-weight: 700;
+            border: none;
+            padding: 10px 25px;
+        }
+
+        .footer-form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container position-relative">
+            <a class="navbar-brand" href="index.html">Nexus<span>Digital</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button">Tentang
+                            Kami</a>
+                        <div class="dropdown-menu dropdown-menu-mega w-100">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 p-4 text-center text-lg-start">
+                                        <i class="bi bi-globe mega-menu-icon"></i>
+                                        <h5 class="mega-menu-title">Nexus Holding</h5>
+                                        <p class="mega-menu-desc">Perusahaan induk TI dengan solusi terintegrasi global.
+                                        </p>
+                                        <a href="holding.html" class="mega-menu-link">Pelajari Selengkapnya <i
+                                                class="bi bi-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-4 p-4 text-center text-lg-start">
+                                        <i class="bi bi-diagram-3 mega-menu-icon"></i>
+                                        <h5 class="mega-menu-title">Nexus Subholding</h5>
+                                        <p class="mega-menu-desc">Spesialisasi dalam software, keamanan siber, dan
+                                            cloud.</p>
+                                        <a href="subholding.html" class="mega-menu-link">Pelajari Selengkapnya <i
+                                                class="bi bi-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-4 p-4 text-center text-lg-start">
+                                        <i class="bi bi-recycle mega-menu-icon"></i>
+                                        <h5 class="mega-menu-title">Sustainability (ESG)</h5>
+                                        <p class="mega-menu-desc">Komitmen untuk teknologi hijau dan pertumbuhan
+                                            bertanggung jawab.</p>
+                                        <a href="sustainability.html" class="mega-menu-link">Pelajari Selengkapnya <i
+                                                class="bi bi-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Bisnis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Investor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Karir</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                </ul>
+                <div class="d-flex align-items-center ms-3">
+                    <div class="dropdown me-3">
+                        <a class="text-decoration-none fw-bold text-dark dropdown-toggle" href="#"
+                            data-bs-toggle="dropdown">ID</a>
+                        <ul class="dropdown-menu" style="min-width: auto;">
+                            <li><a class="dropdown-item" href="#">EN</a></li>
+                        </ul>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="nav-search" placeholder="Cari...">
+                        <button class="btn btn-sm btn-link text-dark position-absolute end-0" type="button"
+                            style="z-index: 5;"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="#">Tentang Kami</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Nexus Holding</li>
+                </ol>
+            </nav>
+            <div class="row mt-4">
+                <div class="col-lg-8">
+                    <h1 class="hero-title-main">Dorong Inovasi</h1>
+                    <h3 class="hero-subtitle">Mitra Anda untuk Meningkatkan Bisnis di Era Digital</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 pe-lg-5">
+                    <h2 class="mb-4">Tentang Perusahaan</h2>
+                    <p class="text-muted mb-3">
+                        NexusDigital Tbk (IDX: NXDS) adalah perusahaan teknologi informasi terkemuka di Indonesia yang
+                        telah beroperasi selama lebih dari dua dekade. Kami berdedikasi untuk memberikan solusi TI yang
+                        kompetitif dan bernilai tambah bagi klien kami.
+                    </p>
+                    <p class="text-muted">
+                        Dengan dukungan tim ahli yang berpengalaman dan kemitraan strategis dengan perusahaan teknologi
+                        global, NexusDigital telah berkembang menjadi penyedia solusi digital yang terintegrasi,
+                        mencakup integrasi sistem, layanan cloud, hingga keamanan siber.
+                    </p>
+                    <p style="color: var(--nd-blue-dark); font-weight: 600; margin-top: 20px;">
+                        "Establish Digital Ecosystem, Navigating Innovation"
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-img-container">
+                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Office Building" class="img-fluid about-img">
+                        <div class="about-logo-overlay text-center">
+                            <i class="bi bi-building fw-bold fs-2" style="color: var(--nd-blue-dark);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="visimis-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <h3>Visi</h3>
+                    <p class="lead" style="color: var(--nd-text-muted);">
+                        Menjadi perusahaan penyedia solusi digital terdepan yang paling dikagumi di Asia Pasifik.
+                    </p>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block border-end"></div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h3>Misi</h3>
+                    <ul class="list-unstyled mission-list text-muted mt-3">
+                        <li>Memberikan produk dan layanan TI yang kompetitif dan tepat guna untuk kepuasan pelanggan.
+                        </li>
+                        <li>Menciptakan lingkungan kerja yang optimal bagi karyawan untuk berkembang dan berinovasi.
+                        </li>
+                        <li>Memberikan nilai tambah yang berkelanjutan bagi pemegang saham dan pemangku kepentingan.
+                        </li>
+                        <li>Berkontribusi positif terhadap masyarakat melalui pemanfaatan teknologi yang bertanggung
+                            jawab.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="leader-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="CEO" class="img-fluid leader-img rounded">
+                </div>
+                <div class="col-lg-7">
+                    <h5 class="text-uppercase text-muted letter-spacing-2 mb-2">Pemimpin Kami</h5>
+                    <h2 class="mb-1">David Santoso</h2>
+                    <p class="text-success fw-bold mb-4">Presiden Direktur</p>
+
+                    <p class="text-muted">
+                        "Inovasi bukan hanya tentang teknologi baru, tetapi tentang bagaimana teknologi tersebut dapat
+                        menciptakan nilai nyata bagi kehidupan manusia. Di NexusDigital, kami percaya bahwa kolaborasi
+                        dan integritas adalah kunci untuk membuka potensi masa depan."
+                    </p>
+                    <div class="quote-box">
+                        <small>Bergabung dengan NexusDigital sejak 2010, David memiliki lebih dari 25 tahun pengalaman
+                            dalam industri teknologi dan manajemen strategis.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Perjalanan Kami</h2>
+                <div style="height: 4px; width: 60px; background: var(--nd-green); margin: 15px auto;"></div>
+            </div>
+
+            <ul class="nav nav-pills nav-pills-custom justify-content-center mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item"><button class="nav-link" id="pills-2002-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-2002" type="button">2002</button></li>
+                <li class="nav-item"><button class="nav-link" id="pills-2008-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-2008" type="button">2008</button></li>
+                <li class="nav-item"><button class="nav-link active" id="pills-2015-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-2015" type="button">2015</button></li>
+                <li class="nav-item"><button class="nav-link" id="pills-2023-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-2023" type="button">2023</button></li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade" id="pills-2002">
+                    <div class="timeline-content-box d-flex align-items-center">
+                        <div class="p-3">
+                            <h4>Pendirian Perusahaan</h4>
+                            <p>NexusDigital didirikan sebagai perusahaan penyedia perangkat keras komputer kecil di
+                                Jakarta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-2008">
+                    <div class="timeline-content-box d-flex align-items-center">
+                        <div class="p-3">
+                            <h4>Ekspansi Layanan</h4>
+                            <p>Mulai merambah ke bisnis System Integration dan menjalin kemitraan dengan IBM dan
+                                Microsoft.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show active" id="pills-2015">
+                    <div class="timeline-content-box row g-0 align-items-center">
+                        <div class="col-md-5"><img
+                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                class="img-fluid rounded" alt="IPO"></div>
+                        <div class="col-md-7 p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-graph-up-arrow fs-2 text-primary me-3"></i>
+                                <h4 class="mb-0">Penawaran Saham Perdana (IPO)</h4>
+                            </div>
+                            <ul class="text-muted">
+                                <li>Resmi melantai di Bursa Efek Indonesia dengan kode saham NXDS.</li>
+                                <li>Mengakuisisi dua perusahaan keamanan siber lokal.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-2023">
+                    <div class="timeline-content-box d-flex align-items-center">
+                        <div class="p-3">
+                            <h4>Transformasi AI</h4>
+                            <p>Meluncurkan divisi khusus Artificial Intelligence dan Cloud Computing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="stats-number">3</div>
+                    <div class="stats-label">Negara Operasional</div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="stats-number">8</div>
+                    <div class="stats-label">Anak Perusahaan</div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="stats-number">1787</div>
+                    <div class="stats-label">Karyawan Profesional</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-number">798+</div>
+                    <div class="stats-label">Klien Enterprise</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h3 class="text-white mb-3">Nexus<span>Digital</span></h3>
+                    <div class="mb-4">
+                        <h6 class="text-white">Kantor Pusat</h6>
+                        <p class="opacity-75 small">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang -
+                            Indonesia</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-white">Kantor Pusat Jakarta</h6>
+                        <p class="opacity-75 small">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930,
+                            Indonesia<br>+62 21 522 9909</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 rounded text-dark">
+                        <h5 class="mb-3" style="color: var(--nd-blue-dark);">Hubungi Kami</h5>
+                        <p class="small text-muted mb-4">Anda memiliki pertanyaan seputar bisnis dan kolaborasi?</p>
+
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" class="footer-form-control"
+                                        placeholder="Nama Depan*"></div>
+                                <div class="col-md-6"><input type="text" class="footer-form-control"
+                                        placeholder="Nama Belakang*"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" class="footer-form-control"
+                                        placeholder="Jabatan*"></div>
+                                <div class="col-md-6"><input type="text" class="footer-form-control"
+                                        placeholder="Nama Perusahaan*"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><input type="email" class="footer-form-control"
+                                        placeholder="Email*"></div>
+                                <div class="col-md-6"><input type="text" class="footer-form-control"
+                                        placeholder="Nomor HP*"></div>
+                            </div>
+                            <textarea class="footer-form-control" rows="3" placeholder="Pesan*"></textarea>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="privacyCheck">
+                                <label class="form-check-label small" for="privacyCheck">I agree to the <a
+                                        href="#">Privacy Policy</a></label>
+                            </div>
+
+                            <button type="submit" class="btn btn-yellow text-dark px-4 py-2">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
+
+            <div class="row align-items-center small opacity-75">
+                <div class="col-md-6">© 2026 PT NexusDigital Tbk. All rights reserved.</div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat dan Ketentuan</a>
+                    <div class="d-flex gap-2 ms-3">
+                        <i class="bi bi-linkedin"></i>
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

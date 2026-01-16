@@ -16,13 +16,13 @@
         :root {
             /* --- DEFINISI WARNA NEXUSDIGITAL --- */
             --nd-blue-dark: #002855;
-            /* Biru tua dominan (pengganti hitam/merah tua) */
+            /* Biru tua dominan */
             --nd-blue-light: #004e92;
-            /* Biru yang lebih terang untuk gradient */
+            /* Biru terang */
             --nd-yellow: #FFC107;
-            /* Kuning emas untuk Tombol/Aksen Penting */
+            /* Kuning emas (CTA) */
             --nd-green: #28a745;
-            /* Hijau untuk dekorasi/sukses */
+            /* Hijau dekorasi */
             --nd-bg-light: #f4f7f6;
             /* Background abu muda */
             --nd-text-muted: #6c757d;
@@ -74,8 +74,7 @@
             border-radius: 2px;
         }
 
-        /* --- NAVBAR --- */
-        /* --- NAVBAR STYLES (REVISI: Clean Style dengan Panah) --- */
+        /* --- NAVBAR STYLES (Clean Style dengan Panah) --- */
         .navbar {
             background: white;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
@@ -95,7 +94,6 @@
             color: var(--nd-green);
         }
 
-        /* Menu Items */
         .navbar-nav .nav-item {
             position: relative;
             padding: 10px 5px;
@@ -103,25 +101,20 @@
 
         .navbar-nav .nav-link {
             color: var(--nd-blue-dark) !important;
-            /* Warna Teks Normal (Biru Tua) */
             font-weight: 600;
             font-size: 15px;
             padding: 15px 15px !important;
-            position: relative;
             display: flex;
             align-items: center;
             gap: 5px;
-            /* Jarak antara teks dan panah */
             transition: color 0.3s ease;
         }
 
-        /* HAPUS GARIS BAWAH (Underline) */
         .navbar-nav .nav-link::after {
             display: none !important;
-            /* Menghilangkan garis kuning sebelumnya */
         }
 
-        /* KUSTOMISASI PANAH DROPDOWN (Chevron) */
+        /* Panah Chevron */
         .dropdown-toggle::after {
             display: inline-block;
             margin-left: 0.255em;
@@ -132,34 +125,26 @@
             border-bottom: 0;
             border-left: 0.3em solid transparent;
             color: var(--nd-blue-dark);
-            /* Warna Panah Normal */
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        /* EFEK HOVER & AKTIF */
-        /* Saat mouse di atas menu, ubah warna teks dan panah */
+        /* Hover State */
         .navbar-nav .nav-item:hover .nav-link,
         .navbar-nav .nav-link.active {
             color: var(--nd-green) !important;
-            /* Ubah jadi Hijau Nexus (atau ganti --nd-yellow) */
         }
 
-        /* Ubah warna panah saat hover */
-        .navbar-nav .nav-item:hover .dropdown-toggle::after,
-        .navbar-nav .nav-link.active.dropdown-toggle::after {
+        .navbar-nav .nav-item:hover .dropdown-toggle::after {
             color: var(--nd-green);
-            /* Panah ikut berubah warna */
             transform: rotate(180deg);
-            /* Opsional: Panah berputar saat hover */
         }
 
-        /* --- MEGA MENU (Sama seperti sebelumnya) --- */
+        /* Mega Menu */
         .dropdown-menu-mega {
             width: 100%;
             margin-top: 0;
             border: none;
             border-top: 1px solid #eee;
-            /* Garis tipis pemisah */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 40px 0;
             background-color: white;
@@ -167,10 +152,8 @@
             right: 0;
             position: absolute;
             display: none;
-            /* Default hidden */
         }
 
-        /* Tampilkan Mega Menu saat Hover */
         @media (min-width: 992px) {
             .navbar .dropdown:hover .dropdown-menu {
                 display: block;
@@ -190,7 +173,6 @@
             }
         }
 
-        /* Style Konten dalam Menu */
         .mega-menu-icon {
             font-size: 2.5rem;
             color: var(--nd-blue-dark);
@@ -215,19 +197,12 @@
             font-weight: 700;
             text-decoration: none;
             font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
         }
 
         .mega-menu-link:hover {
             color: var(--nd-blue-dark);
         }
 
-        .mega-menu-link i {
-            margin-left: 5px;
-        }
-
-        /* Search Bar */
         .nav-search {
             background: #f4f4f4;
             border: none;
@@ -239,7 +214,6 @@
 
         /* --- HERO SECTION --- */
         .hero-section {
-            /* Background image kota malam + overlay biru gelap */
             background: linear-gradient(rgba(0, 40, 85, 0.8), rgba(0, 40, 85, 0.6)), url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -258,14 +232,13 @@
             color: white;
         }
 
-        /* --- INTRO SECTION --- */
+        /* --- CONTENT SECTIONS --- */
         .intro-text p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--nd-text-muted);
         }
 
-        /* --- PARTNERS / SUBSIDIARIES --- */
         .partners-section {
             background-color: var(--nd-bg-light);
         }
@@ -291,16 +264,13 @@
             opacity: 1;
         }
 
-        /* --- SOLUTIONS GRID (6 Cards) --- */
         .solutions-section {
-            /* Gradient halus sebagai background seperti referensi */
             background: linear-gradient(to bottom, #ffffff, #eef2f7);
         }
 
         .solution-card {
             border: none;
             border-radius: 15px;
-            /* Sudut membulat */
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
@@ -339,11 +309,9 @@
             margin-bottom: 10px;
         }
 
-        /* --- WHY US (ZIG ZAG LAYOUT) --- */
-        /* Meniru gaya text box gelap di referensi */
+        /* ZigZag Layout */
         .zigzag-text-box {
             background-color: var(--nd-blue-dark);
-            /* Biru gelap */
             color: white;
             padding: 60px 40px;
             display: flex;
@@ -371,7 +339,6 @@
             border-radius: 8px;
         }
 
-        /* Aksen garis hijau di samping box teks */
         .border-left-green {
             border-left: 5px solid var(--nd-green);
         }
@@ -380,8 +347,7 @@
             border-right: 5px solid var(--nd-green);
         }
 
-
-        /* --- BOTTOM CTA --- */
+        /* Bottom CTA */
         .bottom-cta {
             background: linear-gradient(rgba(0, 40, 85, 0.85), rgba(0, 40, 85, 0.85)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -391,7 +357,7 @@
             color: white;
         }
 
-        /* --- INSIGHTS/BLOG --- */
+        /* Insights */
         .insight-card {
             border: none;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -416,21 +382,11 @@
             color: var(--nd-green);
         }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER STYLES (DIPERBARUI) --- */
         footer {
             background-color: var(--nd-blue-dark);
             color: white;
-            padding-top: 80px;
-            padding-bottom: 30px;
-        }
-
-        footer h5 {
-            color: white;
-            margin-bottom: 25px;
-        }
-
-        footer ul li {
-            margin-bottom: 12px;
+            padding: 60px 0 20px;
         }
 
         footer a {
@@ -443,101 +399,99 @@
             color: var(--nd-yellow);
         }
 
-        /* Tombol Subscribe Kuning */
-        .btn-subscribe-yellow {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            font-weight: bold;
-            border: none;
-        }
-
-        .form-control-dark {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .form-control-dark:focus {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            box-shadow: none;
-            border-color: var(--nd-yellow);
+        /* Form di Footer */
+        .footer-form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container position-relative">
-        <a class="navbar-brand" href="#">Nexus<span>Digital</span></a>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container position-relative">
+            <a class="navbar-brand" href="#">Nexus<span>Digital</span></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Beranda</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beranda</a>
+                    </li>
 
-                <li class="nav-item dropdown position-static">
-                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" aria-expanded="false">
-                        Tentang Kami
-                    </a>
-                    
-                    <div class="dropdown-menu dropdown-menu-mega w-100" aria-labelledby="aboutDropdown">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4 p-4 text-center text-lg-start">
-                                    <i class="bi bi-globe mega-menu-icon"></i>
-                                    <h5 class="mega-menu-title">Nexus Holding</h5>
-                                    <p class="mega-menu-desc">Perusahaan induk TI dengan solusi terintegrasi global.</p>
-                                    <a href="#" class="mega-menu-link">Pelajari Selengkapnya <i class="bi bi-chevron-right"></i></a>
-                                </div>
-                                <div class="col-lg-4 p-4 text-center text-lg-start">
-                                    <i class="bi bi-diagram-3 mega-menu-icon"></i>
-                                    <h5 class="mega-menu-title">Nexus Subholding</h5>
-                                    <p class="mega-menu-desc">Spesialisasi dalam software, keamanan siber, dan cloud.</p>
-                                    <a href="#" class="mega-menu-link">Pelajari Selengkapnya <i class="bi bi-chevron-right"></i></a>
-                                </div>
-                                <div class="col-lg-4 p-4 text-center text-lg-start">
-                                    <i class="bi bi-recycle mega-menu-icon"></i>
-                                    <h5 class="mega-menu-title">Sustainability (ESG)</h5>
-                                    <p class="mega-menu-desc">Komitmen untuk teknologi hijau dan pertumbuhan bertanggung jawab.</p>
-                                    <a href="#" class="mega-menu-link">Pelajari Selengkapnya <i class="bi bi-chevron-right"></i></a>
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            aria-expanded="false">
+                            Tentang Kami
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-mega w-100" aria-labelledby="aboutDropdown">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 p-4 text-center text-lg-start">
+                                        <i class="bi bi-globe mega-menu-icon"></i>
+                                        <h5 class="mega-menu-title">Nexus Holding</h5>
+                                        <p class="mega-menu-desc">Perusahaan induk TI dengan solusi terintegrasi global.
+                                        </p>
+                                        <a href="holding.html" class="mega-menu-link">Pelajari Selengkapnya <i
+                                                class="bi bi-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-4 p-4 text-center text-lg-start">
+                                        <i class="bi bi-diagram-3 mega-menu-icon"></i>
+                                        <h5 class="mega-menu-title">Nexus Subholding</h5>
+                                        <p class="mega-menu-desc">Spesialisasi dalam software, keamanan siber, dan
+                                            cloud.</p>
+                                        <a href="subholding.html" class="mega-menu-link">Pelajari Selengkapnya <i
+                                                class="bi bi-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-4 p-4 text-center text-lg-start">
+                                        <i class="bi bi-recycle mega-menu-icon"></i>
+                                        <h5 class="mega-menu-title">Sustainability (ESG)</h5>
+                                        <p class="mega-menu-desc">Komitmen untuk teknologi hijau dan pertumbuhan
+                                            bertanggung jawab.</p>
+                                        <a href="sustainability.html" class="mega-menu-link">Pelajari Selengkapnya <i
+                                                class="bi bi-chevron-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#">Bisnis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Investor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Karir</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center ms-3">
+                    <div class="dropdown me-3">
+                        <a class="text-decoration-none fw-bold text-dark dropdown-toggle" href="#"
+                            data-bs-toggle="dropdown">
+                            ID
+                        </a>
+                        <ul class="dropdown-menu" style="min-width: auto;">
+                            <li><a class="dropdown-item" href="#">EN</a></li>
+                        </ul>
                     </div>
-                </li>
-
-                <li class="nav-item"><a class="nav-link" href="#">Bisnis</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Investor</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Karir</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
-            </ul>
-
-            <div class="d-flex align-items-center ms-3">
-                 <div class="dropdown me-3">
-                    <a class="text-decoration-none fw-bold text-dark dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        ID
-                    </a>
-                     <ul class="dropdown-menu" style="min-width: auto;">
-                        <li><a class="dropdown-item" href="#">EN</a></li>
-                    </ul>
-                </div>
-                <div class="input-group">
-                    <input type="text" class="nav-search" placeholder="Cari...">
-                    <button class="btn btn-sm btn-link text-dark position-absolute end-0" type="button" style="z-index: 5;">
-                        <i class="bi bi-search"></i>
-                    </button>
+                    <div class="input-group">
+                        <input type="text" class="nav-search" placeholder="Cari...">
+                        <button class="btn btn-sm btn-link text-dark position-absolute end-0" type="button"
+                            style="z-index: 5;">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
     <header class="hero-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -608,10 +562,9 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="solution-card">
-                        <div class="solution-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=60"
-                                alt="System Integration">
-                        </div>
+                        <div class="solution-img-wrapper"><img
+                                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=60"
+                                alt="System Integration"></div>
                         <div class="solution-body">
                             <h4 class="solution-title">Enterprise System Integration</h4>
                         </div>
@@ -619,10 +572,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="solution-card">
-                        <div class="solution-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=60"
-                                alt="BPO">
-                        </div>
+                        <div class="solution-img-wrapper"><img
+                                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=60"
+                                alt="BPO"></div>
                         <div class="solution-body">
                             <h4 class="solution-title">Business Process Outsourcing</h4>
                         </div>
@@ -630,10 +582,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="solution-card">
-                        <div class="solution-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=60"
-                                alt="Digital Banking">
-                        </div>
+                        <div class="solution-img-wrapper"><img
+                                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=60"
+                                alt="Digital Banking"></div>
                         <div class="solution-body">
                             <h4 class="solution-title">Digital Banking Solutions</h4>
                         </div>
@@ -641,10 +592,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="solution-card">
-                        <div class="solution-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&w=500&q=60"
-                                alt="Cyber Security">
-                        </div>
+                        <div class="solution-img-wrapper"><img
+                                src="https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&w=500&q=60"
+                                alt="Cyber Security"></div>
                         <div class="solution-body">
                             <h4 class="solution-title">Cyber Security & Resilience</h4>
                         </div>
@@ -652,10 +602,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="solution-card">
-                        <div class="solution-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500&q=60"
-                                alt="Data Analytics">
-                        </div>
+                        <div class="solution-img-wrapper"><img
+                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500&q=60"
+                                alt="Data Analytics"></div>
                         <div class="solution-body">
                             <h4 class="solution-title">Big Data & Analytics</h4>
                         </div>
@@ -663,10 +612,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="solution-card">
-                        <div class="solution-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=500&q=60"
-                                alt="Cloud Infra">
-                        </div>
+                        <div class="solution-img-wrapper"><img
+                                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=500&q=60"
+                                alt="Cloud Infra"></div>
                         <div class="solution-body">
                             <h4 class="solution-title">Cloud Infrastructure Services</h4>
                         </div>
@@ -681,7 +629,6 @@
             <div class="text-center mb-5">
                 <h2>Why Partner With NexusDigital?</h2>
             </div>
-
             <div class="row g-0 align-items-stretch mb-5 shadow-sm rounded overflow-hidden">
                 <div class="col-lg-6">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
@@ -696,7 +643,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row g-0 align-items-stretch shadow-sm rounded overflow-hidden">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="zigzag-text-box border-right-green">
@@ -711,7 +657,6 @@
                         class="zigzag-img" alt="Innovation">
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -747,7 +692,6 @@
                 <h2>Latest Insights</h2>
                 <a href="#" class="read-more-link">View All News <i class="bi bi-arrow-right"></i></a>
             </div>
-
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card insight-card h-100">
@@ -791,54 +735,80 @@
 
     <footer>
         <div class="container">
-            <div class="row gy-4">
+            <div class="row gy-5">
                 <div class="col-lg-4">
                     <h3 class="text-white mb-3">Nexus<span>Digital</span></h3>
-                    <p class="opacity-75 small">Graha Nexus, Jl. Jendral Sudirman Kav. 52-53<br>Jakarta Selatan 12190,
-                        Indonesia</p>
-                    <div class="mt-4 d-flex gap-3">
-                        <a href="#"><i class="bi bi-linkedin fs-5"></i></a>
-                        <a href="#"><i class="bi bi-facebook fs-5"></i></a>
-                        <a href="#"><i class="bi bi-instagram fs-5"></i></a>
-                        <a href="#"><i class="bi bi-youtube fs-5"></i></a>
+                    <div class="mb-4">
+                        <h6 class="text-white">Kantor Pusat</h6>
+                        <p class="opacity-75 small">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang -
+                            Indonesia</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-white">Kantor Pusat Jakarta</h6>
+                        <p class="opacity-75 small">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930,
+                            Indonesia<br>+62 21 522 9909</p>
                     </div>
                 </div>
-                <div class="col-lg-2 col-6">
-                    <h5>Company</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Board of Directors</a></li>
-                        <li><a href="#">Awards & Certifications</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h5>Solutions</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">System Integration</a></li>
-                        <li><a href="#">Cloud Services</a></li>
-                        <li><a href="#">Cyber Security</a></li>
-                        <li><a href="#">Data Analytics</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h5>Stay Connected</h5>
-                    <p class="opacity-75 small">Berlangganan newsletter kami untuk update terbaru.</p>
-                    <form class="input-group mt-3">
-                        <input type="email" class="form-control form-control-dark" placeholder="Enter your email"
-                            aria-label="Email">
-                        <button class="btn btn-subscribe-yellow" type="button">Subscribe</button>
-                    </form>
+
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 rounded text-dark">
+                        <h5 class="mb-3" style="color: var(--nd-blue-dark);">Hubungi Kami</h5>
+                        <p class="small text-muted mb-4">Anda memiliki pertanyaan seputar bisnis dan kolaborasi?</p>
+
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="footer-form-control" placeholder="Nama Depan*">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="footer-form-control" placeholder="Nama Belakang*">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="footer-form-control" placeholder="Jabatan*">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="footer-form-control" placeholder="Nama Perusahaan*">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="email" class="footer-form-control" placeholder="Email*">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="footer-form-control" placeholder="Nomor HP*">
+                                </div>
+                            </div>
+                            <textarea class="footer-form-control" rows="3" placeholder="Pesan*"></textarea>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="privacyCheck">
+                                <label class="form-check-label small" for="privacyCheck">
+                                    I agree to the <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-yellow text-dark px-4 py-2">Kirim Pesan</button>
+                        </form>
+                    </div>
                 </div>
             </div>
+
             <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
+
             <div class="row align-items-center small opacity-75">
                 <div class="col-md-6">
-                    © 2024 PT NexusDigital Tbk. All rights reserved.
+                    © 2026 PT NexusDigital Tbk. All rights reserved.
                 </div>
-                <div class="col-md-6 text-md-end mt-3 mt-md-0">
-                    <a href="#" class="me-3">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat dan Ketentuan</a>
+                    <div class="d-flex gap-2 ms-3">
+                        <i class="bi bi-linkedin"></i>
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-youtube"></i>
+                    </div>
                 </div>
             </div>
         </div>
