@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>Karir - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -70,7 +70,7 @@
             white-space: nowrap;
         }
 
-        /* --- MEGA MENU BASE --- */
+        /* Mega Menu Base */
         .dropdown-menu-mega {
             border: none;
             border-top: 1px solid #f0f0f0;
@@ -120,55 +120,84 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- CAREER PAGE SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .career-hero {
+            background: linear-gradient(rgba(0, 40, 85, 0.8), rgba(0, 40, 85, 0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .career-hero-title {
+            font-size: 3.5rem; font-weight: 700; color: white; margin-bottom: 15px;
         }
 
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
+        /* 2. Culture / Benefits */
+        .culture-section {
+            padding: 80px 0;
+            background-color: white;
         }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+        .benefit-item {
+            text-align: center; padding: 20px;
         }
-        
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+        .benefit-icon {
+            font-size: 2.5rem; color: var(--nd-green); margin-bottom: 15px;
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-        
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
-            display: inline-block;
+
+        /* 3. Job Listings */
+        .jobs-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-left: 5px solid transparent;
         }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--nd-yellow);
+        }
+        .job-info h5 { margin-bottom: 5px; color: var(--nd-blue-dark); font-weight: 600; }
+        .job-meta { font-size: 0.9rem; color: #777; }
+        .job-meta i { margin-right: 5px; }
+        .job-type-badge {
+            background-color: #e3f2fd; color: var(--nd-blue-light);
+            padding: 3px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* 4. Recruitment Process */
+        .process-section {
+            padding: 80px 0; background-color: white;
+        }
+        .step-circle {
+            width: 60px; height: 60px; background-color: var(--nd-blue-dark); color: white;
+            border-radius: 50%; font-size: 1.5rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .process-arrow {
+            display: none; /* Mobile hidden */
+        }
+        @media (min-width: 992px) {
+            .process-arrow {
+                display: block; position: absolute; top: 30px; right: -50%; width: 100%; height: 2px; background-color: #eee; z-index: 0;
+            }
         }
 
         /* --- FOOTER STYLES --- */
@@ -178,53 +207,19 @@
         .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
-        /* Tombol WhatsApp */
+        /* --- FLOATING BUTTONS --- */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        /* --- MODAL STYLE --- */
+        .modal-header { background-color: var(--nd-blue-dark); color: white; }
+        .modal-title { font-weight: 700; }
+        .btn-close-white { filter: invert(1); }
 
     </style>
 </head>
@@ -235,17 +230,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -294,7 +287,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -351,54 +344,104 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="career-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="career-hero-title" data-key="car_hero_title">Bergabung Bersama Kami</h1>
+                    <p class="lead text-white opacity-75" data-key="car_hero_desc">Jadilah bagian dari tim inovatif yang membentuk masa depan teknologi di Indonesia.</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mt-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_career">Karir</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
-            </div>
-
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
+    <section class="culture-section">
+        <div class="container text-center">
+            <h2 class="mb-5" data-key="car_cult_title">Mengapa NexusDigital?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="benefit-item">
+                        <i class="bi bi-people-fill benefit-icon"></i>
+                        <h5 data-key="car_ben_1_t">Lingkungan Kolaboratif</h5>
+                        <p class="text-muted small" data-key="car_ben_1_d">Kami menghargai kerja tim dan ide-ide inovatif dari setiap anggota.</p>
                     </div>
                 </div>
-
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
+                <div class="col-md-4">
+                    <div class="benefit-item">
+                        <i class="bi bi-graph-up-arrow benefit-icon"></i>
+                        <h5 data-key="car_ben_2_t">Pengembangan Karir</h5>
+                        <p class="text-muted small" data-key="car_ben_2_d">Program pelatihan dan jalur karir yang jelas untuk pertumbuhan Anda.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-item">
+                        <i class="bi bi-heart-pulse-fill benefit-icon"></i>
+                        <h5 data-key="car_ben_3_t">Kesejahteraan & Benefit</h5>
+                        <p class="text-muted small" data-key="car_ben_3_d">Asuransi kesehatan, tunjangan, dan keseimbangan kerja yang sehat.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="jobs-section" id="lowongan">
+        <div class="container">
+            <h2 class="mb-4" data-key="car_job_title">Lowongan Tersedia</h2>
+            
+            <div class="job-card">
+                <div class="job-info">
+                    <h5 data-key="car_job_1_title">Senior Web Developer</h5>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> <span data-key="car_job_loc_jkt">Jakarta</span></span>
+                        <span><i class="bi bi-briefcase"></i> IT Department</span>
+                        <span class="job-type-badge">Full Time</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" onclick="openApplyModal('Senior Web Developer')" data-key="car_btn_apply">Lamar Sekarang</button>
+            </div>
+
+            <div class="job-card">
+                <div class="job-info">
+                    <h5 data-key="car_job_2_title">UI/UX Designer</h5>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> <span data-key="car_job_loc_tgr">Tangerang (HQ)</span></span>
+                        <span><i class="bi bi-briefcase"></i> Product Design</span>
+                        <span class="job-type-badge">Full Time</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" onclick="openApplyModal('UI/UX Designer')" data-key="car_btn_apply">Lamar Sekarang</button>
+            </div>
+
+            <div class="job-card">
+                <div class="job-info">
+                    <h5 data-key="car_job_3_title">Accounting Officer</h5>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> <span data-key="car_job_loc_jkt">Jakarta</span></span>
+                        <span><i class="bi bi-briefcase"></i> Finance</span>
+                        <span class="job-type-badge">Contract</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" onclick="openApplyModal('Accounting Officer')" data-key="car_btn_apply">Lamar Sekarang</button>
+            </div>
+
+            <div class="job-card">
+                <div class="job-info">
+                    <h5 data-key="car_job_4_title">General Affair Staff</h5>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> <span data-key="car_job_loc_tgr">Tangerang (HQ)</span></span>
+                        <span><i class="bi bi-briefcase"></i> Operations</span>
+                        <span class="job-type-badge">Full Time</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" onclick="openApplyModal('General Affair Staff')" data-key="car_btn_apply">Lamar Sekarang</button>
+            </div>
+
         </div>
     </section>
 
@@ -477,6 +520,48 @@
         </button>
     </div>
 
+    <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applyModalLabel" data-key="modal_title">Lamar Pekerjaan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="applyForm">
+                        <div class="mb-3">
+                            <label for="a_name" class="form-label small fw-bold" data-key="modal_label_name">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="a_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="a_email" class="form-label small fw-bold" data-key="modal_label_email">Email</label>
+                            <input type="email" class="form-control" id="a_email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="a_phone" class="form-label small fw-bold" data-key="modal_label_phone">Nomor HP (WhatsApp)</label>
+                            <input type="text" class="form-control" id="a_phone" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="a_dob" class="form-label small fw-bold" data-key="modal_label_dob">Tanggal Lahir</label>
+                            <input type="date" class="form-control" id="a_dob" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="a_addr" class="form-label small fw-bold" data-key="modal_label_addr">Alamat Domisili</label>
+                            <textarea class="form-control" id="a_addr" rows="2" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="a_position" class="form-label small fw-bold" data-key="modal_label_pos">Posisi yang Dilamar</label>
+                            <input type="text" class="form-control" id="a_position" readonly>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-yellow text-dark fw-bold" data-key="modal_btn_submit">Kirim Lamaran</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -493,14 +578,21 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN KARIR
+                car_hero_title: "Bergabung Bersama Kami", car_hero_desc: "Jadilah bagian dari tim inovatif yang membentuk masa depan teknologi di Indonesia.",
+                car_cult_title: "Mengapa NexusDigital?",
+                car_ben_1_t: "Lingkungan Kolaboratif", car_ben_1_d: "Kami menghargai kerja tim dan ide-ide inovatif dari setiap anggota.",
+                car_ben_2_t: "Pengembangan Karir", car_ben_2_d: "Program pelatihan dan jalur karir yang jelas untuk pertumbuhan Anda.",
+                car_ben_3_t: "Kesejahteraan & Benefit", car_ben_3_d: "Asuransi kesehatan, tunjangan, dan keseimbangan kerja yang sehat.",
+                car_job_title: "Lowongan Tersedia",
+                car_job_1_title: "Senior Web Developer", car_job_2_title: "UI/UX Designer", car_job_3_title: "Accounting Officer", car_job_4_title: "General Affair Staff",
+                car_job_loc_jkt: "Jakarta", car_job_loc_tgr: "Tangerang (HQ)",
+                car_btn_apply: "Lamar Sekarang",
+                
+                // MODAL
+                modal_title: "Lamar Pekerjaan",
+                modal_label_name: "Nama Lengkap", modal_label_email: "Email", modal_label_phone: "Nomor HP (WhatsApp)", modal_label_dob: "Tanggal Lahir", modal_label_addr: "Alamat Domisili", modal_label_pos: "Posisi yang Dilamar",
+                modal_btn_submit: "Kirim Lamaran"
             },
             en: {
                 // GLOBAL
@@ -514,14 +606,21 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // CAREER PAGE SPECIFIC
+                car_hero_title: "Join Our Team", car_hero_desc: "Be part of an innovative team shaping the future of technology in Indonesia.",
+                car_cult_title: "Why NexusDigital?",
+                car_ben_1_t: "Collaborative Environment", car_ben_1_d: "We value teamwork and innovative ideas from every member.",
+                car_ben_2_t: "Career Development", car_ben_2_d: "Training programs and clear career paths for your growth.",
+                car_ben_3_t: "Wellness & Benefits", car_ben_3_d: "Health insurance, allowances, and healthy work-life balance.",
+                car_job_title: "Current Openings",
+                car_job_1_title: "Senior Web Developer", car_job_2_title: "UI/UX Designer", car_job_3_title: "Accounting Officer", car_job_4_title: "General Affair Staff",
+                car_job_loc_jkt: "Jakarta", car_job_loc_tgr: "Tangerang (HQ)",
+                car_btn_apply: "Apply Now",
+
+                // MODAL
+                modal_title: "Apply for Job",
+                modal_label_name: "Full Name", modal_label_email: "Email", modal_label_phone: "Phone Number", modal_label_dob: "Date of Birth", modal_label_addr: "Home Address", modal_label_pos: "Position Applied",
+                modal_btn_submit: "Submit Application"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +634,21 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // CAREER PAGE SPECIFIC
+                car_hero_title: "チームに参加する", car_hero_desc: "インドネシアのテクノロジーの未来を形作る革新的なチームの一員になりましょう。",
+                car_cult_title: "なぜNexusDigitalなのか？",
+                car_ben_1_t: "協力的な環境", car_ben_1_d: "私たちは、すべてのメンバーからのチームワークと革新的なアイデアを大切にしています。",
+                car_ben_2_t: "キャリア開発", car_ben_2_d: "あなたの成長のためのトレーニングプログラムと明確なキャリアパス。",
+                car_ben_3_t: "福利厚生", car_ben_3_d: "健康保険、手当、そして健康的なワークライフバランス。",
+                car_job_title: "募集中の職種",
+                car_job_1_title: "シニアウェブ開発者", car_job_2_title: "UI/UXデザイナー", car_job_3_title: "経理担当者", car_job_4_title: "総務スタッフ",
+                car_job_loc_jkt: "ジャカルタ", car_job_loc_tgr: "タンゲラン (本社)",
+                car_btn_apply: "今すぐ応募",
+
+                // MODAL
+                modal_title: "求人に応募する",
+                modal_label_name: "氏名", modal_label_email: "Eメール", modal_label_phone: "電話番号", modal_label_dob: "生年月日", modal_label_addr: "住所", modal_label_pos: "希望職種",
+                modal_btn_submit: "応募を送信"
             }
         };
 
@@ -575,10 +681,9 @@
             });
         }
 
-        // --- 2. LOGIKA WA FORM FOOTER ---
+        // --- 2. LOGIKA WA FORM FOOTER (BIASA) ---
         document.getElementById('footerForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Mencegah reload
-
             var fname = document.getElementById('f_fname').value;
             var lname = document.getElementById('f_lname').value;
             var job = document.getElementById('f_job').value;
@@ -587,7 +692,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi:%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +
@@ -613,6 +718,44 @@
         function topFunction() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
+
+        // --- 4. LOGIKA MODAL LAMAR PEKERJAAN ---
+        
+        // Fungsi membuka modal & isi otomatis posisi
+        function openApplyModal(jobTitle) {
+            // Set value input hidden/readonly
+            document.getElementById('a_position').value = jobTitle;
+            
+            // Buka Modal Bootstrap
+            var myModal = new bootstrap.Modal(document.getElementById('applyModal'));
+            myModal.show();
+        }
+
+        // Fungsi Submit Form Lamaran ke WA
+        document.getElementById('applyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('a_name').value;
+            var email = document.getElementById('a_email').value;
+            var phone = document.getElementById('a_phone').value;
+            var dob = document.getElementById('a_dob').value;
+            var addr = document.getElementById('a_addr').value;
+            var position = document.getElementById('a_position').value;
+
+            var waMessage = "Halo HRD NexusDigital, saya ingin melamar pekerjaan:%0a%0a" +
+                            "*Posisi:* " + position + "%0a" +
+                            "*Nama Lengkap:* " + name + "%0a" +
+                            "*Email:* " + email + "%0a" +
+                            "*No. HP:* " + phone + "%0a" +
+                            "*Tgl Lahir:* " + dob + "%0a" +
+                            "*Alamat:* " + addr + "%0a%0a" +
+                            "Mohon informasi lebih lanjut untuk proses selanjutnya.";
+
+            var waNumber = "62895639068080";
+            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
+            window.open(waURL, '_blank');
+        });
+
     </script>
 </body>
 </html>

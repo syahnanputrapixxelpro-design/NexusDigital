@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>Kode Etik & Perilaku - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -70,7 +70,7 @@
             white-space: nowrap;
         }
 
-        /* --- MEGA MENU BASE --- */
+        /* Mega Menu Base */
         .dropdown-menu-mega {
             border: none;
             border-top: 1px solid #f0f0f0;
@@ -93,7 +93,10 @@
                 width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
             }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
+            
+            .dropdown-menu-mega {
+                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
+            }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
@@ -120,55 +123,69 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- CODE OF CONDUCT PAGE SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .code-hero {
+            background: linear-gradient(rgba(0, 40, 85, 0.9), rgba(0, 40, 85, 0.8)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .code-hero-title {
+            font-size: 3rem; font-weight: 700; color: white; margin-bottom: 15px;
         }
 
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
+        /* 2. Introduction */
+        .code-intro {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
         }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+
+        /* 3. Core Values Cards */
+        .code-values-section {
+            padding: 80px 0;
+            background-color: var(--nd-bg-light);
         }
-        
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+        .value-card {
+            background: white; border-radius: 10px; padding: 40px 30px;
+            text-align: center; transition: 0.3s; border-bottom: 5px solid transparent;
+            height: 100%;
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-        
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
-            display: inline-block;
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-bottom-color: var(--nd-yellow);
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .value-icon {
+            font-size: 3rem; color: var(--nd-blue-dark); margin-bottom: 25px;
         }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+        .value-title {
+            font-weight: 700; margin-bottom: 15px; color: var(--nd-blue-dark);
+        }
+
+        /* 4. Detailed Guidelines (Accordion style or Text blocks) */
+        .code-details-section {
+            padding: 80px 0; background-color: white;
+        }
+        .detail-item {
+            margin-bottom: 40px;
+        }
+        .detail-item h4 {
+            color: var(--nd-blue-light); border-left: 4px solid var(--nd-yellow); padding-left: 15px; margin-bottom: 15px;
+        }
+
+        /* 5. WBS CTA */
+        .wbs-cta-section {
+            background: linear-gradient(135deg, var(--nd-blue-dark) 0%, var(--nd-blue-light) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
         }
 
         /* --- FOOTER STYLES --- */
@@ -178,53 +195,14 @@
         .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
-        /* Tombol WhatsApp */
+        /* --- FLOATING BUTTONS --- */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -235,17 +213,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -322,7 +298,7 @@
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -351,52 +327,115 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="code-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="code-hero-title" data-key="code_hero_title">Kode Etik & Perilaku</h1>
+                    <p class="lead text-white opacity-75" data-key="code_hero_desc">Pedoman standar etika bisnis kami untuk integritas dan kepercayaan.</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mt-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_contact">Kontak</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_con_code">Kode Etik</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
+    <section class="code-intro">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4" data-key="code_intro_title">Komitmen Terhadap Integritas</h2>
+                    <p class="text-muted" data-key="code_intro_desc">
+                        Di NexusDigital, kami percaya bahwa cara kami mencapai kesuksesan sama pentingnya dengan kesuksesan itu sendiri. Kode Etik dan Perilaku kami menjadi landasan bagi setiap keputusan dan tindakan yang diambil oleh seluruh karyawan, direksi, dan mitra kerja kami.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
+    <section class="code-values-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" data-key="code_val_title">Nilai Utama Etika Kami</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <i class="bi bi-shield-check value-icon"></i>
+                        <h5 class="value-title" data-key="code_val_1">Integritas</h5>
+                        <p class="text-muted small" data-key="code_val_1_desc">Bertindak jujur, transparan, dan konsisten dalam setiap interaksi bisnis.</p>
                     </div>
                 </div>
-
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <i class="bi bi-briefcase value-icon"></i>
+                        <h5 class="value-title" data-key="code_val_2">Profesionalisme</h5>
+                        <p class="text-muted small" data-key="code_val_2_desc">Menjunjung tinggi standar kompetensi dan tanggung jawab dalam pekerjaan.</p>
                     </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <i class="bi bi-scale value-icon"></i>
+                        <h5 class="value-title" data-key="code_val_3">Keadilan</h5>
+                        <p class="text-muted small" data-key="code_val_3_desc">Memperlakukan semua pemangku kepentingan dengan hormat dan setara tanpa diskriminasi.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <i class="bi bi-lock value-icon"></i>
+                        <h5 class="value-title" data-key="code_val_4">Kerahasiaan</h5>
+                        <p class="text-muted small" data-key="code_val_4_desc">Melindungi informasi sensitif perusahaan, klien, dan mitra dengan ketat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="code-details-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    
+                    <div class="detail-item">
+                        <h4 data-key="code_topic_1_t">Benturan Kepentingan</h4>
+                        <p class="text-muted" data-key="code_topic_1_d">
+                            Seluruh karyawan harus menghindari situasi di mana kepentingan pribadi bertentangan, atau terlihat bertentangan, dengan kepentingan perusahaan. Segala potensi benturan kepentingan harus segera diungkapkan.
+                        </p>
+                    </div>
+
+                    <div class="detail-item">
+                        <h4 data-key="code_topic_2_t">Anti Penyuapan & Korupsi</h4>
+                        <p class="text-muted" data-key="code_topic_2_d">
+                            NexusDigital menerapkan kebijakan nol toleransi terhadap segala bentuk penyuapan, korupsi, atau gratifikasi ilegal. Kami mematuhi seluruh hukum dan peraturan anti-korupsi yang berlaku di wilayah operasional kami.
+                        </p>
+                    </div>
+
+                    <div class="detail-item">
+                        <h4 data-key="code_topic_3_t">Perlindungan Aset & Data</h4>
+                        <p class="text-muted" data-key="code_topic_3_d">
+                            Karyawan bertanggung jawab untuk menjaga aset fisik dan kekayaan intelektual perusahaan. Data pelanggan harus dikelola sesuai dengan kebijakan privasi dan keamanan siber yang ketat.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wbs-cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-3" data-key="code_wbs_title">Melihat Pelanggaran?</h2>
+                    <p class="mb-4 opacity-75" data-key="code_wbs_desc">
+                        Jika Anda mengetahui adanya pelanggaran terhadap kode etik ini, mohon laporkan melalui saluran Whistleblowing System kami. Identitas pelapor akan dirahasiakan.
+                    </p>
+                    <a href="pelanggan.html" class="btn btn-yellow" data-key="code_btn_wbs">Lapor Sekarang</a>
                 </div>
             </div>
         </div>
@@ -493,14 +532,18 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN KODE ETIK
+                code_hero_title: "Kode Etik & Perilaku", code_hero_desc: "Pedoman standar etika bisnis kami untuk integritas dan kepercayaan.",
+                code_intro_title: "Komitmen Terhadap Integritas", code_intro_desc: "Di NexusDigital, kami percaya bahwa cara kami mencapai kesuksesan sama pentingnya dengan kesuksesan itu sendiri. Kode Etik dan Perilaku kami menjadi landasan bagi setiap keputusan dan tindakan yang diambil oleh seluruh karyawan, direksi, dan mitra kerja kami.",
+                code_val_title: "Nilai Utama Etika Kami",
+                code_val_1: "Integritas", code_val_1_desc: "Bertindak jujur, transparan, dan konsisten dalam setiap interaksi bisnis.",
+                code_val_2: "Profesionalisme", code_val_2_desc: "Menjunjung tinggi standar kompetensi dan tanggung jawab dalam pekerjaan.",
+                code_val_3: "Keadilan", code_val_3_desc: "Memperlakukan semua pemangku kepentingan dengan hormat dan setara tanpa diskriminasi.",
+                code_val_4: "Kerahasiaan", code_val_4_desc: "Melindungi informasi sensitif perusahaan, klien, dan mitra dengan ketat.",
+                code_topic_1_t: "Benturan Kepentingan", code_topic_1_d: "Seluruh karyawan harus menghindari situasi di mana kepentingan pribadi bertentangan, atau terlihat bertentangan, dengan kepentingan perusahaan. Segala potensi benturan kepentingan harus segera diungkapkan.",
+                code_topic_2_t: "Anti Penyuapan & Korupsi", code_topic_2_d: "NexusDigital menerapkan kebijakan nol toleransi terhadap segala bentuk penyuapan, korupsi, atau gratifikasi ilegal. Kami mematuhi seluruh hukum dan peraturan anti-korupsi yang berlaku di wilayah operasional kami.",
+                code_topic_3_t: "Perlindungan Aset & Data", code_topic_3_d: "Karyawan bertanggung jawab untuk menjaga aset fisik dan kekayaan intelektual perusahaan. Data pelanggan harus dikelola sesuai dengan kebijakan privasi dan keamanan siber yang ketat.",
+                code_wbs_title: "Melihat Pelanggaran?", code_wbs_desc: "Jika Anda mengetahui adanya pelanggaran terhadap kode etik ini, mohon laporkan melalui saluran Whistleblowing System kami. Identitas pelapor akan dirahasiakan.", code_btn_wbs: "Lapor Sekarang"
             },
             en: {
                 // GLOBAL
@@ -514,14 +557,18 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // CODE OF CONDUCT PAGE SPECIFIC
+                code_hero_title: "Code of Conduct", code_hero_desc: "Our guide to business ethical standards for integrity and trust.",
+                code_intro_title: "Commitment to Integrity", code_intro_desc: "At NexusDigital, we believe that how we achieve success is as important as the success itself. Our Code of Conduct serves as the foundation for every decision and action taken by all our employees, directors, and partners.",
+                code_val_title: "Our Core Ethical Values",
+                code_val_1: "Integrity", code_val_1_desc: "Acting honestly, transparently, and consistently in every business interaction.",
+                code_val_2: "Professionalism", code_val_2_desc: "Upholding high standards of competence and responsibility in work.",
+                code_val_3: "Fairness", code_val_3_desc: "Treating all stakeholders with respect and equality without discrimination.",
+                code_val_4: "Confidentiality", code_val_4_desc: "Strictly protecting sensitive company, client, and partner information.",
+                code_topic_1_t: "Conflict of Interest", code_topic_1_d: "All employees must avoid situations where personal interests conflict, or appear to conflict, with company interests. Any potential conflict must be disclosed immediately.",
+                code_topic_2_t: "Anti-Bribery & Corruption", code_topic_2_d: "NexusDigital applies a zero-tolerance policy towards any form of bribery, corruption, or illegal gratuities. We comply with all applicable anti-corruption laws and regulations in our operational regions.",
+                code_topic_3_t: "Asset & Data Protection", code_topic_3_d: "Employees are responsible for safeguarding company physical assets and intellectual property. Customer data must be managed according to strict privacy and cybersecurity policies.",
+                code_wbs_title: "Observe a Violation?", code_wbs_desc: "If you are aware of any violation of this code of conduct, please report it through our Whistleblowing System channel. The reporter's identity will be kept confidential.", code_btn_wbs: "Report Now"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +582,18 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // CODE OF CONDUCT PAGE SPECIFIC
+                code_hero_title: "行動規範", code_hero_desc: "誠実さと信頼のためのビジネス倫理基準のガイド。",
+                code_intro_title: "誠実さへのコミットメント", code_intro_desc: "NexusDigitalでは、成功をどのように達成するかは、成功そのものと同じくらい重要であると信じています。当社の行動規範は、すべての従業員、取締役、およびパートナーによって行われるすべての決定と行動の基盤となります。",
+                code_val_title: "私たちの倫理的価値観",
+                code_val_1: "誠実さ", code_val_1_desc: "すべてのビジネス交流において、正直に、透明性を持って、一貫して行動すること。",
+                code_val_2: "プロフェッショナリズム", code_val_2_desc: "業務において高い能力と責任の基準を維持すること。",
+                code_val_3: "公正さ", code_val_3_desc: "差別することなく、敬意を持ってすべてのステークホルダーを平等に扱うこと。",
+                code_val_4: "機密性", code_val_4_desc: "会社、クライアント、およびパートナーの機密情報を厳重に保護すること。",
+                code_topic_1_t: "利益相反", code_topic_1_d: "すべての従業員は、個人的な利益が会社の利益と相反する、または相反するように見える状況を避けなければなりません。潜在的な利益相反は直ちに開示されなければなりません。",
+                code_topic_2_t: "贈収賄・汚職防止", code_topic_2_d: "NexusDigitalは、あらゆる形態の贈収賄、汚職、または違法な謝礼に対してゼロトレランスポリシーを適用しています。私たちは、事業地域に適用されるすべての腐敗防止法および規制を遵守します。",
+                code_topic_3_t: "資産とデータの保護", code_topic_3_d: "従業員は、会社の物理的資産および知的財産を保護する責任があります。顧客データは、厳格なプライバシーおよびサイバーセキュリティポリシーに従って管理されなければなりません。",
+                code_wbs_title: "違反を見つけましたか？", code_wbs_desc: "この行動規範への違反を知った場合は、内部通報システムチャネルを通じて報告してください。報告者の身元は機密として扱われます。", code_btn_wbs: "今すぐ報告"
             }
         };
 
@@ -587,7 +638,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Kode Etik):%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +

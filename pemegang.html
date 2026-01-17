@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>Info Pemegang Saham - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -70,7 +70,7 @@
             white-space: nowrap;
         }
 
-        /* --- MEGA MENU BASE --- */
+        /* Mega Menu Base */
         .dropdown-menu-mega {
             border: none;
             border-top: 1px solid #f0f0f0;
@@ -93,7 +93,10 @@
                 width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
             }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
+            
+            .dropdown-menu-mega {
+                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
+            }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
@@ -120,55 +123,48 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- PEMEGANG SAHAM SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .share-hero {
+            background: linear-gradient(rgba(0, 40, 85, 0.9), rgba(0, 40, 85, 0.8)), url('https://images.unsplash.com/photo-1611974765270-ca1258634369?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .share-hero-title {
+            font-size: 3rem; font-weight: 700; color: white; margin-bottom: 15px;
         }
 
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
+        /* 2. Stock Chart Placeholder */
+        .stock-section { padding: 80px 0; background-color: white; }
+        .chart-placeholder {
+            width: 100%; height: 400px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px dashed #ccc;
+            position: relative;
+            overflow: hidden;
         }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+        .chart-img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.8;
         }
-        
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+
+        /* 3. Composition & Dividend */
+        .info-section { padding: 80px 0; background-color: var(--nd-bg-light); }
+        .data-card {
+            background: white; border-radius: 10px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-        
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
-            display: inline-block;
+        .table-custom th {
+            background-color: var(--nd-blue-dark); color: white; border: none;
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+        .table-custom td {
+            vertical-align: middle;
         }
 
         /* --- FOOTER STYLES --- */
@@ -178,53 +174,14 @@
         .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
-        /* Tombol WhatsApp */
+        /* --- FLOATING BUTTONS --- */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -235,17 +192,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -270,7 +225,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -351,53 +306,102 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="share-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="share-hero-title" data-key="sh_hero_title">Informasi Pemegang Saham</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mt-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_investor">Investor</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_inv_share">Info Pemegang Saham</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
+    <section class="stock-section">
+        <div class="container">
+            <h2 class="mb-4 text-center" data-key="sh_stock_title">Kinerja Saham (NXDS)</h2>
+            <div class="chart-placeholder">
+                <img src="https://placehold.co/1200x400/f4f7f6/002855?text=Interactive+Stock+Chart+Area" alt="Stock Chart" class="chart-img">
             </div>
+        </div>
+    </section>
 
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
+    <section class="info-section">
+        <div class="container">
+            <div class="row g-5">
+                
+                <div class="col-lg-6">
+                    <div class="data-card">
+                        <h3 class="mb-4" style="color: var(--nd-blue-dark);" data-key="sh_comp_title">Komposisi Pemegang Saham</h3>
+                        <table class="table table-striped table-custom">
+                            <thead>
+                                <tr>
+                                    <th data-key="sh_tab_name">Nama Pemegang Saham</th>
+                                    <th data-key="sh_tab_pct">Persentase (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PT Nexus Investama</td>
+                                    <td>51.00%</td>
+                                </tr>
+                                <tr>
+                                    <td data-key="sh_public">Masyarakat (Publik)</td>
+                                    <td>45.50%</td>
+                                </tr>
+                                <tr>
+                                    <td data-key="sh_treasury">Saham Treasuri</td>
+                                    <td>3.50%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="small text-muted mt-3" data-key="sh_updated">Update per: 31 Desember 2025</p>
                     </div>
                 </div>
 
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
+                <div class="col-lg-6">
+                    <div class="data-card">
+                        <h3 class="mb-4" style="color: var(--nd-blue-dark);" data-key="sh_div_title">Riwayat Dividen</h3>
+                        <table class="table table-hover table-custom">
+                            <thead>
+                                <tr>
+                                    <th data-key="sh_div_year">Tahun Buku</th>
+                                    <th data-key="sh_div_date">Tanggal Pembayaran</th>
+                                    <th data-key="sh_div_amount">Jumlah (IDR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024</td>
+                                    <td>15 Mei 2025</td>
+                                    <td>Rp 125,00</td>
+                                </tr>
+                                <tr>
+                                    <td>2023</td>
+                                    <td>20 Mei 2024</td>
+                                    <td>Rp 110,00</td>
+                                </tr>
+                                <tr>
+                                    <td>2022</td>
+                                    <td>18 Mei 2023</td>
+                                    <td>Rp 95,00</td>
+                                </tr>
+                                <tr>
+                                    <td>2021</td>
+                                    <td>22 Mei 2022</td>
+                                    <td>Rp 80,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -493,14 +497,14 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN PEMEGANG SAHAM
+                sh_hero_title: "Informasi Pemegang Saham",
+                sh_stock_title: "Kinerja Saham (NXDS)",
+                sh_comp_title: "Komposisi Pemegang Saham",
+                sh_tab_name: "Nama Pemegang Saham", sh_tab_pct: "Persentase (%)",
+                sh_public: "Masyarakat (Publik)", sh_treasury: "Saham Treasuri", sh_updated: "Update per: 31 Desember 2025",
+                sh_div_title: "Riwayat Dividen",
+                sh_div_year: "Tahun Buku", sh_div_date: "Tanggal Pembayaran", sh_div_amount: "Jumlah (IDR)"
             },
             en: {
                 // GLOBAL
@@ -514,14 +518,14 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // SHAREHOLDER PAGE SPECIFIC
+                sh_hero_title: "Shareholder Information",
+                sh_stock_title: "Stock Performance (NXDS)",
+                sh_comp_title: "Shareholder Composition",
+                sh_tab_name: "Shareholder Name", sh_tab_pct: "Percentage (%)",
+                sh_public: "Public", sh_treasury: "Treasury Shares", sh_updated: "Updated: December 31, 2025",
+                sh_div_title: "Dividend History",
+                sh_div_year: "Fiscal Year", sh_div_date: "Payment Date", sh_div_amount: "Amount (IDR)"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +539,14 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // SHAREHOLDER PAGE SPECIFIC
+                sh_hero_title: "株主情報",
+                sh_stock_title: "株価パフォーマンス (NXDS)",
+                sh_comp_title: "株主構成",
+                sh_tab_name: "株主名", sh_tab_pct: "割合 (%)",
+                sh_public: "一般（公開）", sh_treasury: "自己株式", sh_updated: "更新日: 2025年12月31日",
+                sh_div_title: "配当履歴",
+                sh_div_year: "会計年度", sh_div_date: "支払日", sh_div_amount: "金額 (IDR)"
             }
         };
 
@@ -587,7 +591,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Pemegang Saham):%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +

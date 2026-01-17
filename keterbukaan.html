@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>Keterbukaan Informasi - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -70,7 +70,7 @@
             white-space: nowrap;
         }
 
-        /* --- MEGA MENU BASE --- */
+        /* Mega Menu Base */
         .dropdown-menu-mega {
             border: none;
             border-top: 1px solid #f0f0f0;
@@ -93,7 +93,10 @@
                 width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
             }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
+            
+            .dropdown-menu-mega {
+                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
+            }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
@@ -120,55 +123,84 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- KETERBUKAAN INFORMASI SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .info-hero {
+            background: linear-gradient(rgba(0, 40, 85, 0.9), rgba(0, 40, 85, 0.8)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .info-hero-title {
+            font-size: 3rem; font-weight: 700; color: white; margin-bottom: 15px;
         }
 
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
+        /* 2. Filter Bar */
+        .filter-section {
+            background-color: white; padding: 40px 0 20px;
         }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+        .nav-pills-filter .nav-link {
+            color: #666;
+            background-color: #f8f9fa;
+            border-radius: 30px;
+            padding: 8px 25px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            border: 1px solid #eee;
+            transition: all 0.3s;
         }
-        
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+        .nav-pills-filter .nav-link.active, .nav-pills-filter .nav-link:hover {
+            background-color: var(--nd-blue-dark);
+            color: white;
+            border-color: var(--nd-blue-dark);
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-        
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
-            display: inline-block;
+
+        /* 3. Disclosure List */
+        .disclosure-list-section {
+            background-color: #fcfcfc; padding: 20px 0 80px;
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .disclosure-item {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--nd-blue-dark);
+            transition: transform 0.2s;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
         }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+        .disclosure-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .disclosure-date {
+            font-size: 0.9rem; color: #888; margin-bottom: 5px; display: block;
+        }
+        .disclosure-cat-badge {
+            background-color: var(--nd-bg-light); color: var(--nd-blue-dark);
+            padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-left: 10px;
+        }
+        .disclosure-title {
+            font-size: 1.1rem; font-weight: 600; color: #333; margin-bottom: 0;
+        }
+        .btn-download-sm {
+            border: 1px solid var(--nd-blue-dark); color: var(--nd-blue-dark);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-download-sm:hover {
+            background-color: var(--nd-blue-dark); color: white;
         }
 
         /* --- FOOTER STYLES --- */
@@ -178,53 +210,14 @@
         .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
-        /* Tombol WhatsApp */
+        /* --- FLOATING BUTTONS --- */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -235,17 +228,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -270,7 +261,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -351,52 +342,103 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="info-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="info-hero-title" data-key="ki_hero_title">Keterbukaan Informasi</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mt-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_investor">Investor</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_inv_info">Keterbukaan Informasi</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
-            </div>
-
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
-                    </div>
+    <section class="filter-section">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="nav nav-pills nav-pills-filter" role="tablist">
+                    <button class="nav-link active" data-bs-toggle="pill" type="button" data-key="ki_filter_all">Semua</button>
+                    <button class="nav-link" data-bs-toggle="pill" type="button" data-key="ki_filter_fin">Laporan Keuangan</button>
+                    <button class="nav-link" data-bs-toggle="pill" type="button" data-key="ki_filter_corp">Aksi Korporasi</button>
+                    <button class="nav-link" data-bs-toggle="pill" type="button" data-key="ki_filter_rups">RUPS</button>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
+    <section class="disclosure-list-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    
+                    <div class="disclosure-item">
+                        <div class="mb-3 mb-md-0">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="disclosure-date">10 Januari 2026</span>
+                                <span class="disclosure-cat-badge" data-key="ki_cat_corp">Aksi Korporasi</span>
+                            </div>
+                            <h5 class="disclosure-title" data-key="ki_item1_title">Penyampaian Bukti Iklan Hasil RUPS Tahunan</h5>
+                        </div>
+                        <div>
+                            <a href="#" class="btn-download-sm" data-key="ki_btn_download">Unduh <i class="bi bi-download ms-1"></i></a>
+                        </div>
                     </div>
+
+                    <div class="disclosure-item">
+                        <div class="mb-3 mb-md-0">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="disclosure-date">02 Januari 2026</span>
+                                <span class="disclosure-cat-badge" data-key="ki_cat_fin">Laporan Keuangan</span>
+                            </div>
+                            <h5 class="disclosure-title" data-key="ki_item2_title">Laporan Bulanan Registrasi Pemegang Efek Desember 2025</h5>
+                        </div>
+                        <div>
+                            <a href="#" class="btn-download-sm" data-key="ki_btn_download">Unduh <i class="bi bi-download ms-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="disclosure-item">
+                        <div class="mb-3 mb-md-0">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="disclosure-date">15 Desember 2025</span>
+                                <span class="disclosure-cat-badge" data-key="ki_cat_rups">RUPS</span>
+                            </div>
+                            <h5 class="disclosure-title" data-key="ki_item3_title">Pemberitahuan Rencana Penyelenggaraan Rapat Umum Pemegang Saham</h5>
+                        </div>
+                        <div>
+                            <a href="#" class="btn-download-sm" data-key="ki_btn_download">Unduh <i class="bi bi-download ms-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="disclosure-item">
+                        <div class="mb-3 mb-md-0">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="disclosure-date">30 November 2025</span>
+                                <span class="disclosure-cat-badge" data-key="ki_cat_fin">Laporan Keuangan</span>
+                            </div>
+                            <h5 class="disclosure-title" data-key="ki_item4_title">Laporan Keuangan Interim Q3 2025 (Tidak Diaudit)</h5>
+                        </div>
+                        <div>
+                            <a href="#" class="btn-download-sm" data-key="ki_btn_download">Unduh <i class="bi bi-download ms-1"></i></a>
+                        </div>
+                    </div>
+
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+
                 </div>
             </div>
         </div>
@@ -493,14 +535,15 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN KETERBUKAAN
+                ki_hero_title: "Keterbukaan Informasi",
+                ki_filter_all: "Semua", ki_filter_fin: "Laporan Keuangan", ki_filter_corp: "Aksi Korporasi", ki_filter_rups: "RUPS",
+                ki_cat_corp: "Aksi Korporasi", ki_cat_fin: "Laporan Keuangan", ki_cat_rups: "RUPS",
+                ki_item1_title: "Penyampaian Bukti Iklan Hasil RUPS Tahunan",
+                ki_item2_title: "Laporan Bulanan Registrasi Pemegang Efek Desember 2025",
+                ki_item3_title: "Pemberitahuan Rencana Penyelenggaraan Rapat Umum Pemegang Saham",
+                ki_item4_title: "Laporan Keuangan Interim Q3 2025 (Tidak Diaudit)",
+                ki_btn_download: "Unduh"
             },
             en: {
                 // GLOBAL
@@ -514,14 +557,15 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KETERBUKAAN PAGE SPECIFIC
+                ki_hero_title: "Information Disclosure",
+                ki_filter_all: "All", ki_filter_fin: "Financial Reports", ki_filter_corp: "Corporate Action", ki_filter_rups: "GMS",
+                ki_cat_corp: "Corporate Action", ki_cat_fin: "Financial Reports", ki_cat_rups: "GMS",
+                ki_item1_title: "Submission of Proof of Advertisement of Annual GMS Results",
+                ki_item2_title: "Monthly Report on Securities Holders Registration December 2025",
+                ki_item3_title: "Announcement of Plan to Hold General Meeting of Shareholders",
+                ki_item4_title: "Interim Financial Report Q3 2025 (Unaudited)",
+                ki_btn_download: "Download"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +579,15 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // KETERBUKAAN PAGE SPECIFIC
+                ki_hero_title: "情報開示",
+                ki_filter_all: "すべて", ki_filter_fin: "財務報告", ki_filter_corp: "企業行動", ki_filter_rups: "株主総会",
+                ki_cat_corp: "企業行動", ki_cat_fin: "財務報告", ki_cat_rups: "株主総会",
+                ki_item1_title: "年次株主総会結果の広告証明書の提出",
+                ki_item2_title: "2025年12月証券保有者登録月次報告書",
+                ki_item3_title: "株主総会開催計画のお知らせ",
+                ki_item4_title: "2025年第3四半期中間財務報告書（未監査）",
+                ki_btn_download: "ダウンロード"
             }
         };
 
@@ -587,7 +632,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Keterbukaan Informasi):%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +

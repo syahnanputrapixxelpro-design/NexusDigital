@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>Laporan Tahunan - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -93,7 +93,10 @@
                 width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
             }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
+            
+            .dropdown-menu-mega {
+                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
+            }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
@@ -120,55 +123,89 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- LAPORAN TAHUNAN SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .report-hero {
+            background: linear-gradient(rgba(0, 40, 85, 0.9), rgba(0, 40, 85, 0.8)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .report-hero-title {
+            font-size: 3.5rem; font-weight: 700; color: white; margin-bottom: 15px;
         }
 
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
+        /* 2. Intro Section */
+        .report-intro {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
         }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+
+        /* 3. Featured Report (Latest) */
+        .featured-report-section {
+            background-color: var(--nd-bg-light);
+            padding: 80px 0;
         }
-        
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+        .featured-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-        
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
+        .featured-card:hover { transform: translateY(-5px); }
+        .featured-img {
+            width: 100%; height: 100%; object-fit: cover; min-height: 400px;
+        }
+        .featured-body {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        .report-badge {
             display: inline-block;
+            background-color: var(--nd-yellow);
+            color: var(--nd-blue-dark);
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            width: fit-content;
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+        /* 4. Archive Section */
+        .archive-section {
+            padding: 80px 0;
+            background-color: white;
         }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+        .archive-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .archive-card:hover {
+            border-color: var(--nd-blue-dark);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background-color: #fcfcfc;
+        }
+        .pdf-icon {
+            font-size: 2.5rem; color: #dc3545; margin-right: 20px;
+        }
+        .download-icon {
+            color: var(--nd-blue-dark); font-size: 1.2rem;
         }
 
         /* --- FOOTER STYLES --- */
@@ -188,43 +225,17 @@
             gap: 15px;
             z-index: 9999;
         }
-
         .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
+            width: 55px; height: 55px; border-radius: 50%; border: none; color: white;
+            font-size: 1.8rem; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s, background-color 0.3s; text-decoration: none;
         }
-
-        /* Tombol WhatsApp */
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -235,17 +246,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -270,7 +279,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -327,7 +336,7 @@
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6 data-key="nav_con_biz">Bisnis & Kemitraan</h6><p>Business & Partnerships</p></div></a></div>
-                                    <div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6 data-key="nav_con_code">Kode Etik & Perilaku</h6><p>Code of Conduct</p></div></a></div>
+                                    <div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6 data-key="nav_con_code">Kode Etik & Perilaku</h6><p>Code of Conduct</p></div></div></div>
                                     <div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6 data-key="nav_con_wbs">Pelaporan Pelanggan</h6><p>Whistleblowing System</p></div></a></div>
                                 </div>
                             </div>
@@ -351,53 +360,110 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="report-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="report-hero-title" data-key="ar_hero_title">Laporan Tahunan</h1>
+                    <p class="lead text-white opacity-75" data-key="ar_hero_desc">Transparansi dan akuntabilitas kinerja perusahaan untuk seluruh pemangku kepentingan kami.</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mt-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_investor">Investor</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_inv_annual">Laporan Tahunan</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
+    <section class="report-intro">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-3" data-key="ar_intro_title">Komitmen Terhadap Transparansi</h2>
+                    <p class="text-muted" data-key="ar_intro_desc">
+                        Kami percaya bahwa keterbukaan informasi adalah kunci kepercayaan investor. Melalui Laporan Tahunan ini, kami menyajikan tinjauan komprehensif mengenai kinerja operasional dan keuangan, serta strategi kami untuk pertumbuhan berkelanjutan.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
+    <section class="featured-report-section">
+        <div class="container">
+            <h3 class="mb-4 fw-bold" data-key="ar_latest_title">Laporan Terbaru</h3>
+            <div class="featured-card">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="https://images.unsplash.com/photo-1554224154-260327c00c4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Annual Report 2025" class="featured-img">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="featured-body">
+                            <div class="report-badge">2025</div>
+                            <h2 class="mb-3" style="color: var(--nd-blue-dark);" data-key="ar_2025_title">Laporan Tahunan 2025: Akselerasi Digital</h2>
+                            <p class="text-muted mb-4" data-key="ar_2025_desc">
+                                Tahun 2025 menandai tonggak sejarah baru dalam perjalanan transformasi kami. Temukan bagaimana inovasi teknologi dan ekspansi strategis kami mendorong pertumbuhan nilai yang signifikan bagi para pemegang saham.
+                            </p>
+                            <a href="#" class="btn btn-yellow w-50" data-key="ar_download_btn">Unduh PDF (15 MB) <i class="bi bi-download ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
-                    </div>
+    <section class="archive-section">
+        <div class="container">
+            <h3 class="mb-4 fw-bold" data-key="ar_archive_title">Arsip Laporan</h3>
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="text-decoration-none">
+                        <div class="archive-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-pdf-fill pdf-icon"></i>
+                                <div>
+                                    <h5 class="mb-1 text-dark">Annual Report 2024</h5>
+                                    <small class="text-muted">Resilience in Growth</small>
+                                </div>
+                            </div>
+                            <i class="bi bi-download download-icon"></i>
+                        </div>
+                    </a>
                 </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="text-decoration-none">
+                        <div class="archive-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-pdf-fill pdf-icon"></i>
+                                <div>
+                                    <h5 class="mb-1 text-dark">Annual Report 2023</h5>
+                                    <small class="text-muted">Building Foundations</small>
+                                </div>
+                            </div>
+                            <i class="bi bi-download download-icon"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="text-decoration-none">
+                        <div class="archive-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-pdf-fill pdf-icon"></i>
+                                <div>
+                                    <h5 class="mb-1 text-dark">Annual Report 2022</h5>
+                                    <small class="text-muted">Digital Beginning</small>
+                                </div>
+                            </div>
+                            <i class="bi bi-download download-icon"></i>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -482,7 +548,7 @@
     <script>
         const translations = {
             id: {
-                // GLOBAL (NAVBAR & FOOTER)
+                // GLOBAL
                 nav_home: "Beranda", nav_about: "Tentang Kami", nav_holding_desc: "Perusahaan induk TI global.", nav_subholding_desc: "Pilar solusi bisnis TI.", nav_esg_desc: "Komitmen berkelanjutan.",
                 nav_business: "Bisnis", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Solusi infrastruktur digital.",
                 nav_investor: "Hubungan Investor", nav_inv_annual: "Laporan Tahunan", nav_inv_share: "Info Pemegang Saham", nav_inv_info: "Keterbukaan Informasi",
@@ -493,14 +559,13 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN LAPORAN
+                ar_hero_title: "Laporan Tahunan", ar_hero_desc: "Transparansi dan akuntabilitas kinerja perusahaan untuk seluruh pemangku kepentingan kami.",
+                ar_intro_title: "Komitmen Terhadap Transparansi", ar_intro_desc: "Kami percaya bahwa keterbukaan informasi adalah kunci kepercayaan investor. Melalui Laporan Tahunan ini, kami menyajikan tinjauan komprehensif mengenai kinerja operasional dan keuangan, serta strategi kami untuk pertumbuhan berkelanjutan.",
+                ar_latest_title: "Laporan Terbaru",
+                ar_2025_title: "Laporan Tahunan 2025: Akselerasi Digital", ar_2025_desc: "Tahun 2025 menandai tonggak sejarah baru dalam perjalanan transformasi kami. Temukan bagaimana inovasi teknologi dan ekspansi strategis kami mendorong pertumbuhan nilai yang signifikan bagi para pemegang saham.",
+                ar_download_btn: "Unduh PDF (15 MB)",
+                ar_archive_title: "Arsip Laporan"
             },
             en: {
                 // GLOBAL
@@ -514,14 +579,13 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // ANNUAL REPORT PAGE SPECIFIC
+                ar_hero_title: "Annual Report", ar_hero_desc: "Transparency and accountability of company performance for all our stakeholders.",
+                ar_intro_title: "Commitment to Transparency", ar_intro_desc: "We believe that information openness is the key to investor trust. Through this Annual Report, we present a comprehensive review of operational and financial performance, as well as our strategy for sustainable growth.",
+                ar_latest_title: "Latest Report",
+                ar_2025_title: "Annual Report 2025: Digital Acceleration", ar_2025_desc: "2025 marks a new milestone in our transformation journey. Discover how technological innovation and strategic expansion drive significant value growth for shareholders.",
+                ar_download_btn: "Download PDF (15 MB)",
+                ar_archive_title: "Report Archive"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +599,13 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // ANNUAL REPORT PAGE SPECIFIC
+                ar_hero_title: "年次報告書", ar_hero_desc: "すべてのステークホルダーに対する企業パフォーマンスの透明性と説明責任。",
+                ar_intro_title: "透明性へのコミットメント", ar_intro_desc: "私たちは、情報の公開が投資家の信頼の鍵であると信じています。この年次報告書を通じて、運営および財務パフォーマンスの包括的なレビュー、および持続可能な成長のための戦略を提示します。",
+                ar_latest_title: "最新レポート",
+                ar_2025_title: "2025年 年次報告書: デジタルアクセラレーション", ar_2025_desc: "2025年は、私たちの変革の旅における新たなマイルストーンです。技術革新と戦略的拡大が株主にとってどのように大きな価値成長を促進するかをご覧ください。",
+                ar_download_btn: "PDFをダウンロード (15 MB)",
+                ar_archive_title: "レポートアーカイブ"
             }
         };
 
@@ -587,7 +650,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Laporan Tahunan):%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +

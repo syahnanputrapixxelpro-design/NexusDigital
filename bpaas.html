@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>BPaaS Solutions - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -120,56 +120,121 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- BPAAS PAGE SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .bpaas-hero {
+            background: linear-gradient(rgba(0, 10, 30, 0.85), rgba(0, 10, 30, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
+            position: relative;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .bpaas-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--nd-yellow);
         }
-
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
-        }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+        .hero-title-bpaas {
+            font-size: 3rem; color: white; font-weight: 700; margin-bottom: 10px;
         }
         
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+        /* 2. Intro Section */
+        .bpaas-intro {
+            padding: 100px 0;
+            position: relative;
+            background-color: white;
+            overflow: hidden;
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+        .decoration-c-bpaas {
+            position: absolute; left: -60px; top: 40%;
+            width: 150px; height: 150px;
+            border: 15px solid var(--nd-yellow); border-radius: 50%;
+            opacity: 0.8; clip-path: circle(70% at 20% 50%); z-index: 0;
+        }
         
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
+        .intro-img-circle {
+            max-width: 100%; height: auto;
+            border-radius: 50%; /* Gaya bulat */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .btn-custom-red {
+            background-color: var(--nd-blue-dark);
+            color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s;
             display: inline-block;
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .btn-custom-red:hover {
+            background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-2px);
         }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+
+        /* 3. Services Section */
+        .bpaas-services {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(#ddd 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 80px 0;
         }
+        
+        .service-card {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .service-img-col {
+            flex: 0 0 50%; max-width: 50%; position: relative;
+        }
+        .service-img {
+            width: 100%; height: 100%; object-fit: cover; min-height: 300px;
+        }
+        
+        .service-text-col {
+            flex: 0 0 50%; max-width: 50%;
+            background-color: #333;
+            color: white;
+            padding: 40px;
+            display: flex; flex-direction: column; justify-content: center;
+            position: relative;
+        }
+        
+        /* Arrow/Notch Effect */
+        .service-text-col::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%; transform: translateY(-50%);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid #333;
+        }
+
+        .service-title {
+            color: var(--nd-yellow); font-size: 1.5rem; margin-bottom: 15px;
+        }
+        .service-desc {
+            font-size: 0.95rem; line-height: 1.6; opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .service-img-col, .service-text-col { flex: 0 0 100%; max-width: 100%; }
+            .service-text-col::before { display: none; }
+        }
+
+        /* 4. Provider Logo */
+        .provider-section {
+            padding: 80px 0; background: white; text-align: center;
+        }
+        .provider-logo {
+            max-width: 200px; margin-top: 30px; filter: grayscale(100%); transition: 0.3s;
+        }
+        .provider-logo:hover { filter: grayscale(0%); }
 
         /* --- FOOTER STYLES --- */
         footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
@@ -235,17 +300,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -258,7 +321,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -351,54 +414,77 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="bpaas-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="hero-title-bpaas" data-key="bpaas_hero_title">Solusi CXaaS & BPaaS</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_business">Bisnis</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page">BPaaS</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
+    <section class="bpaas-intro">
+        <div class="container position-relative">
+            <div class="decoration-c-bpaas"></div> <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Operational Transformation" class="intro-img-circle img-fluid">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="mb-3" data-key="bpaas_intro_title">Memberikan Kemudahan dalam Transformasi Operasional</h2>
+                    <p class="text-muted mb-4" data-key="bpaas_intro_desc">
+                        Tingkatkan efisiensi dan fokus pada inti bisnis Anda dengan solusi BPaaS (Business Process as a Service) kami yang komprehensif. Kami mengelola proses operasional Anda mulai dari manajemen pengalaman pelanggan hingga administrasi sumber daya manusia dengan teknologi terkini.
+                    </p>
+                    <a href="#" class="btn-custom-red" data-key="bpaas_intro_btn">Pelajari Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bpaas-services">
+        <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
+                <h2 class="fw-bold" data-key="bpaas_serv_title">Layanan</h2>
             </div>
 
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
-                    </div>
+            <div class="service-card">
+                <div class="service-img-col">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HR Services" class="service-img">
                 </div>
-
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
-                    </div>
+                <div class="service-text-col">
+                    <h3 class="service-title" data-key="bpaas_s1_title">Pengalaman Sumber Daya Manusia</h3>
+                    <p class="service-desc" data-key="bpaas_s1_desc">
+                        Layanan pengelolaan sumber daya manusia end-to-end yang mencakup rekrutmen, manajemen penggajian (payroll), administrasi tunjangan, hingga pelatihan karyawan. Tingkatkan retensi dan kepuasan karyawan Anda dengan solusi HR yang efisien.
+                    </p>
                 </div>
             </div>
+
+            <div class="service-card">
+                <div class="service-img-col">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customer Experience" class="service-img">
+                </div>
+                <div class="service-text-col">
+                    <h3 class="service-title" data-key="bpaas_s2_title">Pengalaman Pelanggan</h3>
+                    <p class="service-desc" data-key="bpaas_s2_desc">
+                        Solusi Contact Center dan Customer Experience (CX) terintegrasi. Kami menyediakan agen profesional, teknologi omnichannel, dan analitik data untuk memastikan setiap interaksi pelanggan memberikan nilai tambah bagi brand Anda.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="provider-section">
+        <div class="container">
+            <h3 class="fw-bold mb-4" style="color: #333;" data-key="bpaas_prov_title">Temukan Solusi Anda di</h3>
+            <img src="https://placehold.co/300x100?text=NEXUS+BPO+SERVICES&font=montserrat" alt="Nexus BPO Logo" class="provider-logo img-fluid">
         </div>
     </section>
 
@@ -480,6 +566,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // --- 1. LOGIKA TRANSLASI BAHASA ---
         const translations = {
             id: {
                 // GLOBAL (NAVBAR & FOOTER)
@@ -493,14 +580,17 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN BPAAS
+                bpaas_hero_title: "Solusi CXaaS & BPaaS",
+                bpaas_intro_title: "Memberikan Kemudahan dalam Transformasi Operasional",
+                bpaas_intro_desc: "Tingkatkan efisiensi dan fokus pada inti bisnis Anda dengan solusi BPaaS (Business Process as a Service) kami yang komprehensif. Kami mengelola proses operasional Anda mulai dari manajemen pengalaman pelanggan hingga administrasi sumber daya manusia dengan teknologi terkini.",
+                bpaas_intro_btn: "Pelajari Selengkapnya",
+                bpaas_serv_title: "Layanan",
+                bpaas_s1_title: "Pengalaman Sumber Daya Manusia",
+                bpaas_s1_desc: "Layanan pengelolaan sumber daya manusia end-to-end yang mencakup rekrutmen, manajemen penggajian (payroll), administrasi tunjangan, hingga pelatihan karyawan. Tingkatkan retensi dan kepuasan karyawan Anda dengan solusi HR yang efisien.",
+                bpaas_s2_title: "Pengalaman Pelanggan",
+                bpaas_s2_desc: "Solusi Contact Center dan Customer Experience (CX) terintegrasi. Kami menyediakan agen profesional, teknologi omnichannel, dan analitik data untuk memastikan setiap interaksi pelanggan memberikan nilai tambah bagi brand Anda.",
+                bpaas_prov_title: "Temukan Solusi Anda di"
             },
             en: {
                 // GLOBAL
@@ -514,14 +604,17 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // BPAAS PAGE SPECIFIC
+                bpaas_hero_title: "CXaaS & BPaaS Solutions",
+                bpaas_intro_title: "Facilitating Operational Transformation",
+                bpaas_intro_desc: "Increase efficiency and focus on your core business with our comprehensive BPaaS (Business Process as a Service) solutions. We manage your operational processes from customer experience management to human resource administration using the latest technology.",
+                bpaas_intro_btn: "Learn More",
+                bpaas_serv_title: "Services",
+                bpaas_s1_title: "Human Resource Experience",
+                bpaas_s1_desc: "End-to-end human resource management services covering recruitment, payroll management, benefits administration, to employee training. Improve retention and satisfaction with efficient HR solutions.",
+                bpaas_s2_title: "Customer Experience",
+                bpaas_s2_desc: "Integrated Contact Center and Customer Experience (CX) solutions. We provide professional agents, omnichannel technology, and data analytics to ensure every customer interaction adds value to your brand.",
+                bpaas_prov_title: "Find Your Solution at"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +628,17 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // BPAAS PAGE SPECIFIC
+                bpaas_hero_title: "CXaaS & BPaaSソリューション",
+                bpaas_intro_title: "運用変革を促進する",
+                bpaas_intro_desc: "包括的なBPaaS（Business Process as a Service）ソリューションで効率を高め、ビジネスの中核に集中してください。顧客体験管理から人事管理まで、最新のテクノロジーを使用して運用プロセスを管理します。",
+                bpaas_intro_btn: "詳細を見る",
+                bpaas_serv_title: "サービス",
+                bpaas_s1_title: "人事エクスペリエンス",
+                bpaas_s1_desc: "採用、給与管理、福利厚生管理、従業員研修に至るまでのエンドツーエンドの人事管理サービス。効率的なHRソリューションで定着率と満足度を向上させます。",
+                bpaas_s2_title: "カスタマーエクスペリエンス",
+                bpaas_s2_desc: "統合コンタクトセンターおよびカスタマーエクスペリエンス（CX）ソリューション。プロのエージェント、オムニチャネルテクノロジー、データ分析を提供し、すべての顧客対応がブランドに付加価値をもたらすようにします。",
+                bpaas_prov_title: "ソリューションを見つける"
             }
         };
 
@@ -587,7 +683,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman BPaaS):%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +

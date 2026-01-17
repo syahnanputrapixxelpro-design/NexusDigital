@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subholding - NexusDigital</title>
+    <title>Bisnis & Kemitraan - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -70,7 +70,7 @@
             white-space: nowrap;
         }
 
-        /* --- MEGA MENU BASE --- */
+        /* Mega Menu Base */
         .dropdown-menu-mega {
             border: none;
             border-top: 1px solid #f0f0f0;
@@ -93,7 +93,10 @@
                 width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
             }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
+            
+            .dropdown-menu-mega {
+                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
+            }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
@@ -120,56 +123,67 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- SUBHOLDING PAGE SPECIFIC --- */
+        /* --- BUSINESS PAGE SPECIFIC STYLES --- */
         
-        /* 1. Hero Header (White with Decoration) */
-        .subholding-header {
-            padding: 160px 0 80px;
-            background: white;
-            position: relative;
-            overflow: hidden;
+        /* 1. Hero Section */
+        .biz-hero {
+            /* Background jabat tangan / meeting bisnis */
+            background: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.7)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
             margin-top: 70px;
         }
-
-        /* Dekorasi 'C' Shape */
-        .decoration-c {
-            position: absolute; left: -50px; top: 50%; transform: translateY(-50%);
-            width: 200px; height: 200px; border: 20px solid var(--nd-yellow);
-            border-radius: 50%; opacity: 0.2; clip-path: circle(70% at 20% 50%); z-index: 0;
+        .biz-hero-title {
+            font-size: 3.5rem; font-weight: 700; color: white; margin-bottom: 15px;
         }
 
-        /* 2. Subholding Showcase Section */
-        .subholding-showcase {
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
-            background-size: cover; padding: 80px 0 120px; position: relative;
+        /* 2. Intro (Why Partner) */
+        .biz-intro {
+            padding: 80px 0;
+            background-color: white;
         }
-        /* Overlay Putih */
-        .subholding-showcase::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%);
+        .intro-icon {
+            font-size: 2.5rem; color: var(--nd-green); margin-bottom: 20px;
         }
-        
-        .subholding-card { text-align: center; position: relative; z-index: 2; padding: 30px; transition: transform 0.3s; }
-        .subholding-card:hover { transform: translateY(-5px); }
-        
-        .subholding-logo { 
-            height: 80px; width: auto; margin-bottom: 40px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; 
+
+        /* 3. Partnership Models */
+        .biz-models-section {
+            background-color: var(--nd-bg-light);
+            padding: 80px 0;
         }
-        .subholding-card:hover .subholding-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
-        
-        .btn-subholding {
-            background-color: var(--nd-blue-dark); color: white; border: none; padding: 15px 30px;
-            border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 40, 85, 0.2);
-            text-decoration: none;
-            display: inline-block;
+        .model-card {
+            background: white; border-radius: 12px; padding: 40px 30px;
+            text-align: center; transition: 0.3s; border: 1px solid #eee; height: 100%;
         }
-        .btn-subholding:hover { 
-            background-color: #001a38; transform: translateY(-3px); color: var(--nd-yellow); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .model-card:hover {
+            transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--nd-yellow);
         }
-        .btn-sub-text {
-            display: block; font-size: 0.75rem; font-weight: 400; margin-top: 5px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px;
+        .model-icon {
+            width: 70px; height: 70px; background-color: var(--nd-blue-dark); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin: 0 auto 25px;
         }
+
+        /* 4. Partnership Form (Dedicated) */
+        .biz-form-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--nd-blue-dark) 0%, var(--nd-blue-light) 100%);
+            color: white;
+        }
+        .biz-form-container {
+            background: white; padding: 40px; border-radius: 10px; color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .form-label { font-weight: 600; font-size: 0.9rem; }
+        .btn-submit-biz {
+            background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 12px 30px; width: 100%;
+        }
+        .btn-submit-biz:hover { background-color: #e0a800; transform: translateY(-2px); }
 
         /* --- FOOTER STYLES --- */
         footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
@@ -178,53 +192,14 @@
         .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
-        /* Tombol WhatsApp */
+        /* --- FLOATING BUTTONS --- */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -235,17 +210,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row">
@@ -322,7 +295,7 @@
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-mega">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -351,51 +324,108 @@
         </div>
     </nav>
 
-    <header class="subholding-header">
-        <div class="decoration-c"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold" data-key="sub_hero_title">Nexus Subholding</h1>
-                </div>
-                <div class="col-lg-8 ps-lg-5 border-start">
-                    <p class="lead text-secondary" style="font-size: 1rem; line-height: 1.8;" data-key="sub_hero_desc">
-                        NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan
-                        terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas
-                        muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di
-                        bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.
-                    </p>
+    <header class="biz-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="biz-hero-title" data-key="biz_hero_title">Kemitraan Strategis</h1>
+                    <p class="lead text-white opacity-75" data-key="biz_hero_desc">Tumbuh bersama NexusDigital untuk menciptakan nilai luar biasa dalam ekosistem digital.</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mt-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_contact">Kontak</a></li>
+                            <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_con_biz">Bisnis & Kemitraan</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="subholding-showcase">
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-5" data-key="sub_showcase_title">Subholding Kami</h2>
+    <section class="biz-intro">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4" data-key="biz_intro_title">Bersama Mencapai Pertumbuhan Eksponensial</h2>
+                    <p class="text-muted" data-key="biz_intro_desc">
+                        Kami percaya bahwa kolaborasi adalah kunci inovasi. NexusDigital membuka peluang kemitraan bagi perusahaan teknologi, distributor, dan konsultan yang ingin memperluas jangkauan dan memberikan solusi terbaik bagi pelanggan.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="row justify-content-center g-5">
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+SYSTEMS&font=montserrat" alt="Nexus Systems" class="subholding-logo img-fluid">
-                        
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card1_title">Solusi Integrasi<br>System & Infrastruktur</span>
-                            <span class="btn-sub-text" data-key="sub_card1_desc">Managed Services & Hardware</span>
-                        </a>
+    <section class="biz-models-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" data-key="biz_type_title">Model Kemitraan</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="model-card">
+                        <div class="model-icon"><i class="bi bi-cpu"></i></div>
+                        <h4 class="mb-3" data-key="biz_type_1_t">Mitra Teknologi</h4>
+                        <p class="text-muted" data-key="biz_type_1_d">Integrasikan solusi teknologi Anda dengan ekosistem NexusDigital untuk menciptakan produk yang lebih kuat.</p>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="model-card">
+                        <div class="model-icon"><i class="bi bi-shop"></i></div>
+                        <h4 class="mb-3" data-key="biz_type_2_t">Reseller & Distributor</h4>
+                        <p class="text-muted" data-key="biz_type_2_d">Pasarkan produk dan layanan unggulan kami ke jaringan klien Anda dengan skema bagi hasil yang menarik.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="model-card">
+                        <div class="model-icon"><i class="bi bi-diagram-3"></i></div>
+                        <h4 class="mb-3" data-key="biz_type_3_t">Aliansi Strategis</h4>
+                        <p class="text-muted" data-key="biz_type_3_d">Kolaborasi jangka panjang untuk penetrasi pasar baru atau pengembangan inovasi bersama (Joint Venture).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="col-md-5 col-lg-4">
-                    <div class="subholding-card">
-                        <img src="https://placehold.co/300x120?text=NEXUS+CLOUD&font=montserrat" alt="Nexus Cloud" class="subholding-logo img-fluid">
+    <section class="biz-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="biz-form-container">
+                        <h3 class="text-center mb-4" style="color: var(--nd-blue-dark);" data-key="biz_form_title">Ajukan Kemitraan</h3>
+                        <p class="text-center text-muted mb-5" data-key="biz_form_desc">Silakan isi formulir di bawah ini, tim pengembangan bisnis kami akan segera menghubungi Anda.</p>
                         
-                        <a href="#" class="btn btn-subholding">
-                            <span data-key="sub_card2_title">Solusi Cloud<br>& Platform Digital</span>
-                            <span class="btn-sub-text" data-key="sub_card2_desc">AI, Big Data & Cyber Security</span>
-                        </a>
+                        <form id="partnershipForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" data-key="biz_form_name">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="p_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" data-key="biz_form_email">Email Bisnis</label>
+                                    <input type="email" class="form-control" id="p_email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" data-key="biz_form_comp">Nama Perusahaan</label>
+                                    <input type="text" class="form-control" id="p_comp" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" data-key="biz_form_type">Tipe Kemitraan</label>
+                                    <select class="form-select" id="p_type">
+                                        <option value="Technology">Technology Partner</option>
+                                        <option value="Reseller">Reseller / Distributor</option>
+                                        <option value="Strategic">Strategic Alliance</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" data-key="biz_form_msg">Deskripsi Singkat</label>
+                                    <textarea class="form-control" id="p_msg" rows="4" required></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-submit-biz" data-key="biz_btn_submit">Kirim Pengajuan</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -493,14 +523,16 @@
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
 
-                // KHUSUS HALAMAN SUBHOLDING
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital sebagai perusahaan induk TI menyediakan solusi melalui pilar-pilar bisnis kami dan terkenal dengan portofolio subholding yang luas. Komitmen kami yang gigih terhadap kualitas muncul dengan fokus khusus pada solusi TI. Telusuri lebih jauh tentang anak perusahaan kami di bawah ini dan temukan cakupan luas keahlian kami dalam teknologi dan inovasi.",
-                sub_showcase_title: "Subholding Kami",
-                sub_card1_title: "Solusi Integrasi<br>System & Infrastruktur",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Solusi Cloud<br>& Platform Digital",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // KHUSUS HALAMAN BISNIS
+                biz_hero_title: "Kemitraan Strategis", biz_hero_desc: "Tumbuh bersama NexusDigital untuk menciptakan nilai luar biasa dalam ekosistem digital.",
+                biz_intro_title: "Bersama Mencapai Pertumbuhan Eksponensial", biz_intro_desc: "Kami percaya bahwa kolaborasi adalah kunci inovasi. NexusDigital membuka peluang kemitraan bagi perusahaan teknologi, distributor, dan konsultan yang ingin memperluas jangkauan dan memberikan solusi terbaik bagi pelanggan.",
+                biz_type_title: "Model Kemitraan",
+                biz_type_1_t: "Mitra Teknologi", biz_type_1_d: "Integrasikan solusi teknologi Anda dengan ekosistem NexusDigital untuk menciptakan produk yang lebih kuat.",
+                biz_type_2_t: "Reseller & Distributor", biz_type_2_d: "Pasarkan produk dan layanan unggulan kami ke jaringan klien Anda dengan skema bagi hasil yang menarik.",
+                biz_type_3_t: "Aliansi Strategis", biz_type_3_d: "Kolaborasi jangka panjang untuk penetrasi pasar baru atau pengembangan inovasi bersama (Joint Venture).",
+                biz_form_title: "Ajukan Kemitraan", biz_form_desc: "Silakan isi formulir di bawah ini, tim pengembangan bisnis kami akan segera menghubungi Anda.",
+                biz_form_name: "Nama Lengkap", biz_form_email: "Email Bisnis", biz_form_comp: "Nama Perusahaan", biz_form_type: "Tipe Kemitraan", biz_form_msg: "Deskripsi Singkat",
+                biz_btn_submit: "Kirim Pengajuan"
             },
             en: {
                 // GLOBAL
@@ -514,14 +546,16 @@
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexus Subholding",
-                sub_hero_desc: "NexusDigital as an IT holding company provides solutions through our business pillars and is renowned for our extensive subholding portfolio. Our relentless commitment to quality comes with a specific focus on IT solutions. Browse further about our subsidiaries below and discover our broad scope of expertise in technology and innovation.",
-                sub_showcase_title: "Our Subholdings",
-                sub_card1_title: "System & Infrastructure<br>Integration Solutions",
-                sub_card1_desc: "Managed Services & Hardware",
-                sub_card2_title: "Cloud Solutions<br>& Digital Platforms",
-                sub_card2_desc: "AI, Big Data & Cyber Security"
+                // BUSINESS PAGE SPECIFIC
+                biz_hero_title: "Strategic Partnerships", biz_hero_desc: "Grow with NexusDigital to create exceptional value in the digital ecosystem.",
+                biz_intro_title: "Achieving Exponential Growth Together", biz_intro_desc: "We believe that collaboration is the key to innovation. NexusDigital opens partnership opportunities for technology companies, distributors, and consultants who want to expand their reach and provide the best solutions for customers.",
+                biz_type_title: "Partnership Models",
+                biz_type_1_t: "Technology Partner", biz_type_1_d: "Integrate your technology solutions with the NexusDigital ecosystem to create stronger products.",
+                biz_type_2_t: "Reseller & Distributor", biz_type_2_d: "Market our superior products and services to your client network with an attractive revenue-sharing scheme.",
+                biz_type_3_t: "Strategic Alliance", biz_type_3_d: "Long-term collaboration for new market penetration or joint innovation development (Joint Venture).",
+                biz_form_title: "Apply for Partnership", biz_form_desc: "Please fill out the form below, our business development team will contact you shortly.",
+                biz_form_name: "Full Name", biz_form_email: "Business Email", biz_form_comp: "Company Name", biz_form_type: "Partnership Type", biz_form_msg: "Short Description",
+                biz_btn_submit: "Submit Application"
             },
             jp: {
                 // GLOBAL
@@ -535,14 +569,16 @@
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
 
-                // SUBHOLDING PAGE SPECIFIC
-                sub_hero_title: "Nexusサブホールディング",
-                sub_hero_desc: "IT持株会社としてのNexusDigitalは、当社のビジネスの柱を通じてソリューションを提供し、広範なサブホールディングポートフォリオで知られています。品質への絶え間ないコミットメントは、ITソリューションに特に重点を置いています。以下の当社の子会社についてさらに詳しく調べ、テクノロジーとイノベーションにおける当社の幅広い専門知識を発見してください。",
-                sub_showcase_title: "当社のサブホールディング",
-                sub_card1_title: "システム＆インフラ<br>統合ソリューション",
-                sub_card1_desc: "マネージドサービス＆ハードウェア",
-                sub_card2_title: "クラウドソリューション＆<br>デジタルプラットフォーム",
-                sub_card2_desc: "AI、ビッグデータ＆サイバーセキュリティ"
+                // BUSINESS PAGE SPECIFIC
+                biz_hero_title: "戦略的パートナーシップ", biz_hero_desc: "NexusDigitalと共に成長し、デジタルエコシステムで卓越した価値を創造しましょう。",
+                biz_intro_title: "共に指数関数的な成長を達成する", biz_intro_desc: "私たちは、コラボレーションがイノベーションの鍵であると信じています。NexusDigitalは、リーチを拡大し、顧客に最高のソリューションを提供したいと考えているテクノロジー企業、ディストリビューター、コンサルタントにパートナーシップの機会を開放しています。",
+                biz_type_title: "パートナーシップモデル",
+                biz_type_1_t: "テクノロジーパートナー", biz_type_1_d: "貴社のテクノロジーソリューションをNexusDigitalエコシステムと統合して、より強力な製品を作成します。",
+                biz_type_2_t: "リセラー＆ディストリビューター", biz_type_2_d: "魅力的な収益分配スキームで、当社の優れた製品とサービスを貴社のクライアントネットワークに販売します。",
+                biz_type_3_t: "戦略的アライアンス", biz_type_3_d: "新しい市場への浸透や共同イノベーション開発（ジョイントベンチャー）のための長期的なコラボレーション。",
+                biz_form_title: "パートナーシップを申請する", biz_form_desc: "以下のフォームにご記入ください。事業開発チームよりすぐにご連絡いたします。",
+                biz_form_name: "氏名", biz_form_email: "ビジネスメール", biz_form_comp: "会社名", biz_form_type: "パートナーシップの種類", biz_form_msg: "短い説明",
+                biz_btn_submit: "申請を送信"
             }
         };
 
@@ -575,7 +611,30 @@
             });
         }
 
-        // --- 2. LOGIKA WA FORM FOOTER ---
+        // --- 2. LOGIKA FORM DEDICATED PARTNERSHIP ---
+        document.getElementById('partnershipForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah reload
+
+            var name = document.getElementById('p_name').value;
+            var email = document.getElementById('p_email').value;
+            var comp = document.getElementById('p_comp').value;
+            var type = document.getElementById('p_type').value;
+            var msg = document.getElementById('p_msg').value;
+
+            var waMessage = "Halo NexusDigital, saya ingin mengajukan kemitraan:%0a%0a" +
+                            "*Nama:* " + name + "%0a" +
+                            "*Perusahaan:* " + comp + "%0a" +
+                            "*Email:* " + email + "%0a" +
+                            "*Tipe:* " + type + "%0a" +
+                            "*Deskripsi:* " + msg + "%0a%0a" +
+                            "(Dikirim dari Halaman Bisnis)";
+
+            var waNumber = "62895639068080";
+            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
+            window.open(waURL, '_blank');
+        });
+
+        // --- 3. LOGIKA WA FORM FOOTER ---
         document.getElementById('footerForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Mencegah reload
 
@@ -587,7 +646,7 @@
             var phone = document.getElementById('f_phone').value;
             var msg = document.getElementById('f_msg').value;
 
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Subholding):%0a%0a" +
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Bisnis):%0a%0a" +
                             "*Nama:* " + fname + " " + lname + "%0a" +
                             "*Jabatan:* " + job + "%0a" +
                             "*Perusahaan:* " + comp + "%0a" +
@@ -601,7 +660,7 @@
             window.open(waURL, '_blank');
         });
 
-        // --- 3. LOGIKA BACK TO TOP ---
+        // --- 4. LOGIKA BACK TO TOP ---
         window.onscroll = function() {scrollFunction()};
         function scrollFunction() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
