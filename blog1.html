@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masa Depan Integrasi Sistem di Era Cloud-Native - Blog NexusDigital</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            /* Palette NexusDigital */
+            --nd-blue-dark: #002855;
+            --nd-blue-light: #004e92;
+            --nd-yellow: #FFC107;
+            --nd-green: #28a745;
+            --nd-bg-light: #f4f7f6;
+            --nd-text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--nd-blue-dark);
+        }
+
+        /* --- NAVBAR STYLES (SAMA DENGAN INDEX) --- */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .navbar-brand {
+            padding: 0;
+            margin-right: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .dropdown-toggle::after { display: none !important; }
+
+        .navbar-nav .nav-item { position: static; padding: 0 8px; }
+        
+        .navbar-nav .nav-link {
+            color: var(--nd-blue-dark) !important;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 25px 5px !important;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        /* Mega Menu Base */
+        .dropdown-menu-mega {
+            border: none;
+            border-top: 1px solid #f0f0f0;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            background: white;
+            margin-top: 0;
+            z-index: 1000;
+        }
+
+        .mega-item { display: flex; align-items: flex-start; padding: 10px; transition: transform 0.2s; }
+        .mega-item:hover { transform: translateX(5px); }
+        .mega-icon-box { font-size: 1.5rem; color: var(--nd-blue-dark); margin-right: 15px; width: 30px; text-align: center; }
+        .mega-content-box h6 { font-weight: 700; color: var(--nd-blue-dark); font-size: 0.95rem; margin-bottom: 2px; }
+        .mega-content-box p { font-size: 0.8rem; color: #888; margin-bottom: 0; line-height: 1.3; }
+
+        /* Desktop View */
+        @media (min-width: 992px) {
+            .navbar-nav .nav-link::before {
+                content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0);
+                width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
+            }
+            .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
+            
+            .dropdown-menu-mega {
+                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
+            }
+            .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
+        }
+
+        /* Mobile View */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white; padding: 15px; border-top: 1px solid #eee; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 10px; border-radius: 0 0 10px 10px;
+            }
+            .navbar-nav .nav-link { padding: 15px 0 !important; border-bottom: 1px solid #f5f5f5; width: 100%; justify-content: space-between; }
+            .navbar-nav .nav-link::before { display: none; }
+            .dropdown-menu-mega { position: static; float: none; width: 100%; box-shadow: none; border: none; padding-left: 10px; background-color: #fcfcfc; margin-bottom: 10px; border-radius: 8px; }
+            .mega-item { padding: 12px 0; border-bottom: 1px solid #eee; }
+            .mega-item:last-child { border-bottom: none; }
+            .dropdown-menu-mega .row > div { width: 100%; margin-bottom: 5px; }
+            .border-end { border-right: none !important; }
+            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; }
+        }
+
+        /* Language Dropdown & Icons */
+        .lang-btn img { width: 20px; margin-right: 5px; border-radius: 2px; }
+        .dropdown-item { cursor: pointer; display: flex; align-items: center; gap: 10px; }
+        .dropdown-item img { width: 20px; border-radius: 2px; }
+        .nav-right-icons .btn-link { color: var(--nd-blue-dark); text-decoration: none; font-weight: 600; padding: 0 10px; }
+        .nav-right-icons .btn-link:hover { color: var(--nd-green); }
+
+
+        /* --- BLOG DETAIL SPECIFIC STYLES --- */
+        .blog-header {
+            padding-top: 120px; padding-bottom: 40px; background-color: #fcfcfc;
+        }
+        .blog-meta {
+            font-size: 0.9rem; color: #777; margin-bottom: 20px;
+        }
+        .blog-meta i { color: var(--nd-yellow); margin-right: 5px; }
+        .blog-category {
+            background-color: var(--nd-blue-dark); color: white; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-right: 15px; text-decoration: none; display: inline-block;
+        }
+
+        /* Featured Image */
+        .featured-img-container { margin-bottom: 40px; }
+        .featured-img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .img-caption { text-align: center; font-size: 0.85rem; color: #888; margin-top: 10px; font-style: italic; }
+
+        /* TOC (Table of Contents) */
+        .toc-container {
+            background-color: #f8f9fa; border-left: 5px solid var(--nd-yellow); padding: 20px; border-radius: 5px; margin-bottom: 40px;
+        }
+        .toc-header {
+            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+        }
+        .toc-title { margin: 0; font-size: 1.2rem; }
+        .toc-list { list-style: none; padding-left: 0; margin-top: 15px; display: none; } /* Default hidden */
+        .toc-list.show { display: block; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list li a { text-decoration: none; color: #555; transition: 0.2s; }
+        .toc-list li a:hover { color: var(--nd-blue-dark); padding-left: 5px; }
+        .toc-sub-item { margin-left: 20px; font-size: 0.95rem; }
+
+        /* Article Content */
+        .article-content { font-size: 1.05rem; line-height: 1.8; color: #444; }
+        .article-content h2 { margin-top: 40px; margin-bottom: 20px; font-size: 1.8rem; }
+        .article-content h3 { margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; color: var(--nd-blue-light); }
+        .article-content p { margin-bottom: 20px; }
+        
+        /* Blockquote */
+        .custom-blockquote {
+            border-left: 5px solid var(--nd-blue-dark); background-color: #f0f4f8; padding: 20px; margin: 30px 0; font-style: italic; font-size: 1.1rem; border-radius: 0 10px 10px 0;
+        }
+
+        /* Baca Juga Box */
+        .read-also-box {
+            border: 2px solid #eee; padding: 15px; border-radius: 8px; margin: 30px 0; display: flex; align-items: center; background: #fff;
+        }
+        .read-also-label {
+            background: var(--nd-green); color: white; padding: 2px 10px; font-size: 0.75rem; font-weight: bold; margin-right: 15px; border-radius: 4px; white-space: nowrap;
+        }
+        .read-also-link { font-weight: 600; color: var(--nd-blue-dark); text-decoration: none; font-size: 1rem; }
+        .read-also-link:hover { color: var(--nd-yellow); }
+
+        /* Promo GIF */
+        .promo-gif-container { margin: 40px 0; text-align: center; }
+        .promo-gif { max-width: 100%; border-radius: 10px; }
+
+        /* FAQ Section */
+        .faq-section { margin-top: 50px; }
+        .accordion-button:not(.collapsed) { background-color: #e7f1ff; color: var(--nd-blue-dark); }
+        .accordion-button:focus { box-shadow: none; border-color: rgba(0,0,0,.125); }
+
+        /* Conclusion Box */
+        .conclusion-box { background-color: var(--nd-blue-dark); color: white; padding: 30px; border-radius: 10px; margin-top: 50px; }
+        .conclusion-box h3 { color: var(--nd-yellow); }
+
+        /* Author Profile */
+        .author-box {
+            display: flex; align-items: center; background: #fff; padding: 30px; border: 1px solid #eee; border-radius: 10px; margin-top: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+        .author-info h5 { margin: 0 0 5px 0; }
+        .author-role { font-size: 0.85rem; color: #888; text-transform: uppercase; }
+
+        /* Share Buttons */
+        .share-buttons { margin-top: 30px; display: flex; gap: 10px; }
+        .btn-share {
+            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s;
+        }
+        .btn-share:hover { transform: translateY(-3px); color: white; }
+        .bg-wa { background-color: #25D366; }
+        .bg-fb { background-color: #3b5998; }
+        .bg-tw { background-color: #1da1f2; }
+        .bg-li { background-color: #0077b5; }
+
+        /* Related Articles */
+        .related-section { background-color: #f8f9fa; padding: 60px 0; margin-top: 80px; }
+        .related-card { background: white; border: none; border-radius: 10px; overflow: hidden; height: 100%; transition: 0.3s; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        .related-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .related-img { height: 200px; object-fit: cover; width: 100%; }
+        .related-body { padding: 20px; }
+        .related-title { font-size: 1.1rem; margin-bottom: 10px; font-weight: 700; }
+        .related-title a { text-decoration: none; color: var(--nd-blue-dark); }
+        .btn-sm-read { font-size: 0.85rem; font-weight: 600; color: var(--nd-blue-light); text-decoration: none; }
+
+        /* Footer */
+        footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
+        footer a { color: #adb5bd; text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--nd-yellow); }
+        .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
+        .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
+
+        /* Floating Buttons */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none; border: none; cursor: pointer; }
+        .btn-wa-float { background-color: #25D366; }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; transition: 0.3s; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-mega">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p>Perusahaan induk TI global.</p></div></a></div>
+                                    <div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p>Pilar solusi bisnis TI.</p></div></a></div>
+                                    <div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p>Komitmen berkelanjutan.</p></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bisnis <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-mega">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p>Business Process as a Service.</p></div></a></div>
+                                    <div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p>Solusi infrastruktur digital.</p></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-mega">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6>Laporan Tahunan</h6><p>Annual Report</p></div></a></div>
+                                    <div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6>Info Pemegang Saham</h6><p>Shareholder Info</p></div></a></div>
+                                    <div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6>Keterbukaan Informasi</h6><p>Disclosure of Info</p></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Artikel <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-mega">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6>Blog</h6><p>Artikel Opini dari Nexus.</p></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Karir <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-mega">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 border-end">
+                                        <div class="p-3">
+                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);">Hidup Sebagai Nexusian</h5>
+                                            <p class="small text-muted">Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI.</p>
+                                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lihat Budaya Kami</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="p-3">
+                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);">Lowongan Kerja Terbaru</h5>
+                                            <a href="karir.html" class="btn btn-sm btn-yellow mt-2">Lihat Semua Lowongan</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-mega">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6>Bisnis & Kemitraan</h6><p>Business & Partnerships</p></div></a></div>
+                                    <div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6>Kode Etik & Perilaku</h6><p>Code of Conduct</p></div></a></div>
+                                    <div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6>Pelaporan Pelanggan</h6><p>Whistleblowing System</p></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="nav-right-icons d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle text-decoration-none lang-btn" type="button" data-bs-toggle="dropdown">
+                            <img src="https://flagcdn.com/w20/id.png" alt="ID"> ID
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="min-width: 100px;">
+                            <li><a class="dropdown-item"><img src="https://flagcdn.com/w20/id.png" alt="ID"> Bahasa Indonesia</a></li>
+                            <li><a class="dropdown-item"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a></li>
+                            <li><a class="dropdown-item"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail Artikel</li>
+                        </ol>
+                    </nav>
+                    
+                    <a href="#" class="blog-category">Technology</a>
+                    <h1 class="mt-3 mb-3">Masa Depan Integrasi Sistem di Era Cloud-Native</h1>
+                    
+                    <div class="blog-meta">
+                        <span class="me-3"><i class="bi bi-calendar"></i> 15 Januari 2026</span>
+                        <span class="me-3"><i class="bi bi-person"></i> Oleh: <strong>Rizky Pratama</strong></span>
+                        <span><i class="bi bi-clock"></i> 5 Menit Baca</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding pt-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    
+                    <div class="featured-img-container">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Integrasi Sistem Cloud" class="featured-img">
+                        <p class="img-caption">Ilustrasi konektivitas jaringan global dalam arsitektur cloud.</p>
+                    </div>
+
+                    <div class="toc-container">
+                        <div class="toc-header" onclick="toggleToc()">
+                            <h5 class="toc-title"><i class="bi bi-list-ul me-2"></i> Daftar Isi</h5>
+                            <i class="bi bi-chevron-down" id="tocIcon"></i>
+                        </div>
+                        <ul class="toc-list" id="tocList">
+                            </ul>
+                    </div>
+
+                    <div class="article-content" id="articleContent">
+                        <p>
+                            Dalam dekade terakhir, kita telah menyaksikan pergeseran monumental dalam cara perusahaan membangun dan mengelola infrastruktur TI mereka. Transisi dari sistem monolitik tradisional ke arsitektur <strong>Cloud-Native</strong> bukan lagi sekadar tren, melainkan sebuah kebutuhan strategis untuk kelangsungan bisnis.
+                        </p>
+
+                        <h2 id="shift">Pergeseran Paradigma: Monolitik ke Microservices</h2>
+                        <p>
+                            Sistem legacy seringkali kaku, sulit diperbarui, dan mahal untuk dipelihara. Sebaliknya, pendekatan cloud-native memecah aplikasi menjadi komponen-komponen kecil yang disebut <em>microservices</em>.
+                        </p>
+
+                        <div class="read-also-box">
+                            <span class="read-also-label">BACA JUGA</span>
+                            <a href="#" class="read-also-link">Strategi Migrasi ke Cloud yang Efektif</a>
+                        </div>
+
+                        <p>
+                            Dengan microservices, tim pengembang dapat memperbarui satu bagian aplikasi tanpa mengganggu keseluruhan sistem. Ini memungkinkan <strong>CI/CD (Continuous Integration/Continuous Deployment)</strong> berjalan lebih mulus dan cepat.
+                        </p>
+
+                        <h2 id="benefit">Manfaat Utama Integrasi Cloud-Native</h2>
+                        <p>Mengadopsi strategi ini memberikan keuntungan kompetitif yang signifikan:</p>
+                        
+                        <h3 id="benefit-speed">1. Kecepatan ke Pasar (Speed to Market)</h3>
+                        <p>Perusahaan dapat meluncurkan fitur baru dalam hitungan hari, bukan bulan.</p>
+
+                        <blockquote class="custom-blockquote">
+                            "Kecepatan adalah mata uang baru dalam bisnis digital. Siapa yang bisa beradaptasi paling cepat, dialah yang akan memimpin pasar."
+                        </blockquote>
+
+                        <h3 id="benefit-scale">2. Skalabilitas Otomatis</h3>
+                        <p>Sistem dapat secara otomatis menyesuaikan sumber daya berdasarkan lalu lintas pengguna, memastikan efisiensi biaya.</p>
+
+                        <div class="promo-gif-container">
+                            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm95aGszc2F4bWc3azJ6bzN4bnZ4czN4bnZ4czN4bnZ4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1TVThqceb6/giphy.gif" alt="Cloud Tech Gif" class="promo-gif">
+                            <p class="img-caption">Teknologi cloud terus berkembang dengan cepat.</p>
+                        </div>
+
+                        <h2 id="challenges">Tantangan yang Harus Dihadapi</h2>
+                        <p>Meskipun menjanjikan, transisi ini tidak tanpa hambatan. Keamanan data dan kompleksitas manajemen API menjadi perhatian utama.</p>
+
+                        <figure class="featured-img-container mt-4">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Server Room" class="featured-img">
+                            <figcaption class="img-caption">Manajemen infrastruktur membutuhkan keahlian baru.</figcaption>
+                        </figure>
+
+                        <div class="read-also-box">
+                            <span class="read-also-label">BACA JUGA</span>
+                            <a href="#" class="read-also-link">Pentingnya Keamanan Siber di 2026</a>
+                        </div>
+
+                        <h2 id="strategy">Strategi Implementasi</h2>
+                        <p>Untuk berhasil, perusahaan perlu mengadopsi pendekatan <strong>API-First</strong> dan berinvestasi pada talenta digital yang memahami teknologi containerization seperti Docker dan Kubernetes.</p>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3 class="mb-4">Pertanyaan Umum (FAQ)</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        Apa itu Cloud-Native?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Cloud-native adalah pendekatan membangun dan menjalankan aplikasi yang memanfaatkan keunggulan model komputasi awan.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Apakah mahal untuk beralih?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Investasi awal mungkin diperlukan, namun dalam jangka panjang, efisiensi operasional akan mengurangi biaya keseluruhan.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conclusion-box">
+                        <h3>Kesimpulan</h3>
+                        <p class="mb-0">
+                            Masa depan integrasi sistem adalah tentang fleksibilitas dan kecepatan. Dengan mengadopsi arsitektur cloud-native, perusahaan tidak hanya memodernisasi IT mereka, tetapi juga membuka pintu bagi inovasi tanpa batas di masa depan.
+                        </p>
+                    </div>
+
+                    <div class="mt-5">
+                        <h6 class="fw-bold">Bagikan Artikel Ini:</h6>
+                        <div class="share-buttons">
+                            <a href="https://wa.me/?text=Cek%20artikel%20keren%20ini!%20http://nexusdigital.com/blog1.html" target="_blank" class="btn-share bg-wa"><i class="bi bi-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://nexusdigital.com/blog1.html" target="_blank" class="btn-share bg-fb"><i class="bi bi-facebook"></i></a>
+                            <a href="https://twitter.com/intent/tweet?url=http://nexusdigital.com/blog1.html" target="_blank" class="btn-share bg-tw"><i class="bi bi-twitter-x"></i></a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://nexusdigital.com/blog1.html" target="_blank" class="btn-share bg-li"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="author-box">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rizky Pratama" class="author-img">
+                        <div class="author-info">
+                            <h5>Rizky Pratama</h5>
+                            <span class="author-role">Senior Cloud Architect</span>
+                            <p class="small text-muted mt-2 mb-0">
+                                Berpengalaman lebih dari 10 tahun dalam desain infrastruktur cloud. Hobi menulis tentang teknologi masa depan dan transformasi digital.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-section">
+        <div class="container">
+            <h3 class="mb-4 text-center">Artikel Terkait</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Blog" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title"><a href="#">Pemanfaatan AI untuk Efisiensi</a></h5>
+                            <p class="small text-muted">Bagaimana AI mengubah lanskap operasional bisnis modern.</p>
+                            <a href="#" class="btn-sm-read">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Security Blog" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title"><a href="#">Tren Keamanan Siber 2026</a></h5>
+                            <p class="small text-muted">Strategi pertahanan data yang wajib diketahui CIO.</p>
+                            <a href="#" class="btn-sm-read">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Big Data Blog" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title"><a href="#">Strategi Big Data Retail</a></h5>
+                            <p class="small text-muted">Memanfaatkan data pelanggan untuk penjualan yang lebih baik.</p>
+                            <a href="#" class="btn-sm-read">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h3 class="text-white mb-3">Nexus<span>Digital</span></h3>
+                    <div class="mb-4">
+                        <h6 class="text-white">Kantor Pusat</h6>
+                        <p class="opacity-75 small">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-white">Kantor Pusat Jakarta</h6>
+                        <p class="opacity-75 small">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 rounded text-dark">
+                        <h5 class="mb-3" style="color: var(--nd-blue-dark);">Hubungi Kami</h5>
+                        <p class="small text-muted mb-4">Anda memiliki pertanyaan seputar bisnis dan kolaborasi?</p>
+                        
+                        <form id="footerForm">
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" placeholder="Nama Depan*"></div>
+                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" placeholder="Nama Belakang*"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" placeholder="Jabatan*"></div>
+                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" placeholder="Nama Perusahaan*"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" placeholder="Email*"></div>
+                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" placeholder="Nomor HP*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"></div>
+                            </div>
+                            <textarea class="footer-form-control" id="f_msg" rows="3" placeholder="Pesan*"></textarea>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="privacyCheck">
+                                <label class="form-check-label small" for="privacyCheck">
+                                    Saya setuju dengan <a href="#">Kebijakan Privasi</a>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-yellow text-dark px-4 py-2">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row align-items-center small opacity-75">
+                <div class="col-md-6">© 2026 PT NexusDigital Tbk. All rights reserved.</div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat dan Ketentuan</a>
+                    <div class="d-flex gap-2 ms-3">
+                        <i class="bi bi-linkedin"></i>
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/62895639068080" class="btn-float btn-wa-float" target="_blank" title="Chat via WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button id="backToTop" class="btn-float btn-top" onclick="topFunction()" title="Back to Top"><i class="bi bi-arrow-up"></i></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 1. AUTO TOC GENERATOR
+        document.addEventListener("DOMContentLoaded", function() {
+            const article = document.getElementById('articleContent');
+            const tocList = document.getElementById('tocList');
+            const headers = article.querySelectorAll('h2, h3');
+            
+            headers.forEach((header, index) => {
+                // Add ID to header if not present
+                if (!header.id) {
+                    header.id = 'toc-item-' + index;
+                }
+
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#' + header.id;
+                a.textContent = header.textContent;
+                
+                if (header.tagName === 'H3') {
+                    li.classList.add('toc-sub-item');
+                }
+
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        });
+
+        // Toggle TOC
+        function toggleToc() {
+            const list = document.getElementById('tocList');
+            const icon = document.getElementById('tocIcon');
+            list.classList.toggle('show');
+            if (list.classList.contains('show')) {
+                icon.classList.replace('bi-chevron-down', 'bi-chevron-up');
+            } else {
+                icon.classList.replace('bi-chevron-up', 'bi-chevron-down');
+            }
+        }
+
+        // 2. BACK TO TOP
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                document.getElementById("backToTop").classList.add("show");
+            } else {
+                document.getElementById("backToTop").classList.remove("show");
+            }
+        };
+        function topFunction() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // 3. WA FORM FOOTER
+        document.getElementById('footerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah reload
+
+            var fname = document.getElementById('f_fname').value;
+            var lname = document.getElementById('f_lname').value;
+            var job = document.getElementById('f_job').value;
+            var comp = document.getElementById('f_comp').value;
+            var email = document.getElementById('f_email').value;
+            var phone = document.getElementById('f_phone').value;
+            var msg = document.getElementById('f_msg').value;
+
+            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Blog Detail):%0a%0a" +
+                            "*Nama:* " + fname + " " + lname + "%0a" +
+                            "*Jabatan:* " + job + "%0a" +
+                            "*Perusahaan:* " + comp + "%0a" +
+                            "*Email:* " + email + "%0a" +
+                            "*No. HP:* " + phone + "%0a" +
+                            "*Pesan:* " + msg + "%0a%0a" +
+                            "(Dikirim dari Footer Website)";
+
+            var waNumber = "62895639068080";
+            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
+            window.open(waURL, '_blank');
+        });
+    </script>
+</body>
+</html>
