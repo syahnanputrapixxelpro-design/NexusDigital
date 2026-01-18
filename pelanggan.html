@@ -6,7 +6,7 @@
     <title>Sistem Pelaporan Pelanggan - NexusDigital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <style>
@@ -18,94 +18,38 @@
             --nd-green: #28a745;
             --nd-bg-light: #f4f7f6;
             --nd-text-muted: #6c757d;
-            --nd-red-accent: #d32f2f;
+            --nd-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --nd-red-accent: #d32f2f; /* Warna khusus halaman WBS */
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5 { font-family: 'Roboto', sans-serif; font-weight: 700; color: var(--nd-blue-dark); }
 
-        h1, h2, h3, h4, h5 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            color: var(--nd-blue-dark);
-        }
-
-        /* --- NAVBAR STYLES --- */
-        .navbar {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 10px 0;
-            transition: all 0.3s;
-        }
-        
-        .navbar-brand {
-            padding: 0;
-            margin-right: 2rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .navbar-brand img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-
+        /* --- NAVBAR STYLES (STANDAR) --- */
+        .navbar { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px 0; transition: all 0.3s; }
+        .navbar-brand { padding: 0; margin-right: 2rem; display: flex; align-items: center; }
+        .navbar-brand img { height: 50px; width: auto; object-fit: contain; }
         .dropdown-toggle::after { display: none !important; }
-
         .navbar-nav .nav-item { position: static; padding: 0 8px; }
+        .navbar-nav .nav-link { color: var(--nd-blue-dark) !important; font-weight: 600; font-size: 14px; padding: 25px 5px !important; position: relative; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
         
-        .navbar-nav .nav-link {
-            color: var(--nd-blue-dark) !important;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 25px 5px !important;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-
-        /* Mega Menu Base */
-        .dropdown-menu-mega {
-            border: none;
-            border-top: 1px solid #f0f0f0;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            background: white;
-            margin-top: 0;
-            z-index: 1000;
-        }
-
+        /* Mega Menu */
+        .dropdown-menu-mega { border: none; border-top: 1px solid #f0f0f0; box-shadow: 0 15px 30px rgba(0,0,0,0.1); background: white; margin-top: 0; z-index: 1000; }
         .mega-item { display: flex; align-items: flex-start; padding: 10px; transition: transform 0.2s; }
         .mega-item:hover { transform: translateX(5px); }
         .mega-icon-box { font-size: 1.5rem; color: var(--nd-blue-dark); margin-right: 15px; width: 30px; text-align: center; }
         .mega-content-box h6 { font-weight: 700; color: var(--nd-blue-dark); font-size: 0.95rem; margin-bottom: 2px; }
         .mega-content-box p { font-size: 0.8rem; color: #888; margin-bottom: 0; line-height: 1.3; }
 
-        /* Desktop View */
         @media (min-width: 992px) {
-            .navbar-nav .nav-link::before {
-                content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0);
-                width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
-            }
+            .navbar-nav .nav-link::before { content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0); width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease; }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            
-            .dropdown-menu-mega {
-                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
-            }
+            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
-        /* Mobile View */
         @media (max-width: 991px) {
-            .navbar-collapse {
-                background: white; padding: 15px; border-top: 1px solid #eee; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 10px; border-radius: 0 0 10px 10px;
-            }
+            .navbar-collapse { background: white; padding: 15px; border-top: 1px solid #eee; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 10px; border-radius: 0 0 10px 10px; }
             .navbar-nav .nav-link { padding: 15px 0 !important; border-bottom: 1px solid #f5f5f5; width: 100%; justify-content: space-between; }
             .navbar-nav .nav-link::before { display: none; }
             .dropdown-menu-mega { position: static; float: none; width: 100%; box-shadow: none; border: none; padding-left: 10px; background-color: #fcfcfc; margin-bottom: 10px; border-radius: 8px; }
@@ -113,140 +57,69 @@
             .mega-item:last-child { border-bottom: none; }
             .dropdown-menu-mega .row > div { width: 100%; margin-bottom: 5px; }
             .border-end { border-right: none !important; }
-            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; }
+            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; display: flex; align-items: center; }
         }
 
-        /* Language Dropdown */
         .lang-btn img { width: 20px; margin-right: 5px; border-radius: 2px; }
         .dropdown-item { cursor: pointer; display: flex; align-items: center; gap: 10px; }
         .dropdown-item img { width: 20px; border-radius: 2px; }
         .nav-right-icons .btn-link { color: var(--nd-blue-dark); text-decoration: none; font-weight: 600; padding: 0 10px; }
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
-
-        /* --- HALAMAN PELANGGAN (WBS) SPECIFIC STYLES --- */
-        
-        /* 1. Hero Section */
+        /* --- HERO SECTION --- */
         .wbs-hero {
-            background: linear-gradient(rgba(0, 40, 85, 0.6), rgba(0, 40, 85, 0.5)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 140px 0 80px;
+            position: relative;
+            background: linear-gradient(rgba(0, 40, 85, 0.7), rgba(0, 40, 85, 0.6)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center;
+            height: 60vh; min-height: 400px;
+            display: flex; align-items: center;
             margin-top: 70px;
-            color: white;
-            position: relative;
+            color: white; 
         }
+        /* Strip Merah Atas */
+        .wbs-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--nd-red-accent); }
         
-        /* Strip Merah di atas */
-        .wbs-hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--nd-red-accent);
-        }
-
-        .breadcrumb-item a { color: var(--nd-yellow); text-decoration: none; }
-        .breadcrumb-item.active { color: rgba(255,255,255,0.7); }
-
-        /* 2. Content Section */
-        .wbs-content {
-            padding: 80px 0;
-            background-color: white;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Pattern halus */
-            position: relative;
-        }
-
-        .wbs-text {
-            color: #555;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            margin-bottom: 40px;
-        }
-
-        /* Form Style */
-        .report-form .form-control {
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            padding: 12px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            background-color: #fcfcfc;
-        }
+        .wbs-hero-title { font-size: 3rem; font-weight: 700; color: white; margin-bottom: 15px; }
         
-        .report-form .form-control:focus {
-            border-color: var(--nd-blue-dark);
-            box-shadow: none;
-            background-color: white;
+        @media (max-width: 768px) {
+            .wbs-hero { text-align: center; }
+            .wbs-hero-title { font-size: 2.2rem; }
         }
 
+        /* --- CONTENT STYLES --- */
+        .wbs-content { padding: 80px 0; background-color: white; }
+        .wbs-text { color: #555; line-height: 1.8; margin-bottom: 40px; }
+
+        /* Form Pelaporan */
+        .report-form .form-control { border-radius: 4px; border: 1px solid #ddd; padding: 12px; margin-bottom: 20px; background-color: #fcfcfc; }
+        .report-form .form-control:focus { border-color: var(--nd-blue-dark); box-shadow: none; background-color: white; }
+        
         .btn-send-report {
-            background-color: var(--nd-red-accent);
-            color: white;
-            font-weight: 700;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            background-color: var(--nd-red-accent); color: white; font-weight: 700; border: none; padding: 12px 30px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
-        
-        .btn-send-report:hover {
-            background-color: var(--nd-blue-dark);
-            color: white;
-        }
+        .btn-send-report:hover { background-color: var(--nd-blue-dark); color: white; }
 
         .btn-explore {
-            background-color: var(--nd-red-accent);
-            color: white;
-            font-weight: 700;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-top: 20px;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
+            background-color: var(--nd-red-accent); color: white; font-weight: 700; border: none; padding: 12px 30px; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; margin-top: 20px; text-decoration: none; display: inline-block; transition: 0.3s;
         }
         .btn-explore:hover { background-color: var(--nd-blue-dark); color: white; }
 
-        /* Sidebar Info Box */
-        .info-box {
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            border-top: 4px solid var(--nd-red-accent);
-        }
-        .btn-email-info {
-            background-color: var(--nd-red-accent);
-            color: white;
-            width: 100%;
-            padding: 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            display: block;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+        /* Sidebar Info */
+        .info-box { background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 30px; border-radius: 8px; text-align: center; border-top: 4px solid var(--nd-red-accent); }
+        .btn-email-info { background-color: var(--nd-red-accent); color: white; width: 100%; padding: 10px; border-radius: 4px; text-decoration: none; display: block; font-weight: 600; transition: 0.3s; }
         .btn-email-info:hover { background-color: var(--nd-blue-dark); color: white; }
 
-        /* --- FOOTER STYLES --- */
+        /* Footer */
         footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
-        footer a { color: #adb5bd; text-decoration: none; transition: 0.3s; }
-        footer a:hover { color: var(--nd-yellow); }
-        .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
+        .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
 
-        /* --- FLOATING BUTTONS --- */
-        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
-        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
+        /* Floating Btn */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
-        .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; }
         .btn-top.show { opacity: 1; visibility: visible; }
-        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -263,107 +136,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p data-key="nav_holding_desc">Perusahaan induk TI global.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p data-key="nav_subholding_desc">Pilar solusi bisnis TI.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p data-key="nav_esg_desc">Komitmen berkelanjutan.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p data-key="nav_bpaas_desc">Business Process as a Service.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p data-key="nav_cloud_desc">Solusi infrastruktur digital.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_annual">Laporan Tahunan</h6><p>Annual Report</p></div></a></div>
-                                    <div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_share">Info Pemegang Saham</h6><p>Shareholder Info</p></div></a></div>
-                                    <div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_info">Keterbukaan Informasi</h6><p>Disclosure of Info</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_article">Artikel <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6 data-key="nav_art_blog">Blog</h6><p data-key="nav_art_blog_desc">Artikel Opini dari Nexus.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 border-end">
-                                        <div class="p-3">
-                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="nav_career_life">Hidup Sebagai Nexusian</h5>
-                                            <p class="small text-muted" data-key="nav_career_life_desc">Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI yang berkembang bersama kami.</p>
-                                            <a href="#" class="btn btn-sm btn-outline-primary mt-2" data-key="nav_career_cult">Lihat Budaya Kami</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="p-3">
-                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="nav_career_latest">Lowongan Kerja Terbaru</h5>
-                                            <ul class="list-unstyled small text-muted">
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> Website Developer</li>
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> Accounting Officer</li>
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> General Affair</li>
-                                            </ul>
-                                            <a href="karir.html" class="btn btn-sm btn-yellow mt-2" data-key="nav_career_all">Lihat Semua Lowongan</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6 data-key="nav_con_biz">Bisnis & Kemitraan</h6><p>Business & Partnerships</p></div></a></div>
-                                    <div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6 data-key="nav_con_code">Kode Etik & Perilaku</h6><p>Code of Conduct</p></div></a></div>
-                                    <div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6 data-key="nav_con_wbs">Pelaporan Pelanggan</h6><p>Whistleblowing System</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p>Perusahaan induk TI global.</p></div></a></div><div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p>Pilar solusi bisnis TI.</p></div></a></div><div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p>Komitmen berkelanjutan.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p>Business Process as a Service.</p></div></a></div><div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p>Solusi infrastruktur digital.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Investor</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6>Laporan Tahunan</h6><p>Annual Report</p></div></a></div><div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6>Pemegang Saham</h6><p>Shareholder Info</p></div></a></div><div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6>Keterbukaan Info</h6><p>Disclosure of Info</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_article">Artikel</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6>Blog</h6><p>Artikel Opini dari Nexus.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-6 border-end"><div class="p-3"><h5>Hidup di Nexus</h5><a href="#" class="btn btn-sm btn-outline-primary mt-2">Lihat Budaya</a></div></div><div class="col-lg-6"><div class="p-3"><h5>Lowongan</h5><a href="karir.html" class="btn btn-sm btn-yellow mt-2">Lihat Semua</a></div></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6>Bisnis</h6><p>Business Partnership</p></div></a></div><div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6>Kode Etik</h6><p>Code of Conduct</p></div></a></div><div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6>WBS</h6><p>Whistleblowing System</p></div></a></div></div></div></div></li>
                 </ul>
-
                 <div class="nav-right-icons d-flex align-items-center">
                     <div class="dropdown">
                         <button class="btn btn-link dropdown-toggle text-decoration-none lang-btn" type="button" data-bs-toggle="dropdown" id="btnLanguage">
                             <img src="https://flagcdn.com/w20/id.png" alt="ID" id="imgLanguage"> <span id="textLanguage">ID</span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="min-width: 100px;">
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
                             <li><a class="dropdown-item" onclick="setLanguage('id')"><img src="https://flagcdn.com/w20/id.png" alt="ID"> Bahasa Indonesia</a></li>
                             <li><a class="dropdown-item" onclick="setLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a></li>
-                            <li><a class="dropdown-item" onclick="setLanguage('jp')"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語 (Japanese)</a></li>
+                            <li><a class="dropdown-item" onclick="setLanguage('jp')"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語</a></li>
                         </ul>
                     </div>
                 </div>
@@ -372,20 +160,19 @@
     </nav>
 
     <header class="wbs-hero">
-        <div class="container">
-            <h1 class="text-white mb-3" data-key="wbs_hero_title">Sistem Pelaporan Pelanggan</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none" data-key="nav_home">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none" data-key="nav_contact">Kontak</a></li>
-                    <li class="breadcrumb-item active text-white opacity-75" aria-current="page" data-key="nav_con_wbs">Sistem Pelaporan</li>
-                </ol>
-            </nav>
+        <div class="container px-4">
+            <div class="row">
+                <div class="col-lg-8 animate-up">
+                    <span class="badge bg-danger mb-3">PENTING</span>
+                    <h1 class="wbs-hero-title" data-key="wbs_hero_title">Sistem Pelaporan Pelanggan</h1>
+                    <p class="lead text-white opacity-75">Saluran aman dan rahasia untuk melaporkan pelanggaran etika.</p>
+                </div>
+            </div>
         </div>
     </header>
 
     <section class="wbs-content">
-        <div class="container">
+        <div class="container px-4">
             <div class="row">
                 <div class="col-lg-8">
                     <p class="wbs-text" data-key="wbs_desc">
@@ -393,44 +180,27 @@
                     </p>
 
                     <form class="report-form" id="wbsForm">
+                        <h4 class="mb-4 text-dark">Formulir Laporan</h4>
                         <div class="row">
-                            <div class="col-12">
-                                <input type="text" class="form-control" id="wbsSubject" data-key-ph="wbs_ph_subject" placeholder="Subjek*" required>
-                            </div>
+                            <div class="col-12"><input type="text" class="form-control" id="wbsSubject" placeholder="Subjek Laporan*" required></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="wbsName" data-key-ph="wbs_ph_name" placeholder="Nama Lengkap*" required>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="wbsPhone" data-key-ph="wbs_ph_phone" placeholder="Nomor Telepon*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric" required>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="email" class="form-control" id="wbsEmail" data-key-ph="wbs_ph_email" placeholder="Email*" required>
-                            </div>
+                            <div class="col-md-6"><input type="text" class="form-control" id="wbsName" placeholder="Nama Lengkap (Opsional)"></div>
+                            <div class="col-md-6"><input type="text" class="form-control" id="wbsPhone" placeholder="Nomor Telepon (Opsional)" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <textarea class="form-control" id="wbsMessage" rows="5" data-key-ph="wbs_ph_msg" placeholder="Pesan / Detail Laporan*" required></textarea>
-                            </div>
+                            <div class="col-12"><textarea class="form-control" id="wbsMessage" rows="6" placeholder="Detail Laporan / Kronologi Kejadian*" required></textarea></div>
                         </div>
-                        
                         <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" id="wbsPrivacy" required>
-                            <label class="form-check-label small text-muted" for="wbsPrivacy">
-                                <span data-key="wbs_privacy_agree">Saya setuju dengan</span> 
-                                <a href="#" class="text-danger text-decoration-none" data-key="wbs_privacy_link">Kebijakan Privasi</a>
-                            </label>
+                            <label class="form-check-label small text-muted" for="wbsPrivacy"><span data-key="wbs_privacy_agree">Saya menjamin laporan ini benar dan setuju dengan</span> <a href="#" class="text-danger">Kebijakan Privasi</a></label>
                         </div>
-
-                        <button type="submit" class="btn-send-report" data-key="wbs_btn_send">KIRIM PESAN</button>
+                        <button type="submit" class="btn-send-report" data-key="wbs_btn_send">KIRIM LAPORAN</button>
                     </form>
 
                     <div class="mt-5 pt-4 border-top">
-                        <p class="wbs-text small" data-key="wbs_gcg_info">
-                            Silakan mengacu pada Pedoman Tata Kelola Perusahaan yang Baik (GCG) untuk mengetahui lebih jelas mengenai kode etik dan perilaku yang mengatur standar perilaku dan etika Insan Perseroan serta interaksinya dengan seluruh Pemangku Kepentingan.
-                        </p>
-                        <a href="etik.html" class="btn-explore" data-key="wbs_btn_explore">JELAJAHI LEBIH LANJUT</a>
+                        <p class="wbs-text small" data-key="wbs_gcg_info">Silakan mengacu pada Pedoman Tata Kelola Perusahaan yang Baik (GCG) untuk mengetahui lebih jelas mengenai kode etik.</p>
+                        <a href="etik.html" class="btn-explore" data-key="wbs_btn_explore">JELAJAHI KODE ETIK</a>
                     </div>
                 </div>
 
@@ -450,237 +220,90 @@
             <div class="row gy-5">
                 <div class="col-lg-4">
                     <h3 class="text-white mb-3">Nexus<span>Digital</span></h3>
-                    <div class="mb-4">
-                        <h6 class="text-white" data-key="foot_hq">Kantor Pusat</h6>
-                        <p class="opacity-75 small" data-key="foot_addr_hq">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia</p>
-                    </div>
-                    <div class="mb-4">
-                        <h6 class="text-white" data-key="foot_branch">Kantor Pusat Jakarta</h6>
-                        <p class="opacity-75 small" data-key="foot_addr_branch">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909</p>
-                    </div>
+                    <div class="mb-4"><h6 class="text-white" data-key="foot_hq">Kantor Pusat</h6><p class="opacity-75 small" data-key="foot_addr_hq">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia</p></div>
+                    <div class="mb-4"><h6 class="text-white" data-key="foot_branch">Kantor Pusat Jakarta</h6><p class="opacity-75 small" data-key="foot_addr_branch">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909</p></div>
                 </div>
-
                 <div class="col-lg-8">
                     <div class="bg-white p-4 rounded text-dark">
                         <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="foot_contact">Hubungi Kami</h5>
-                        <p class="small text-muted mb-4" data-key="foot_form_desc">Anda memiliki pertanyaan seputar bisnis dan kolaborasi?</p>
-                        
                         <form id="footerForm">
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" data-key-ph="ph_fname" placeholder="Nama Depan*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" data-key-ph="ph_lname" placeholder="Nama Belakang*"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" data-key-ph="ph_job" placeholder="Jabatan*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" data-key-ph="ph_comp" placeholder="Nama Perusahaan*"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" data-key-ph="ph_email" placeholder="Email*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" data-key-ph="ph_phone" placeholder="Nomor HP*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"></div>
-                            </div>
-                            <textarea class="footer-form-control" id="f_msg" rows="3" data-key-ph="ph_msg" placeholder="Pesan*"></textarea>
-                            
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="privacyCheck">
-                                <label class="form-check-label small" for="privacyCheck">
-                                    <span data-key="foot_privacy_agree">Saya setuju dengan</span> 
-                                    <a href="#" data-key="foot_privacy_link">Kebijakan Privasi</a>
-                                </label>
-                            </div>
-                            
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" placeholder="Nama Depan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" placeholder="Nama Belakang*"></div></div>
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" placeholder="Jabatan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" placeholder="Nama Perusahaan*"></div></div>
+                            <div class="row"><div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" placeholder="Email*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" placeholder="Nomor HP*"></div></div>
+                            <textarea class="footer-form-control" id="f_msg" rows="3" placeholder="Pesan*"></textarea>
+                            <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="privacyCheck"><label class="form-check-label small" for="privacyCheck"><span data-key="foot_privacy_agree">Saya setuju dengan</span> <a href="#" data-key="foot_privacy_link">Kebijakan Privasi</a></label></div>
                             <button type="submit" class="btn btn-yellow text-dark px-4 py-2" data-key="btn_send">Kirim Pesan</button>
                         </form>
                     </div>
                 </div>
             </div>
-            
-            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
-            
-            <div class="row align-items-center small opacity-75">
-                <div class="col-md-6" data-key="foot_copy">© 2026 PT NexusDigital Tbk. All rights reserved.</div>
-                <div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end">
-                    <a href="#" data-key="foot_pol">Kebijakan Privasi</a>
-                    <a href="#" data-key="foot_term">Syarat dan Ketentuan</a>
-                    <div class="d-flex gap-2 ms-3">
-                        <i class="bi bi-linkedin"></i>
-                        <i class="bi bi-instagram"></i>
-                        <i class="bi bi-youtube"></i>
-                    </div>
-                </div>
-            </div>
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);"><div class="row align-items-center small opacity-75"><div class="col-md-6">© 2026 PT NexusDigital Tbk. All rights reserved.</div></div>
         </div>
     </footer>
 
     <div class="floating-buttons">
-        <a href="https://wa.me/62895639068080" class="btn-float btn-wa" target="_blank" title="Chat via WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-        <button id="backToTop" class="btn-float btn-top" onclick="topFunction()" title="Back to Top">
-            <i class="bi bi-arrow-up"></i>
-        </button>
+        <a href="https://wa.me/62895639068080" class="btn-float btn-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        <button id="backToTop" class="btn-float btn-top" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
         const translations = {
             id: {
-                // GLOBAL
-                nav_home: "Beranda", nav_about: "Tentang Kami", nav_holding_desc: "Perusahaan induk TI global.", nav_subholding_desc: "Pilar solusi bisnis TI.", nav_esg_desc: "Komitmen berkelanjutan.",
-                nav_business: "Bisnis", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Solusi infrastruktur digital.",
-                nav_investor: "Hubungan Investor", nav_inv_annual: "Laporan Tahunan", nav_inv_share: "Info Pemegang Saham", nav_inv_info: "Keterbukaan Informasi",
-                nav_article: "Artikel", nav_art_blog: "Blog", nav_art_blog_desc: "Artikel Opini dari Nexus.",
-                nav_career: "Karir", nav_career_life: "Hidup Sebagai Nexusian", nav_career_life_desc: "Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI.", nav_career_cult: "Lihat Budaya Kami", nav_career_latest: "Lowongan Kerja Terbaru", nav_career_all: "Lihat Semua Lowongan",
-                nav_contact: "Kontak", nav_con_biz: "Bisnis & Kemitraan", nav_con_code: "Kode Etik & Perilaku", nav_con_wbs: "Pelaporan Pelanggan",
-                foot_hq: "Kantor Pusat", foot_branch: "Kantor Pusat Jakarta", foot_contact: "Hubungi Kami", foot_form_desc: "Anda memiliki pertanyaan seputar bisnis dan kolaborasi?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
-                ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
-                foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
-
-                // KHUSUS HALAMAN PELANGGAN (WBS)
-                wbs_hero_title: "Sistem Pelaporan Pelanggan",
-                wbs_desc: "Sistem Pelaporan Pelanggan adalah cara bagi karyawan dan pihak eksternal untuk melaporkan pelanggaran di dalam perusahaan. Hal ini memungkinkan kita untuk menghindari dan mengungkap potensi kesalahan. Laporan yang diterima akan diselidiki. Jika terbukti benar, hukuman yang sesuai akan diterapkan kepada mereka yang terlibat. Kami menjamin kerahasiaan pelapor.",
-                wbs_ph_subject: "Subjek*", wbs_ph_name: "Nama Lengkap*", wbs_ph_phone: "Nomor Telepon*", wbs_ph_email: "Email*", wbs_ph_msg: "Pesan / Detail Laporan*",
-                wbs_privacy_agree: "Saya setuju dengan", wbs_privacy_link: "Kebijakan Privasi",
-                wbs_btn_send: "KIRIM PESAN",
-                wbs_gcg_info: "Silakan mengacu pada Pedoman Tata Kelola Perusahaan yang Baik (GCG) untuk mengetahui lebih jelas mengenai kode etik dan perilaku yang mengatur standar perilaku dan etika Insan Perseroan serta interaksinya dengan seluruh Pemangku Kepentingan.",
-                wbs_btn_explore: "JELAJAHI LEBIH LANJUT",
-                wbs_info_title: "Info lebih lanjut", wbs_info_desc: "Hubungi komite whistleblower kami secara langsung jika Anda memerlukan bantuan lebih lanjut."
+                nav_home: "Beranda", nav_about: "Tentang Kami", wbs_hero_title: "Sistem Pelaporan Pelanggan",
+                wbs_desc: "Sistem Pelaporan Pelanggan adalah cara melaporkan pelanggaran.",
+                wbs_btn_send: "KIRIM LAPORAN", wbs_btn_explore: "JELAJAHI KODE ETIK",
+                foot_contact: "Hubungi Kami", btn_send: "Kirim Pesan"
             },
             en: {
-                // GLOBAL
-                nav_home: "Home", nav_about: "About Us", nav_holding_desc: "Global IT holding company.", nav_subholding_desc: "IT business solutions pillar.", nav_esg_desc: "Sustainable commitment.",
-                nav_business: "Business", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Digital infrastructure solutions.",
-                nav_investor: "Investor Relations", nav_inv_annual: "Annual Report", nav_inv_share: "Shareholder Info", nav_inv_info: "Disclosure of Info",
-                nav_article: "Articles", nav_art_blog: "Blogs", nav_art_blog_desc: "Opinion Articles from Nexus.",
-                nav_career: "Career", nav_career_life: "Life as a Nexusian", nav_career_life_desc: "Discover personal achievement and growth opportunities in the evolving IT industry landscape.", nav_career_cult: "View Our Culture", nav_career_latest: "Latest Job Vacancies", nav_career_all: "View All Vacancies",
-                nav_contact: "Contact Us", nav_con_biz: "Business & Partnerships", nav_con_code: "Code of Conduct", nav_con_wbs: "Whistleblowing System",
-                foot_hq: "Headquarters", foot_branch: "Jakarta Office", foot_contact: "Contact Us", foot_form_desc: "Do you have questions about business and collaboration?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
-                ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
-                foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
-
-                // WBS PAGE SPECIFIC
-                wbs_hero_title: "Whistleblowing System",
-                wbs_desc: "The Whistleblowing System is a way for employees and external parties to report violations within the company. This allows us to avoid and uncover potential misconduct. Received reports will be investigated. If proven true, appropriate sanctions will be applied to those involved. We guarantee the confidentiality of the reporter.",
-                wbs_ph_subject: "Subject*", wbs_ph_name: "Full Name*", wbs_ph_phone: "Phone Number*", wbs_ph_email: "Email*", wbs_ph_msg: "Message / Report Detail*",
-                wbs_privacy_agree: "I agree to the", wbs_privacy_link: "Privacy Policy",
-                wbs_btn_send: "SEND MESSAGE",
-                wbs_gcg_info: "Please refer to the Good Corporate Governance (GCG) Guidelines to learn more about the code of conduct and ethics governing the behavior standards of Company Personnel and their interactions with all Stakeholders.",
-                wbs_btn_explore: "EXPLORE MORE",
-                wbs_info_title: "Further Info", wbs_info_desc: "Contact our whistleblower committee directly if you need further assistance."
+                nav_home: "Home", nav_about: "About Us", wbs_hero_title: "Whistleblowing System",
+                wbs_desc: "The Whistleblowing System is a way to report violations.",
+                wbs_btn_send: "SUBMIT REPORT", wbs_btn_explore: "EXPLORE CODE OF CONDUCT",
+                foot_contact: "Contact Us", btn_send: "Send Message"
             },
             jp: {
-                // GLOBAL
-                nav_home: "ホーム", nav_about: "会社概要", nav_holding_desc: "グローバルIT持株会社。", nav_subholding_desc: "ITビジネスソリューションの柱。", nav_esg_desc: "持続可能なコミットメント。",
-                nav_business: "事業内容", nav_bpaas_desc: "BPaaSソリューション。", nav_cloud_desc: "デジタルインフラソリューション。",
-                nav_investor: "IR情報", nav_inv_annual: "年次報告書", nav_inv_share: "株主情報", nav_inv_info: "情報開示",
-                nav_article: "記事", nav_art_blog: "ブログ", nav_art_blog_desc: "Nexusからのオピニオン記事。",
-                nav_career: "採用情報", nav_career_life: "Nexusianとしての生活", nav_career_life_desc: "進化するIT業界で、個人の達成と成長の機会を見つけましょう。", nav_career_cult: "私たちの文化を見る", nav_career_latest: "最新の求人情報", nav_career_all: "すべての求人を見る",
-                nav_contact: "お問い合わせ", nav_con_biz: "ビジネス＆パートナーシップ", nav_con_code: "行動規範", nav_con_wbs: "内部通報システム",
-                foot_hq: "本社", foot_branch: "ジャカルタオフィス", foot_contact: "お問い合わせ", foot_form_desc: "ビジネスやコラボレーションに関するご質問はありますか？", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
-                ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
-                foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
-
-                // WBS PAGE SPECIFIC
-                wbs_hero_title: "内部通報システム",
-                wbs_desc: "内部通報システムは、従業員や外部の関係者が社内の違反を報告するための手段です。これにより、潜在的な不正行為を回避し、明らかにすることができます。受け取った報告は調査されます。事実であることが証明された場合、関与した者には適切な制裁が適用されます。報告者の機密性は保証されます。",
-                wbs_ph_subject: "件名*", wbs_ph_name: "氏名*", wbs_ph_phone: "電話番号*", wbs_ph_email: "Eメール*", wbs_ph_msg: "メッセージ / 報告詳細*",
-                wbs_privacy_agree: "私は同意します", wbs_privacy_link: "プライバシーポリシー",
-                wbs_btn_send: "メッセージを送信",
-                wbs_gcg_info: "会社役職員の行動基準およびすべてのステークホルダーとの相互作用を規定する行動規範および倫理の詳細については、コーポレートガバナンス（GCG）ガイドラインを参照してください。",
-                wbs_btn_explore: "さらに詳しく",
-                wbs_info_title: "詳細情報", wbs_info_desc: "さらに支援が必要な場合は、内部通報委員会に直接お問い合わせください。"
+                nav_home: "ホーム", nav_about: "会社概要", wbs_hero_title: "内部通報システム",
+                wbs_desc: "内部通報システムは違反を報告する方法です。",
+                wbs_btn_send: "レポートを送信", wbs_btn_explore: "行動規範を見る",
+                foot_contact: "お問い合わせ", btn_send: "メッセージを送信"
             }
         };
 
         function setLanguage(lang) {
             const flagMap = { 'id': 'https://flagcdn.com/w20/id.png', 'en': 'https://flagcdn.com/w20/gb.png', 'jp': 'https://flagcdn.com/w20/jp.png' };
             const textMap = { 'id': 'ID', 'en': 'EN', 'jp': 'JP' };
-
             document.getElementById('imgLanguage').src = flagMap[lang];
             document.getElementById('textLanguage').innerText = textMap[lang];
-
-            // 1. Translate Text Content (innerHTML to allow <br>)
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.children.length > 0 && el.children[0].tagName === 'I') {
-                         const icon = el.children[0].outerHTML; 
-                         el.innerHTML = icon + " " + translations[lang][key];
-                    } else {
-                         el.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-
-            // 2. Translate Placeholders
-            document.querySelectorAll('[data-key-ph]').forEach(el => {
-                const key = el.getAttribute('data-key-ph');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
+                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
             });
         }
 
-        // --- 2. LOGIKA FORM WBS (KHUSUS) ---
-        document.getElementById('wbsForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah reload
-
+        // Logic Form WBS (Pelaporan)
+        document.getElementById('wbsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             var subject = document.getElementById('wbsSubject').value;
-            var name = document.getElementById('wbsName').value;
-            var phone = document.getElementById('wbsPhone').value;
-            var email = document.getElementById('wbsEmail').value;
-            var message = document.getElementById('wbsMessage').value;
-
-            var waMessage = "Halo NexusDigital, saya ingin membuat Laporan Pelanggan (WBS):%0a%0a" +
-                            "*Subjek:* " + subject + "%0a" +
-                            "*Nama Pelapor:* " + name + "%0a" +
-                            "*Nomor HP:* " + phone + "%0a" +
-                            "*Email:* " + email + "%0a" +
-                            "*Isi Laporan:* " + message + "%0a%0a" +
-                            "(Dikirim dari Form Website Sistem Pelaporan Pelanggan)";
-
-            var waNumber = "62895639068080";
-            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
-            window.open(waURL, '_blank');
+            var msg = document.getElementById('wbsMessage').value;
+            // Kirim ke nomor khusus WBS atau umum
+            window.open(`https://wa.me/62895639068080?text=Laporan WBS: ${subject}. Detail: ${msg}`, '_blank');
         });
 
-        // --- 3. LOGIKA WA FORM FOOTER (UMUM) ---
-        document.getElementById('footerForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah reload
-            var fname = document.getElementById('f_fname').value;
-            var lname = document.getElementById('f_lname').value;
-            var job = document.getElementById('f_job').value;
-            var comp = document.getElementById('f_comp').value;
-            var email = document.getElementById('f_email').value;
-            var phone = document.getElementById('f_phone').value;
+        // Logic Form Footer (Kontak Umum)
+        document.getElementById('footerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('f_fname').value;
             var msg = document.getElementById('f_msg').value;
-
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman WBS):%0a%0a" +
-                            "*Nama:* " + fname + " " + lname + "%0a" +
-                            "*Jabatan:* " + job + "%0a" +
-                            "*Perusahaan:* " + comp + "%0a" +
-                            "*Email:* " + email + "%0a" +
-                            "*No. HP:* " + phone + "%0a" +
-                            "*Pesan:* " + msg + "%0a%0a" +
-                            "(Dikirim dari Footer Website)";
-
-            var waNumber = "62895639068080";
-            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
-            window.open(waURL, '_blank');
+            window.open(`https://wa.me/62895639068080?text=Halo Nexus, saya ${name}. ${msg}`, '_blank');
         });
 
-        // --- 4. LOGIKA BACK TO TOP ---
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
+        window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 document.getElementById("backToTop").classList.add("show");
             } else {
                 document.getElementById("backToTop").classList.remove("show");
             }
-        }
-        function topFunction() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+        };
     </script>
 </body>
 </html>
