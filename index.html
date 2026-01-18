@@ -6,25 +6,26 @@
     <title>NexusDigital - Establish Digital Ecosystem</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <style>
         :root {
-            /* --- DEFINISI WARNA NEXUSDIGITAL --- */
+            /* Palette NexusDigital */
             --nd-blue-dark: #002855;
             --nd-blue-light: #004e92;
             --nd-yellow: #FFC107;
             --nd-green: #28a745;
             --nd-bg-light: #f4f7f6;
             --nd-text-muted: #6c757d;
+            --nd-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             color: #333;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Smooth scroll native */
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3, h4, h5 {
@@ -33,107 +34,41 @@
             color: var(--nd-blue-dark);
         }
 
-        /* --- NAVBAR STYLES --- */
-        .navbar {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 10px 0;
-            transition: all 0.3s;
-        }
-        
-        .navbar-brand {
-            padding: 0;
-            margin-right: 2rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        /* Logo Gambar */
-        .navbar-brand img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* HILANGKAN PANAH BAWAAN BOOTSTRAP */
-        .dropdown-toggle::after {
-            display: none !important;
-        }
-
+        /* --- NAVBAR STYLES (STANDAR) --- */
+        .navbar { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px 0; transition: all 0.3s; }
+        .navbar-brand { padding: 0; margin-right: 2rem; display: flex; align-items: center; }
+        .navbar-brand img { height: 50px; width: auto; object-fit: contain; }
+        .dropdown-toggle::after { display: none !important; }
         .navbar-nav .nav-item { position: static; padding: 0 8px; }
+        .navbar-nav .nav-link { color: var(--nd-blue-dark) !important; font-weight: 600; font-size: 14px; padding: 25px 5px !important; position: relative; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
         
-        .navbar-nav .nav-link {
-            color: var(--nd-blue-dark) !important;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 25px 5px !important;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-
-        /* --- MEGA MENU BASE --- */
-        .dropdown-menu-mega {
-            border: none;
-            border-top: 1px solid #f0f0f0;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            background: white;
-            margin-top: 0;
-            z-index: 1000;
-        }
-
+        /* Mega Menu */
+        .dropdown-menu-mega { border: none; border-top: 1px solid #f0f0f0; box-shadow: 0 15px 30px rgba(0,0,0,0.1); background: white; margin-top: 0; z-index: 1000; }
         .mega-item { display: flex; align-items: flex-start; padding: 10px; transition: transform 0.2s; }
         .mega-item:hover { transform: translateX(5px); }
         .mega-icon-box { font-size: 1.5rem; color: var(--nd-blue-dark); margin-right: 15px; width: 30px; text-align: center; }
         .mega-content-box h6 { font-weight: 700; color: var(--nd-blue-dark); font-size: 0.95rem; margin-bottom: 2px; }
         .mega-content-box p { font-size: 0.8rem; color: #888; margin-bottom: 0; line-height: 1.3; }
 
-        /* --- DESKTOP VIEW --- */
         @media (min-width: 992px) {
-            .navbar-nav .nav-link::before {
-                content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0);
-                width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
-            }
+            .navbar-nav .nav-link::before { content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0); width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease; }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            
-            .dropdown-menu-mega {
-                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
-            }
+            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
-        /* --- MOBILE VIEW --- */
         @media (max-width: 991px) {
-            .navbar-collapse {
-                background: white;
-                padding: 15px;
-                border-top: 1px solid #eee;
-                max-height: 80vh;
-                overflow-y: auto;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-                margin-top: 10px;
-                border-radius: 0 0 10px 10px;
-            }
-            .navbar-nav .nav-link {
-                padding: 15px 0 !important;
-                border-bottom: 1px solid #f5f5f5;
-                width: 100%;
-                justify-content: space-between; 
-            }
+            .navbar-collapse { background: white; padding: 15px; border-top: 1px solid #eee; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 10px; border-radius: 0 0 10px 10px; }
+            .navbar-nav .nav-link { padding: 15px 0 !important; border-bottom: 1px solid #f5f5f5; width: 100%; justify-content: space-between; }
             .navbar-nav .nav-link::before { display: none; }
-            .dropdown-menu-mega {
-                position: static; float: none; width: 100%; box-shadow: none; border: none; padding-left: 10px; background-color: #fcfcfc; margin-bottom: 10px; border-radius: 8px;
-            }
+            .dropdown-menu-mega { position: static; float: none; width: 100%; box-shadow: none; border: none; padding-left: 10px; background-color: #fcfcfc; margin-bottom: 10px; border-radius: 8px; }
             .mega-item { padding: 12px 0; border-bottom: 1px solid #eee; }
             .mega-item:last-child { border-bottom: none; }
             .dropdown-menu-mega .row > div { width: 100%; margin-bottom: 5px; }
             .border-end { border-right: none !important; }
-            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; }
+            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; display: flex; align-items: center; }
         }
 
-        /* Language Dropdown */
         .lang-btn img { width: 20px; margin-right: 5px; border-radius: 2px; }
         .dropdown-item { cursor: pointer; display: flex; align-items: center; gap: 10px; }
         .dropdown-item img { width: 20px; border-radius: 2px; }
@@ -142,19 +77,16 @@
 
         /* --- HERO SECTION --- */
         .hero-section {
-            background: linear-gradient(rgba(0, 40, 85, 0.8), rgba(0, 40, 85, 0.6)), url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0, 40, 85, 0.8), rgba(0, 40, 85, 0.6)), url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             height: 85vh; min-height: 600px;
             display: flex; align-items: center; text-align: center; color: white;
             margin-top: 70px;
         }
-        .hero-title { font-size: 3.5rem; line-height: 1.2; margin-bottom: 30px; color: white; }
+        .hero-title { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 30px; color: white; }
         @media (max-width: 768px) { .hero-title { font-size: 2.5rem; } }
 
         /* --- COMPONENTS --- */
-        .btn-yellow {
-            background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; border-radius: 4px; transition: all 0.3s ease;
-        }
+        .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; border-radius: 4px; transition: all 0.3s ease; }
         .btn-yellow:hover { background-color: #e0a800; color: black; transform: translateY(-2px); }
         .section-padding { padding: 80px 0; }
         .decoration-line-center { height: 4px; width: 70px; background: var(--nd-green); margin: 20px auto; border-radius: 2px; }
@@ -186,83 +118,24 @@
         /* CTA */
         .bottom-cta { background: linear-gradient(rgba(0, 40, 85, 0.85), rgba(0, 40, 85, 0.85)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 80px 0; text-align: center; color: white; }
 
-        /* FAQ STYLES */
-        .accordion-button:not(.collapsed) {
-            color: var(--nd-blue-dark);
-            background-color: rgba(255, 193, 7, 0.2); /* Light Yellow */
-            box-shadow: none;
-        }
-        .accordion-button:focus {
-            box-shadow: none;
-            border-color: rgba(0,0,0,.125);
-        }
-        .accordion-item {
-            border: none;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border-radius: 8px !important;
-            overflow: hidden;
-        }
-
-        /* Insights */
-        .insight-card { border: none; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-        .insight-card img { height: 200px; object-fit: cover; }
-        .insight-card .card-body { padding: 25px; }
-        .read-more-link { color: var(--nd-blue-dark); font-weight: 600; text-decoration: none; }
-        .read-more-link:hover { color: var(--nd-green); }
+        /* FAQ */
+        .accordion-button:not(.collapsed) { color: var(--nd-blue-dark); background-color: rgba(255, 193, 7, 0.2); box-shadow: none; }
+        .accordion-button:focus { box-shadow: none; border-color: rgba(0,0,0,.125); }
+        .accordion-item { border: none; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-radius: 8px !important; overflow: hidden; }
 
         /* Footer */
         footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
-        footer a { color: #adb5bd; text-decoration: none; transition: 0.3s; }
-        footer a:hover { color: var(--nd-yellow); }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
+        /* Floating Btn */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0; /* Hidden by default */
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
-        
     </style>
 </head>
 <body>
@@ -272,127 +145,28 @@
             <a class="navbar-brand" href="index.html">
                 <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">
-                            Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p data-key="nav_holding_desc">Perusahaan induk TI global.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p data-key="nav_subholding_desc">Pilar solusi bisnis TI.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p data-key="nav_esg_desc">Komitmen berkelanjutan.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">
-                            Bisnis <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p data-key="nav_bpaas_desc">Business Process as a Service.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p data-key="nav_cloud_desc">Solusi infrastruktur digital.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">
-                            Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_annual">Laporan Tahunan</h6><p>Annual Report</p></div></a></div>
-                                    <div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_share">Info Pemegang Saham</h6><p>Shareholder Info</p></div></a></div>
-                                    <div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_info">Keterbukaan Informasi</h6><p>Disclosure of Info</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_article">
-                            Artikel <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6 data-key="nav_art_blog">Blog</h6><p data-key="nav_art_blog_desc">Artikel Opini dari Nexus.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">
-                            Karir <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 border-end">
-                                        <div class="p-3">
-                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="nav_career_life">Hidup Sebagai Nexusian</h5>
-                                            <p class="small text-muted" data-key="nav_career_life_desc">Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI yang berkembang bersama kami.</p>
-                                            <a href="#" class="btn btn-sm btn-outline-primary mt-2" data-key="nav_career_cult">Lihat Budaya Kami</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="p-3">
-                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="nav_career_latest">Lowongan Kerja Terbaru</h5>
-                                            <ul class="list-unstyled small text-muted">
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> Website Developer</li>
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> Accounting Officer</li>
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> General Affair</li>
-                                            </ul>
-                                            <a href="karir.html" class="btn btn-sm btn-yellow mt-2" data-key="nav_career_all">Lihat Semua Lowongan</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">
-                            Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6 data-key="nav_con_biz">Bisnis & Kemitraan</h6><p>Business & Partnerships</p></div></a></div>
-                                    <div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6 data-key="nav_con_code">Kode Etik & Perilaku</h6><p>Code of Conduct</p></div></a></div>
-                                    <div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6 data-key="nav_con_wbs">Pelaporan Pelanggan</h6><p>Whistleblowing System</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html" data-key="nav_home">Beranda</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p data-key="nav_holding_desc">Perusahaan induk TI global.</p></div></a></div><div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p data-key="nav_subholding_desc">Pilar solusi bisnis TI.</p></div></a></div><div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p data-key="nav_esg_desc">Komitmen berkelanjutan.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p data-key="nav_bpaas_desc">Business Process as a Service.</p></div></a></div><div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p data-key="nav_cloud_desc">Solusi infrastruktur digital.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Investor</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6>Laporan Tahunan</h6><p>Annual Report</p></div></a></div><div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6>Pemegang Saham</h6><p>Shareholder Info</p></div></a></div><div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6>Keterbukaan Info</h6><p>Disclosure of Info</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_article">Artikel</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6>Blog</h6><p>Artikel Opini dari Nexus.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-6 border-end"><div class="p-3"><h5 data-key="nav_career_life">Hidup di Nexus</h5><a href="#" class="btn btn-sm btn-outline-primary mt-2">Lihat Budaya</a></div></div><div class="col-lg-6"><div class="p-3"><h5 data-key="nav_career_latest">Lowongan</h5><a href="karir.html" class="btn btn-sm btn-yellow mt-2">Lihat Semua</a></div></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6>Bisnis</h6><p>Business Partnership</p></div></a></div><div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6>Kode Etik</h6><p>Code of Conduct</p></div></a></div><div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6>WBS</h6><p>Whistleblowing System</p></div></a></div></div></div></div></li>
                 </ul>
-
                 <div class="nav-right-icons d-flex align-items-center">
                     <div class="dropdown">
                         <button class="btn btn-link dropdown-toggle text-decoration-none lang-btn" type="button" data-bs-toggle="dropdown" id="btnLanguage">
                             <img src="https://flagcdn.com/w20/id.png" alt="ID" id="imgLanguage"> <span id="textLanguage">ID</span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="min-width: 100px;">
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
                             <li><a class="dropdown-item" onclick="setLanguage('id')"><img src="https://flagcdn.com/w20/id.png" alt="ID"> Bahasa Indonesia</a></li>
                             <li><a class="dropdown-item" onclick="setLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a></li>
-                            <li><a class="dropdown-item" onclick="setLanguage('jp')"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語 (Japanese)</a></li>
+                            <li><a class="dropdown-item" onclick="setLanguage('jp')"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語</a></li>
                         </ul>
                     </div>
                 </div>
@@ -431,9 +205,9 @@
                 <p class="text-muted" data-key="partner_subtitle">Berkolaborasi untuk memberikan nilai terbaik.</p>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-md-4 col-lg-3"><div class="partner-box"><img src="https://placehold.co/150x60?text=Partner+A" alt="Partner A" class="partner-logo img-fluid"><a href="#" class="btn btn-yellow btn-sm w-100" data-key="btn_learn_more">Learn More</a></div></div>
-                <div class="col-md-4 col-lg-3"><div class="partner-box"><img src="https://placehold.co/150x60?text=Partner+B" alt="Partner B" class="partner-logo img-fluid"><a href="#" class="btn btn-yellow btn-sm w-100" data-key="btn_learn_more">Learn More</a></div></div>
-                <div class="col-md-4 col-lg-3"><div class="partner-box"><img src="https://placehold.co/150x60?text=Partner+C" alt="Partner C" class="partner-logo img-fluid"><a href="#" class="btn btn-yellow btn-sm w-100" data-key="btn_learn_more">Learn More</a></div></div>
+                <div class="col-md-4 col-lg-3"><div class="partner-box"><img src="assets/img/halliburton.webp" alt="PT halliburton" class="partner-logo img-fluid"><a href="https://halliburton.com" class="btn btn-yellow btn-sm w-100" data-key="btn_learn_more">Learn More</a></div></div>
+                <div class="col-md-4 col-lg-3"><div class="partner-box"><img src="assets/img/pama.webp" alt="PT pama" class="partner-logo img-fluid"><a href="https:pamapersada.com" class="btn btn-yellow btn-sm w-100" data-key="btn_learn_more">Learn More</a></div></div>
+                <div class="col-md-4 col-lg-3"><div class="partner-box"><img src="assets/img/petronas.webp" alt="PT petronas" class="partner-logo img-fluid"><a href="https://petronas.com" class="btn btn-yellow btn-sm w-100" data-key="btn_learn_more">Learn More</a></div></div>
             </div>
         </div>
     </section>
@@ -478,9 +252,9 @@
                  <div class="col-lg-4 mb-4 mb-lg-0">
                      <h2 data-key="stats_title">Performance & Growth</h2>
                      <p class="text-muted mb-4" data-key="stats_desc">Komitmen kami terhadap transparansi dan pertumbuhan yang berkelanjutan tercermin dalam kinerja kami.</p>
-                     <a href="#" class="read-more-link" data-key="link_investor_report">View Investor Report <i class="bi bi-arrow-right"></i></a>
+                     <a href="pemegang.html" class="read-more-link" data-key="link_investor_report">View Investor Report <i class="bi bi-arrow-right"></i></a>
                  </div>
-                 <div class="col-lg-8"><img src="https://placehold.co/800x400?text=Interactive+Stock+Chart+Placeholder" alt="Stock Chart" class="img-fluid rounded shadow-sm"></div>
+                 <div class="col-lg-8"><img src="assets/img/chart.webp" alt="Stock Chart" class="img-fluid rounded shadow-sm"></div>
              </div>
         </div>
     </section>
@@ -503,69 +277,23 @@
                 <div class="col-lg-8">
                     <div class="accordion" id="nexusFaq">
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    <span data-key="faq_q1">Apa layanan utama NexusDigital?</span>
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#nexusFaq">
-                                <div class="accordion-body" data-key="faq_a1">
-                                    Kami fokus pada integrasi sistem perusahaan, solusi cloud, keamanan siber, dan layanan outsourcing proses bisnis (BPO) untuk mempercepat transformasi digital.
-                                </div>
-                            </div>
+                            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"><span data-key="faq_q1">Apa layanan utama NexusDigital?</span></button></h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#nexusFaq"><div class="accordion-body" data-key="faq_a1">Kami fokus pada integrasi sistem perusahaan, solusi cloud, keamanan siber, dan layanan outsourcing proses bisnis (BPO) untuk mempercepat transformasi digital.</div></div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    <span data-key="faq_q2">Bagaimana cara bermitra dengan NexusDigital?</span>
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#nexusFaq">
-                                <div class="accordion-body" data-key="faq_a2">
-                                    Anda dapat mengunjungi halaman 'Bisnis & Kemitraan' kami untuk melihat model kemitraan yang tersedia atau menghubungi tim kami melalui formulir kontak.
-                                </div>
-                            </div>
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"><span data-key="faq_q2">Bagaimana cara bermitra dengan NexusDigital?</span></button></h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#nexusFaq"><div class="accordion-body" data-key="faq_a2">Anda dapat mengunjungi halaman 'Bisnis & Kemitraan' kami untuk melihat model kemitraan yang tersedia atau menghubungi tim kami melalui formulir kontak.</div></div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    <span data-key="faq_q3">Apakah NexusDigital melayani UKM?</span>
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#nexusFaq">
-                                <div class="accordion-body" data-key="faq_a3">
-                                    Ya, meskipun kami memiliki banyak klien enterprise, kami juga memiliki solusi cloud dan SaaS yang dapat disesuaikan (scalable) untuk kebutuhan UKM yang sedang berkembang.
-                                </div>
-                            </div>
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"><span data-key="faq_q3">Apakah NexusDigital melayani UKM?</span></button></h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#nexusFaq"><div class="accordion-body" data-key="faq_a3">Ya, meskipun kami memiliki banyak klien enterprise, kami juga memiliki solusi cloud dan SaaS yang dapat disesuaikan (scalable) untuk kebutuhan UKM yang sedang berkembang.</div></div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                    <span data-key="faq_q4">Di mana lokasi operasional NexusDigital?</span>
-                                </button>
-                            </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#nexusFaq">
-                                <div class="accordion-body" data-key="faq_a4">
-                                    Kantor pusat kami berada di Tangerang, Indonesia, dengan kantor cabang operasional di Jakarta dan anak perusahaan di beberapa negara Asia Pasifik.
-                                </div>
-                            </div>
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"><span data-key="faq_q4">Di mana lokasi operasional NexusDigital?</span></button></h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#nexusFaq"><div class="accordion-body" data-key="faq_a4">Kantor pusat kami berada di Tangerang, Indonesia, dengan kantor cabang operasional di Jakarta dan anak perusahaan di beberapa negara Asia Pasifik.</div></div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-5">
-                <h2 data-key="insights_title">Latest Insights</h2>
-                <a href="#" class="read-more-link" data-key="link_all_news">View All News <i class="bi bi-arrow-right"></i></a>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4"><div class="card insight-card h-100"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=60" class="card-img-top" alt="News 1"><div class="card-body"><small class="text-muted d-block mb-2" data-key="blog_date_1">October 25, 2023 | Technology</small><h5 class="card-title mb-3" data-key="blog_1_title">Masa Depan Integrasi Sistem di Era Cloud-Native</h5><a href="#" class="read-more-link stretched-link" data-key="blog_read_more">Read More <i class="bi bi-arrow-right-short"></i></a></div></div></div>
-                <div class="col-md-4"><div class="card insight-card h-100"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=60" class="card-img-top" alt="News 2"><div class="card-body"><small class="text-muted d-block mb-2" data-key="blog_date_2">October 18, 2023 | Corporate</small><h5 class="card-title mb-3" data-key="blog_2_title">NexusDigital Raih Penghargaan Top IT Implementation 2023</h5><a href="#" class="read-more-link stretched-link" data-key="blog_read_more">Read More <i class="bi bi-arrow-right-short"></i></a></div></div></div>
-                <div class="col-md-4"><div class="card insight-card h-100"><img src="https://images.unsplash.com/photo-1504384308090-c54be3852f33?auto=format&fit=crop&w=400&q=60" class="card-img-top" alt="News 3"><div class="card-body"><small class="text-muted d-block mb-2" data-key="blog_date_3">September 30, 2023 | Insights</small><h5 class="card-title mb-3" data-key="blog_3_title">Strategi Keamanan Siber untuk Sektor Finansial</h5><a href="#" class="read-more-link stretched-link" data-key="blog_read_more">Read More <i class="bi bi-arrow-right-short"></i></a></div></div></div>
             </div>
         </div>
     </section>
@@ -584,97 +312,50 @@
                         <p class="opacity-75 small" data-key="foot_addr_branch">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909</p>
                     </div>
                 </div>
-
                 <div class="col-lg-8">
                     <div class="bg-white p-4 rounded text-dark">
                         <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="foot_contact">Hubungi Kami</h5>
-                        <p class="small text-muted mb-4" data-key="foot_form_desc">Anda memiliki pertanyaan seputar bisnis dan kolaborasi?</p>
-                        
                         <form id="footerForm">
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" data-key-ph="ph_fname" placeholder="Nama Depan*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" data-key-ph="ph_lname" placeholder="Nama Belakang*"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" data-key-ph="ph_job" placeholder="Jabatan*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" data-key-ph="ph_comp" placeholder="Nama Perusahaan*"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" data-key-ph="ph_email" placeholder="Email*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" data-key-ph="ph_phone" placeholder="Nomor HP*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"></div>
-                            </div>
-                            <textarea class="footer-form-control" id="f_msg" rows="3" data-key-ph="ph_msg" placeholder="Pesan*"></textarea>
-                            
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="privacyCheck">
-                                <label class="form-check-label small" for="privacyCheck">
-                                    <span data-key="foot_privacy_agree">Saya setuju dengan</span> 
-                                    <a href="#" data-key="foot_privacy_link">Kebijakan Privasi</a>
-                                </label>
-                            </div>
-                            
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" placeholder="Nama Depan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" placeholder="Nama Belakang*"></div></div>
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" placeholder="Jabatan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" placeholder="Nama Perusahaan*"></div></div>
+                            <div class="row"><div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" placeholder="Email*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" placeholder="Nomor HP*" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></div></div>
+                            <textarea class="footer-form-control" id="f_msg" rows="3" placeholder="Pesan*"></textarea>
+                            <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="privacyCheck"><label class="form-check-label small" for="privacyCheck"><span data-key="foot_privacy_agree">Saya setuju dengan</span> <a href="#" data-key="foot_privacy_link">Kebijakan Privasi</a></label></div>
                             <button type="submit" class="btn btn-yellow text-dark px-4 py-2" data-key="btn_send">Kirim Pesan</button>
                         </form>
                     </div>
                 </div>
             </div>
-            
-            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
-            
-            <div class="row align-items-center small opacity-75">
-                <div class="col-md-6" data-key="foot_copy">© 2026 PT NexusDigital Tbk. All rights reserved.</div>
-                <div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end">
-                    <a href="#" data-key="foot_pol">Kebijakan Privasi</a>
-                    <a href="#" data-key="foot_term">Syarat dan Ketentuan</a>
-                    <div class="d-flex gap-2 ms-3">
-                        <i class="bi bi-linkedin"></i>
-                        <i class="bi bi-instagram"></i>
-                        <i class="bi bi-youtube"></i>
-                    </div>
-                </div>
-            </div>
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);"><div class="row align-items-center small opacity-75"><div class="col-md-6">© 2026 PT NexusDigital Tbk. All rights reserved.</div></div>
         </div>
     </footer>
 
     <div class="floating-buttons">
-        <a href="https://wa.me/62895639068080" class="btn-float btn-wa" target="_blank" title="Chat via WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-        <button id="backToTop" class="btn-float btn-top" onclick="topFunction()" title="Back to Top">
-            <i class="bi bi-arrow-up"></i>
-        </button>
+        <a href="https://wa.me/62895639068080" class="btn-float btn-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        <button id="backToTop" class="btn-float btn-top" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        // --- 1. LOGIKA TRANSLASI BAHASA ---
         const translations = {
             id: {
                 nav_home: "Beranda", nav_about: "Tentang Kami", nav_holding_desc: "Perusahaan induk TI global.", nav_subholding_desc: "Pilar solusi bisnis TI.", nav_esg_desc: "Komitmen berkelanjutan.",
                 nav_business: "Bisnis", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Solusi infrastruktur digital.",
                 nav_investor: "Hubungan Investor", nav_inv_annual: "Laporan Tahunan", nav_inv_share: "Info Pemegang Saham", nav_inv_info: "Keterbukaan Informasi",
-                nav_article: "Artikel", nav_art_news: "Berita", nav_art_news_desc: "Berita Terkini Seputar Nexus.", nav_art_blog: "Blog", nav_art_blog_desc: "Artikel Opini dari Nexus.", nav_art_success: "Kisah Sukses", nav_art_success_desc: "Success Story Klien Kami.",
-                nav_career: "Karir", nav_career_life: "Hidup Sebagai Nexusian", nav_career_life_desc: "Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI.", nav_career_cult: "Lihat Budaya Kami", nav_career_latest: "Lowongan Kerja Terbaru", nav_career_all: "Lihat Semua Lowongan",
-                nav_contact: "Kontak", nav_con_biz: "Bisnis & Kemitraan", nav_con_code: "Kode Etik & Perilaku", nav_con_wbs: "Pelaporan Pelanggan",
-                hero_title: "Membangun Ekosistem Digital,<br>Menavigasi Inovasi", hero_subtitle: "Mitra terpercaya dalam transformasi digital, menghubungkan bisnis Anda dengan masa depan melalui solusi teknologi yang cerdas dan terintegrasi.", hero_cta: "JELAJAHI SOLUSI KAMI",
-                intro_title: "Memberdayakan Keunggulan Digital", intro_desc: "Di NexusDigital, kami tidak hanya menyediakan teknologi; kami membangun ekosistem. Dengan pengalaman mendalam dan komitmen terhadap inovasi, kami membantu organisasi menavigasi kompleksitas era digital untuk mencapai pertumbuhan yang berkelanjutan.",
+                nav_article: "Artikel", nav_art_blog: "Blog", nav_art_blog_desc: "Artikel Opini dari Nexus.",
+                nav_career: "Karir", nav_career_life: "Hidup di Nexus", nav_career_latest: "Lowongan", nav_contact: "Kontak", nav_con_biz: "Bisnis", nav_con_code: "Kode Etik", nav_con_wbs: "WBS",
+                
+                hero_title: "Membangun Ekosistem Digital,<br>Menavigasi Inovasi", hero_subtitle: "Mitra terpercaya dalam transformasi digital.", hero_cta: "JELAJAHI SOLUSI KAMI",
+                intro_title: "Memberdayakan Keunggulan Digital", intro_desc: "Di NexusDigital, kami tidak hanya menyediakan teknologi; kami membangun ekosistem.",
                 partner_title: "Aliansi Strategis Kami", partner_subtitle: "Berkolaborasi untuk memberikan nilai terbaik.", btn_learn_more: "Pelajari Lebih Lanjut",
                 solutions_title: "Solusi Inti Kami", solutions_subtitle: "Solusi komprehensif untuk setiap tantangan bisnis.",
                 sol_1_title: "Integrasi Sistem Perusahaan", sol_2_title: "Alih Daya Proses Bisnis", sol_3_title: "Solusi Perbankan Digital", sol_4_title: "Keamanan Siber & Ketahanan", sol_5_title: "Big Data & Analitik", sol_6_title: "Layanan Infrastruktur Cloud",
-                why_us_title: "Mengapa Bermitra Dengan NexusDigital?", why_1_title: "Keahlian & Keandalan Terbukti", why_1_desc: "Dengan pengalaman lebih dari satu dekade menangani proyek-proyek mission-critical, kami menjamin keandalan dan kinerja sistem yang tak tertandingi untuk bisnis Anda.", btn_track_record: "LIHAT REKAM JEJAK KAMI", why_2_title: "Pendekatan Berbasis Inovasi", why_2_desc: "Kami terus mengeksplorasi teknologi terbaru—mulai dari AI hingga Blockchain—untuk memastikan klien kami selalu selangkah lebih maju dalam persaingan digital.", btn_innovation: "TEMUKAN INOVASI",
-                stats_title: "Kinerja & Pertumbuhan", stats_desc: "Komitmen kami terhadap transparansi dan pertumbuhan yang berkelanjutan tercermin dalam kinerja kami.", link_investor_report: "Lihat Laporan Investor",
-                cta_title: "Siap Mempercepat Perjalanan Digital Anda?", cta_desc: "Mari berdiskusi tentang bagaimana NexusDigital dapat membantu mencapai tujuan bisnis Anda.", cta_btn: "JADWALKAN KONSULTASI",
+                why_us_title: "Mengapa Bermitra Dengan NexusDigital?", why_1_title: "Keahlian & Keandalan Terbukti", why_1_desc: "Pengalaman lebih dari satu dekade menangani proyek mission-critical.", btn_track_record: "LIHAT REKAM JEJAK KAMI", why_2_title: "Pendekatan Berbasis Inovasi", why_2_desc: "Terus mengeksplorasi teknologi terbaru.", btn_innovation: "TEMUKAN INOVASI",
+                stats_title: "Kinerja & Pertumbuhan", stats_desc: "Komitmen terhadap transparansi dan pertumbuhan berkelanjutan.", link_investor_report: "Lihat Laporan Investor",
+                cta_title: "Siap Mempercepat Perjalanan Digital Anda?", cta_desc: "Mari berdiskusi tentang bagaimana NexusDigital dapat membantu.", cta_btn: "JADWALKAN KONSULTASI",
+                faq_title: "Pertanyaan Umum", faq_q1: "Apa layanan utama NexusDigital?", faq_a1: "Integrasi sistem, cloud, keamanan siber, dan BPO.", faq_q2: "Bagaimana cara bermitra?", faq_a2: "Hubungi kami via formulir.", faq_q3: "Melayani UKM?", faq_a3: "Ya, kami punya solusi scalable.", faq_q4: "Lokasi operasional?", faq_a4: "Tangerang, Jakarta, dan Asia Pasifik.",
                 
-                // FAQ ID
-                faq_title: "Pertanyaan Umum",
-                faq_q1: "Apa layanan utama NexusDigital?", faq_a1: "Kami fokus pada integrasi sistem perusahaan, solusi cloud, keamanan siber, dan layanan outsourcing proses bisnis (BPO) untuk mempercepat transformasi digital.",
-                faq_q2: "Bagaimana cara bermitra dengan NexusDigital?", faq_a2: "Anda dapat mengunjungi halaman 'Bisnis & Kemitraan' kami untuk melihat model kemitraan yang tersedia atau menghubungi tim kami melalui formulir kontak.",
-                faq_q3: "Apakah NexusDigital melayani UKM?", faq_a3: "Ya, meskipun kami memiliki banyak klien enterprise, kami juga memiliki solusi cloud dan SaaS yang dapat disesuaikan (scalable) untuk kebutuhan UKM yang sedang berkembang.",
-                faq_q4: "Di mana lokasi operasional NexusDigital?", faq_a4: "Kantor pusat kami berada di Tangerang, Indonesia, dengan kantor cabang operasional di Jakarta dan anak perusahaan di beberapa negara Asia Pasifik.",
-
-                insights_title: "Wawasan Terbaru", link_all_news: "Lihat Semua Berita", blog_date_1: "25 Oktober 2023 | Teknologi", blog_1_title: "Masa Depan Integrasi Sistem di Era Cloud-Native", blog_date_2: "18 Oktober 2023 | Korporat", blog_2_title: "NexusDigital Raih Penghargaan Top IT Implementation 2023", blog_date_3: "30 September 2023 | Wawasan", blog_3_title: "Strategi Keamanan Siber untuk Sektor Finansial", blog_read_more: "Baca Selengkapnya",
-                foot_hq: "Kantor Pusat", foot_branch: "Kantor Pusat Jakarta", foot_contact: "Hubungi Kami", foot_form_desc: "Anda memiliki pertanyaan seputar bisnis dan kolaborasi?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
+                foot_hq: "Kantor Pusat", foot_contact: "Hubungi Kami", foot_form_desc: "Anda memiliki pertanyaan seputar bisnis dan kolaborasi?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
                 foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan"
             },
@@ -682,27 +363,19 @@
                 nav_home: "Home", nav_about: "About Us", nav_holding_desc: "Global IT holding company.", nav_subholding_desc: "IT business solutions pillar.", nav_esg_desc: "Sustainable commitment.",
                 nav_business: "Business", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Digital infrastructure solutions.",
                 nav_investor: "Investor Relations", nav_inv_annual: "Annual Report", nav_inv_share: "Shareholder Info", nav_inv_info: "Disclosure of Info",
-                nav_article: "Articles", nav_art_news: "News", nav_art_news_desc: "Latest News around Nexus.", nav_art_blog: "Blogs", nav_art_blog_desc: "Opinion Articles from Nexus.", nav_art_success: "Success Story", nav_art_success_desc: "Our Client Success Stories.",
-                nav_career: "Career", nav_career_life: "Life as a Nexusian", nav_career_life_desc: "Discover personal achievement and growth opportunities in the evolving IT industry landscape.", nav_career_cult: "View Our Culture", nav_career_latest: "Latest Job Vacancies", nav_career_all: "View All Vacancies",
-                nav_contact: "Contact Us", nav_con_biz: "Business & Partnerships", nav_con_code: "Code of Conduct", nav_con_wbs: "Whistleblowing System",
-                hero_title: "Establish Digital Ecosystem,<br>Navigating Innovation", hero_subtitle: "Your trusted partner in digital transformation, connecting your business to the future through intelligent and integrated technology solutions.", hero_cta: "EXPLORE OUR SOLUTIONS",
-                intro_title: "Empowering Digital Excellence", intro_desc: "At NexusDigital, we don't just provide technology; we build ecosystems. With deep experience and a commitment to innovation, we help organizations navigate the complexities of the digital era.",
+                nav_article: "Articles", nav_art_blog: "Blogs", nav_art_blog_desc: "Opinion Articles from Nexus.",
+                nav_career: "Career", nav_career_life: "Life at Nexus", nav_career_latest: "Jobs", nav_contact: "Contact", nav_con_biz: "Business", nav_con_code: "Ethics", nav_con_wbs: "WBS",
+                hero_title: "Establish Digital Ecosystem,<br>Navigating Innovation", hero_subtitle: "Your trusted partner in digital transformation.", hero_cta: "EXPLORE OUR SOLUTIONS",
+                intro_title: "Empowering Digital Excellence", intro_desc: "At NexusDigital, we don't just provide technology; we build ecosystems.",
                 partner_title: "Our Strategic Alliances", partner_subtitle: "Collaborating to deliver the best value.", btn_learn_more: "Learn More",
                 solutions_title: "Our Core Solutions", solutions_subtitle: "Comprehensive solutions for every business challenge.",
                 sol_1_title: "Enterprise System Integration", sol_2_title: "Business Process Outsourcing", sol_3_title: "Digital Banking Solutions", sol_4_title: "Cyber Security & Resilience", sol_5_title: "Big Data & Analytics", sol_6_title: "Cloud Infrastructure Services",
-                why_us_title: "Why Partner With NexusDigital?", why_1_title: "Proven Expertise & Reliability", why_1_desc: "With over a decade of experience handling mission-critical projects, we guarantee unmatched system reliability and performance.", btn_track_record: "SEE OUR TRACK RECORD", why_2_title: "Innovation-Driven Approach", why_2_desc: "We continuously explore the latest technologies—from AI to Blockchain—to ensure our clients are always one step ahead.", btn_innovation: "DISCOVER INNOVATIONS",
-                stats_title: "Performance & Growth", stats_desc: "Our commitment to transparency and sustainable growth is reflected in our performance.", link_investor_report: "View Investor Report",
-                cta_title: "Ready to Accelerate Your Digital Journey?", cta_desc: "Let's discuss how NexusDigital can help achieve your business goals.", cta_btn: "SCHEDULE A CONSULTATION",
+                why_us_title: "Why Partner With NexusDigital?", why_1_title: "Proven Expertise & Reliability", why_1_desc: "Over a decade of experience handling mission-critical projects.", btn_track_record: "SEE OUR TRACK RECORD", why_2_title: "Innovation-Driven Approach", why_2_desc: "Continuously exploring latest technologies.", btn_innovation: "DISCOVER INNOVATIONS",
+                stats_title: "Performance & Growth", stats_desc: "Commitment to transparency and sustainable growth.", link_investor_report: "View Investor Report",
+                cta_title: "Ready to Accelerate Your Digital Journey?", cta_desc: "Let's discuss how NexusDigital can help.", cta_btn: "SCHEDULE A CONSULTATION",
+                faq_title: "Frequently Asked Questions", faq_q1: "Main services?", faq_a1: "System integration, cloud, cybersecurity, BPO.", faq_q2: "How to partner?", faq_a2: "Contact us via form.", faq_q3: "Serve SMEs?", faq_a3: "Yes, we have scalable solutions.", faq_q4: "Location?", faq_a4: "Tangerang, Jakarta, Asia Pacific.",
                 
-                // FAQ EN
-                faq_title: "Frequently Asked Questions",
-                faq_q1: "What are NexusDigital's main services?", faq_a1: "We focus on enterprise system integration, cloud solutions, cybersecurity, and business process outsourcing (BPO) to accelerate digital transformation.",
-                faq_q2: "How to partner with NexusDigital?", faq_a2: "You can visit our 'Business & Partnerships' page to view available partnership models or contact our team via the contact form.",
-                faq_q3: "Does NexusDigital serve SMEs?", faq_a3: "Yes, while we have many enterprise clients, we also have scalable cloud and SaaS solutions for growing SME needs.",
-                faq_q4: "Where is NexusDigital located?", faq_a4: "Our headquarters are in Tangerang, Indonesia, with an operational branch office in Jakarta and subsidiaries in several Asia Pacific countries.",
-
-                insights_title: "Latest Insights", link_all_news: "View All News", blog_date_1: "October 25, 2023 | Technology", blog_1_title: "The Future of System Integration in a Cloud-Native Era", blog_date_2: "October 18, 2023 | Corporate", blog_2_title: "NexusDigital Wins Top IT Implementation Award 2023", blog_date_3: "September 30, 2023 | Insights", blog_3_title: "Cybersecurity Strategies for the Financial Sector", blog_read_more: "Read More",
-                foot_hq: "Headquarters", foot_branch: "Jakarta Office", foot_contact: "Contact Us", foot_form_desc: "Do you have questions about business and collaboration?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
+                foot_hq: "Headquarters", foot_contact: "Contact Us", foot_form_desc: "Do you have questions about business and collaboration?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
                 foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions"
             },
@@ -710,27 +383,19 @@
                 nav_home: "ホーム", nav_about: "会社概要", nav_holding_desc: "グローバルIT持株会社。", nav_subholding_desc: "ITビジネスソリューションの柱。", nav_esg_desc: "持続可能なコミットメント。",
                 nav_business: "事業内容", nav_bpaas_desc: "BPaaSソリューション。", nav_cloud_desc: "デジタルインフラソリューション。",
                 nav_investor: "IR情報", nav_inv_annual: "年次報告書", nav_inv_share: "株主情報", nav_inv_info: "情報開示",
-                nav_article: "記事", nav_art_news: "ニュース", nav_art_news_desc: "Nexusに関する最新ニュース。", nav_art_blog: "ブログ", nav_art_blog_desc: "Nexusからのオピニオン記事。", nav_art_success: "サクセスストーリー", nav_art_success_desc: "クライアントの成功事例。",
-                nav_career: "採用情報", nav_career_life: "Nexusianとしての生活", nav_career_life_desc: "進化するIT業界で、個人の達成と成長の機会を見つけましょう。", nav_career_cult: "私たちの文化を見る", nav_career_latest: "最新の求人情報", nav_career_all: "すべての求人を見る",
-                nav_contact: "お問い合わせ", nav_con_biz: "ビジネス＆パートナーシップ", nav_con_code: "行動規範", nav_con_wbs: "内部通報システム",
-                hero_title: "デジタルエコシステムの構築、<br>イノベーションのナビゲート", hero_subtitle: "デジタルトランスフォーメーションの信頼できるパートナーとして、インテリジェントで統合されたテクノロジーソリューションを通じて、貴社のビジネスを未来へと繋ぎます。", hero_cta: "ソリューションを探る",
-                intro_title: "デジタルエクセレンスの強化", intro_desc: "NexusDigitalでは、単に技術を提供するだけでなく、エコシステムを構築します。深い経験とイノベーションへのコミットメントにより、組織がデジタル時代の複雑さを乗り越え、持続可能な成長を達成できるよう支援します。",
+                nav_article: "記事", nav_art_blog: "ブログ", nav_art_blog_desc: "Nexusからのオピニオン記事。",
+                nav_career: "採用情報", nav_career_life: "Nexusでの生活", nav_career_latest: "求人", nav_contact: "お問い合わせ", nav_con_biz: "ビジネス", nav_con_code: "行動規範", nav_con_wbs: "内部通報",
+                hero_title: "デジタルエコシステムの構築、<br>イノベーションのナビゲート", hero_subtitle: "デジタルトランスフォーメーションの信頼できるパートナー。", hero_cta: "ソリューションを探る",
+                intro_title: "デジタルエクセレンスの強化", intro_desc: "NexusDigitalでは、単に技術を提供するだけでなく、エコシステムを構築します。",
                 partner_title: "戦略的アライアンス", partner_subtitle: "最高の価値を提供するためのコラボレーション。", btn_learn_more: "詳細を見る",
                 solutions_title: "コアソリューション", solutions_subtitle: "あらゆるビジネス課題に対応する包括的なソリューション。",
-                sol_1_title: "エンタープライズシステム統合", sol_2_title: "ビジネスプロセスアウトソーシング", sol_3_title: "デジタルバンキングソリューション", sol_4_title: "サイバーセキュリティとレジリエンス", sol_5_title: "ビッグデータと分析", sol_6_title: "クラウドインフラサービス",
-                why_us_title: "NexusDigitalが選ばれる理由", why_1_title: "実証された専門知識と信頼性", why_1_desc: "ミッションクリティカルなプロジェクトを扱ってきた10年以上の経験により、貴社のビジネスに比類のないシステムの信頼性とパフォーマンスを保証します。", btn_track_record: "実績を見る", why_2_title: "イノベーション主導のアプローチ", why_2_desc: "AIからブロックチェーンまで、最新技術を継続的に探求し、クライアントが常にデジタル競争の一歩先を行くことを保証します。", btn_innovation: "イノベーションを発見",
-                stats_title: "パフォーマンスと成長", stats_desc: "透明性と持続可能な成長へのコミットメントは、私たちのパフォーマンスに反映されています。", link_investor_report: "投資家レポートを見る",
-                cta_title: "デジタルの旅を加速させる準備はできましたか？", cta_desc: "NexusDigitalがどのように貴社のビジネス目標達成を支援できるか、話し合いましょう。", cta_btn: "相談を予約する",
+                sol_1_title: "エンタープライズシステム統合", sol_2_title: "ビジネスプロセスアウトソーシング", sol_3_title: "デジタルバンキングソリューション", sol_4_title: "サイバーセキュリティ", sol_5_title: "ビッグデータと分析", sol_6_title: "クラウドインフラ",
+                why_us_title: "NexusDigitalが選ばれる理由", why_1_title: "実証された専門知識", why_1_desc: "ミッションクリティカルなプロジェクトでの10年以上の経験。", btn_track_record: "実績を見る", why_2_title: "イノベーション主導", why_2_desc: "最新技術を継続的に探求。", btn_innovation: "イノベーションを発見",
+                stats_title: "パフォーマンスと成長", stats_desc: "透明性と持続可能な成長へのコミットメント。", link_investor_report: "投資家レポートを見る",
+                cta_title: "デジタルの旅を加速させますか？", cta_desc: "ビジネス目標達成を支援します。", cta_btn: "相談を予約する",
+                faq_title: "よくある質問", faq_q1: "主なサービスは？", faq_a1: "システム統合、クラウド、セキュリティ、BPO。", faq_q2: "提携方法は？", faq_a2: "フォームから連絡してください。", faq_q3: "中小企業対応？", faq_a3: "はい、スケーラブルなソリューションがあります。", faq_q4: "拠点は？", faq_a4: "タンゲラン、ジャカルタ、アジア太平洋。",
                 
-                // FAQ JP
-                faq_title: "よくある質問",
-                faq_q1: "NexusDigitalの主なサービスは何ですか？", faq_a1: "私たちは、デジタルトランスフォーメーションを加速するためのエンタープライズシステム統合、クラウドソリューション、サイバーセキュリティ、およびビジネスプロセスアウトソーシング（BPO）に焦点を当てています。",
-                faq_q2: "NexusDigitalと提携するにはどうすればよいですか？", faq_a2: "「ビジネス＆パートナーシップ」ページで利用可能なパートナーシップモデルを確認するか、お問い合わせフォームからチームにご連絡ください。",
-                faq_q3: "NexusDigitalは中小企業（SME）に対応していますか？", faq_a3: "はい、多くのエンタープライズクライアントを抱えていますが、成長中の中小企業のニーズに合わせて拡張可能なクラウドおよびSaaSソリューションも提供しています。",
-                faq_q4: "NexusDigitalの拠点はどこですか？", faq_a4: "本社はインドネシアのタンゲランにあり、ジャカルタに運営支社、アジア太平洋地域の数カ国に子会社があります。",
-
-                insights_title: "最新のインサイト", link_all_news: "すべてのニュースを見る", blog_date_1: "2023年10月25日 | テクノロジー", blog_1_title: "クラウドネイティブ時代のシステム統合の未来", blog_date_2: "2023年10月18日 | 企業", blog_2_title: "NexusDigitalがトップIT実装賞2023を受賞", blog_date_3: "2023年9月30日 | インサイト", blog_3_title: "金融セクターのためのサイバーセキュリティ戦略", blog_read_more: "続きを読む",
-                foot_hq: "本社", foot_branch: "ジャカルタオフィス", foot_contact: "お問い合わせ", foot_form_desc: "ビジネスやコラボレーションに関するご質問はありますか？", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
+                foot_hq: "本社", foot_contact: "お問い合わせ", foot_form_desc: "ビジネスやコラボレーションに関するご質問はありますか？", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
                 foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約"
             }
@@ -739,70 +404,33 @@
         function setLanguage(lang) {
             const flagMap = { 'id': 'https://flagcdn.com/w20/id.png', 'en': 'https://flagcdn.com/w20/gb.png', 'jp': 'https://flagcdn.com/w20/jp.png' };
             const textMap = { 'id': 'ID', 'en': 'EN', 'jp': 'JP' };
-
             document.getElementById('imgLanguage').src = flagMap[lang];
             document.getElementById('textLanguage').innerText = textMap[lang];
-
-            // 1. Translate Text Content (innerHTML to allow <br>)
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.children.length > 0 && el.children[0].tagName === 'I') {
-                         const icon = el.children[0].outerHTML; 
-                         el.innerHTML = icon + " " + translations[lang][key];
-                    } else {
-                         el.innerHTML = translations[lang][key];
-                    }
-                }
+                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-
-            // 2. Translate Placeholders
             document.querySelectorAll('[data-key-ph]').forEach(el => {
                 const key = el.getAttribute('data-key-ph');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
+                if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
             });
         }
 
-        // --- 2. LOGIKA WA FORM FOOTER ---
-        document.getElementById('footerForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah reload
-
-            var fname = document.getElementById('f_fname').value;
-            var lname = document.getElementById('f_lname').value;
-            var job = document.getElementById('f_job').value;
-            var comp = document.getElementById('f_comp').value;
-            var email = document.getElementById('f_email').value;
-            var phone = document.getElementById('f_phone').value;
+        document.getElementById('footerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('f_fname').value;
             var msg = document.getElementById('f_msg').value;
-
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi:%0a%0a" +
-                            "*Nama:* " + fname + " " + lname + "%0a" +
-                            "*Jabatan:* " + job + "%0a" +
-                            "*Perusahaan:* " + comp + "%0a" +
-                            "*Email:* " + email + "%0a" +
-                            "*No. HP:* " + phone + "%0a" +
-                            "*Pesan:* " + msg + "%0a%0a" +
-                            "(Dikirim dari Footer Website)";
-
-            var waNumber = "62895639068080";
-            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
-            window.open(waURL, '_blank');
+            window.open(`https://wa.me/62895639068080?text=Halo Nexus, saya ${name}. ${msg}`, '_blank');
         });
 
-        // --- 3. LOGIKA BACK TO TOP ---
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
+        window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 document.getElementById("backToTop").classList.add("show");
             } else {
                 document.getElementById("backToTop").classList.remove("show");
             }
-        }
-        function topFunction() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+        };
+        function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
     </script>
 </body>
 </html>
