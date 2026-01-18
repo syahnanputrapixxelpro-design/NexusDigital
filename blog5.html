@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknologi Hijau: Menuju Masa Depan Berkelanjutan - Blog NexusDigital</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            /* Palette NexusDigital */
+            --nd-blue-dark: #002855;
+            --nd-blue-light: #004e92;
+            --nd-yellow: #FFC107;
+            --nd-green: #28a745;
+            --nd-bg-light: #f4f7f6;
+            --nd-text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--nd-blue-dark);
+        }
+
+        /* --- NAVBAR STYLES --- */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 10px 0;
+            transition: all 0.3s;
+        }
+        .navbar-brand { padding: 0; margin-right: 2rem; display: flex; align-items: center; }
+        .navbar-brand img { height: 50px; width: auto; object-fit: contain; }
+        .dropdown-toggle::after { display: none !important; }
+        .navbar-nav .nav-item { position: static; padding: 0 8px; }
+        .navbar-nav .nav-link { color: var(--nd-blue-dark) !important; font-weight: 600; font-size: 14px; padding: 25px 5px !important; position: relative; }
+        .dropdown-menu-mega { border: none; border-top: 1px solid #f0f0f0; box-shadow: 0 15px 30px rgba(0,0,0,0.1); background: white; margin-top: 0; z-index: 1000; }
+        .nav-right-icons .btn-link { color: var(--nd-blue-dark); font-weight: 600; padding: 0 10px; }
+
+        /* --- BLOG DETAIL STYLES --- */
+        .blog-header { padding-top: 120px; padding-bottom: 40px; background-color: #fcfcfc; }
+        .blog-meta { font-size: 0.9rem; color: #777; margin-bottom: 20px; }
+        .blog-meta i { color: var(--nd-yellow); margin-right: 5px; }
+        .blog-category { background-color: var(--nd-green); color: white; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-right: 15px; text-decoration: none; display: inline-block; }
+
+        /* Images */
+        .featured-img-container { margin-bottom: 40px; }
+        .featured-img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .img-caption { text-align: center; font-size: 0.85rem; color: #888; margin-top: 10px; font-style: italic; }
+        .promo-gif { max-width: 100%; border-radius: 10px; margin: 30px 0; }
+
+        /* TOC */
+        .toc-container { background-color: #f8f9fa; border-left: 5px solid var(--nd-green); padding: 20px; border-radius: 5px; margin-bottom: 40px; }
+        .toc-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .toc-title { margin: 0; font-size: 1.2rem; }
+        .toc-list { list-style: none; padding-left: 0; margin-top: 15px; display: none; }
+        .toc-list.show { display: block; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list li a { text-decoration: none; color: #555; transition: 0.2s; }
+        .toc-list li a:hover { color: var(--nd-green); padding-left: 5px; }
+        .toc-sub-item { margin-left: 20px; font-size: 0.95rem; }
+
+        /* Content Elements */
+        .article-content { font-size: 1.05rem; line-height: 1.8; color: #444; }
+        .article-content h2 { margin-top: 40px; margin-bottom: 20px; font-size: 1.8rem; }
+        .article-content h3 { margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; color: var(--nd-green); }
+        .custom-blockquote { border-left: 5px solid var(--nd-green); background-color: #f0f8f0; padding: 20px; margin: 30px 0; font-style: italic; font-size: 1.1rem; border-radius: 0 10px 10px 0; color: #2e5c3e; }
+        
+        .read-also-box { border: 2px solid #eee; padding: 15px; border-radius: 8px; margin: 30px 0; display: flex; align-items: center; background: #fff; }
+        .read-also-label { background: var(--nd-blue-dark); color: white; padding: 2px 10px; font-size: 0.75rem; font-weight: bold; margin-right: 15px; border-radius: 4px; white-space: nowrap; }
+        .read-also-link { font-weight: 600; color: var(--nd-blue-dark); text-decoration: none; font-size: 1rem; }
+        .read-also-link:hover { color: var(--nd-green); }
+
+        /* FAQ & Conclusion */
+        .faq-section { margin-top: 50px; }
+        .accordion-button:not(.collapsed) { background-color: #e8f5e9; color: var(--nd-green); }
+        .conclusion-box { background-color: var(--nd-blue-dark); color: white; padding: 30px; border-radius: 10px; margin-top: 50px; }
+        .conclusion-box h3 { color: var(--nd-green); }
+
+        /* Author & Share */
+        .author-box { display: flex; align-items: center; background: #fff; padding: 30px; border: 1px solid #eee; border-radius: 10px; margin-top: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+        .share-buttons { margin-top: 30px; display: flex; gap: 10px; }
+        .btn-share { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+        .btn-share:hover { transform: translateY(-3px); color: white; }
+        .bg-wa { background-color: #25D366; } .bg-fb { background-color: #3b5998; } .bg-tw { background-color: #1da1f2; } .bg-li { background-color: #0077b5; }
+
+        /* Related Articles */
+        .related-section { background-color: #f8f9fa; padding: 60px 0; margin-top: 80px; }
+        .related-card { background: white; border: none; border-radius: 10px; overflow: hidden; height: 100%; transition: 0.3s; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        .related-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .related-img { height: 200px; object-fit: cover; width: 100%; }
+        .related-body { padding: 20px; }
+        .related-title { font-size: 1.1rem; margin-bottom: 10px; font-weight: 700; }
+        .related-title a { text-decoration: none; color: var(--nd-blue-dark); }
+        .btn-sm-read { font-size: 0.85rem; font-weight: 600; color: var(--nd-blue-light); text-decoration: none; }
+
+        /* Footer & Buttons */
+        footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
+        .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
+        .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
+        
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none; border: none; cursor: pointer; }
+        .btn-wa-float { background-color: #25D366; }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; transition: 0.3s; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://placehold.co/180x50/white/002855?text=NexusLogo" alt="NexusDigital Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tentang Kami</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6></div></a></div><div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6></div></a></div><div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bisnis</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6></div></a></div><div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Investor</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6>Laporan Tahunan</h6></div></a></div><div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6>Pemegang Saham</h6></div></a></div><div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6>Keterbukaan Info</h6></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Artikel</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6>Blog</h6></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Karir</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-6 border-end"><div class="p-3"><h5>Hidup di Nexus</h5><a href="#" class="btn btn-sm btn-outline-primary mt-2">Lihat Budaya</a></div></div><div class="col-lg-6"><div class="p-3"><h5>Lowongan</h5><a href="karir.html" class="btn btn-sm btn-yellow mt-2">Lihat Semua</a></div></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kontak</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6>Bisnis</h6></div></a></div><div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6>Kode Etik</h6></div></a></div><div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6>WBS</h6></div></a></div></div></div></div></li>
+                </ul>
+                <div class="nav-right-icons">
+                    <div class="dropdown"><button class="btn btn-link dropdown-toggle text-decoration-none" type="button" data-bs-toggle="dropdown"><img src="https://flagcdn.com/w20/id.png" style="width:20px;"> ID</button></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail Artikel</li>
+                        </ol>
+                    </nav>
+                    
+                    <a href="#" class="blog-category">Sustainability</a>
+                    <h1 class="mt-3 mb-3">Teknologi Hijau: Menuju Masa Depan Berkelanjutan</h1>
+                    
+                    <div class="blog-meta">
+                        <span class="me-3"><i class="bi bi-calendar"></i> 15 Desember 2025</span>
+                        <span class="me-3"><i class="bi bi-person"></i> Oleh: <strong>Dewi Lestari</strong></span>
+                        <span><i class="bi bi-clock"></i> 5 Menit Baca</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding pt-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    
+                    <div class="featured-img-container">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Green Tech" class="featured-img">
+                        <p class="img-caption">Harmonisasi antara inovasi teknologi dan kelestarian alam.</p>
+                    </div>
+
+                    <div class="toc-container">
+                        <div class="toc-header" onclick="toggleToc()">
+                            <h5 class="toc-title"><i class="bi bi-list-ul me-2"></i> Daftar Isi</h5>
+                            <i class="bi bi-chevron-down" id="tocIcon"></i>
+                        </div>
+                        <ul class="toc-list" id="tocList"></ul>
+                    </div>
+
+                    <div class="article-content" id="articleContent">
+                        <p>
+                            Perubahan iklim telah mendorong perusahaan teknologi di seluruh dunia untuk mengevaluasi kembali jejak karbon mereka. Di NexusDigital, kami percaya bahwa teknologi bukan hanya alat untuk efisiensi bisnis, tetapi juga kunci untuk menyelamatkan planet ini.
+                        </p>
+
+                        <h2 id="green-dc">Green Data Center: Tulang Punggung Digital Hijau</h2>
+                        <p>
+                            Pusat data tradisional dikenal sebagai konsumen energi yang masif. Namun, era <strong>Green Data Center</strong> telah tiba. Dengan memanfaatkan energi terbarukan dan manajemen pendinginan yang canggih, emisi karbon dapat ditekan secara drastis.
+                        </p>
+
+                        <h3 id="smart-cooling">Pendinginan Cerdas (Smart Cooling)</h3>
+                        <p>
+                            Menggunakan AI untuk mengatur suhu server secara dinamis dapat mengurangi konsumsi energi pendinginan hingga 40%.
+                        </p>
+
+                        <blockquote class="custom-blockquote">
+                            "Keberlanjutan bukan lagi sekadar biaya (cost), melainkan investasi strategis yang memberikan nilai jangka panjang bagi perusahaan dan bumi."
+                        </blockquote>
+
+                        <h2 id="iot-energy">Internet of Things (IoT) untuk Efisiensi Energi</h2>
+                        <p>
+                            Sensor IoT memungkinkan pemantauan konsumsi energi secara real-time di gedung-gedung pintar dan pabrik. Data ini digunakan untuk mengoptimalkan penggunaan listrik, mematikan perangkat yang tidak digunakan, dan mendeteksi kebocoran energi.
+                        </p>
+
+                        <div class="promo-gif-container">
+                            <img src="https://media.giphy.com/media/l41Yk3XnE4JFHwDDi/giphy.gif" alt="Eco Tech" class="promo-gif">
+                            <p class="img-caption">Inovasi untuk bumi yang lebih hijau.</p>
+                        </div>
+
+                        <div class="read-also-box">
+                            <span class="read-also-label">BACA JUGA</span>
+                            <a href="blog1.html" class="read-also-link">Masa Depan Integrasi Sistem di Era Cloud-Native</a>
+                        </div>
+
+                        <h2 id="ewaste">Tantangan Sampah Elektronik (E-Waste)</h2>
+                        <p>
+                            Siklus hidup perangkat elektronik yang pendek menciptakan masalah sampah. Pendekatan ekonomi sirkular, di mana perangkat didaur ulang atau diperbarui, menjadi solusi yang kami terapkan dalam manajemen aset TI klien kami.
+                        </p>
+
+                        <figure class="featured-img-container mt-4">
+                            <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Recycling Tech" class="featured-img">
+                            <figcaption class="img-caption">Daur ulang komponen elektronik mengurangi limbah berbahaya.</figcaption>
+                        </figure>
+
+                        <div class="read-also-box">
+                            <span class="read-also-label">BACA JUGA</span>
+                            <a href="blog4.html" class="read-also-link">Strategi Digital untuk Pertumbuhan Bisnis</a>
+                        </div>
+
+                        <h2 id="ai-sustain">Peran AI dalam Keberlanjutan</h2>
+                        <p>
+                            Kecerdasan buatan dapat memodelkan pola iklim, mengoptimalkan jaringan listrik pintar (smart grids), dan bahkan mendesain material baru yang lebih ramah lingkungan.
+                        </p>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3 class="mb-4">Pertanyaan Umum (FAQ)</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        Apa itu Green Tech?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Teknologi hijau adalah penerapan teknologi dan sains untuk melestarikan lingkungan alam dan sumber daya, serta meminimalkan dampak negatif aktivitas manusia.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Apakah Green Data Center lebih mahal?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Investasi awal mungkin lebih tinggi, namun penghematan energi jangka panjang membuat biaya operasional (OPEX) jauh lebih rendah.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conclusion-box">
+                        <h3>Kesimpulan</h3>
+                        <p class="mb-0">
+                            Masa depan teknologi adalah hijau. Dengan mengadopsi solusi ramah lingkungan, perusahaan tidak hanya mematuhi regulasi, tetapi juga berkontribusi nyata bagi kelangsungan planet bumi untuk generasi mendatang.
+                        </p>
+                    </div>
+
+                    <div class="mt-5">
+                        <h6 class="fw-bold">Bagikan Artikel Ini:</h6>
+                        <div class="share-buttons">
+                            <a href="https://wa.me/?text=Teknologi%20Hijau%20untuk%20Masa%20Depan%20http://nexusdigital.com/blog5.html" target="_blank" class="btn-share bg-wa"><i class="bi bi-whatsapp"></i></a>
+                            <a href="#" class="btn-share bg-fb"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn-share bg-tw"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn-share bg-li"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="author-box">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dewi Lestari" class="author-img">
+                        <div class="author-info">
+                            <h5>Dewi Lestari</h5>
+                            <span class="author-role">Environmental Tech Specialist</span>
+                            <p class="small text-muted mt-2 mb-0">
+                                Berdedikasi untuk menemukan titik temu antara inovasi teknologi dan keberlanjutan lingkungan. Aktif dalam kampanye Green IT Indonesia.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-section">
+        <div class="container">
+            <h3 class="mb-4 text-center">Artikel Terkait</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Blog" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title"><a href="blog1.html">Integrasi Sistem Cloud-Native</a></h5>
+                            <p class="small text-muted">Efisiensi infrastruktur modern.</p>
+                            <a href="blog1.html" class="btn-sm-read">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Blog" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title"><a href="blog2.html">Pemanfaatan AI untuk Efisiensi</a></h5>
+                            <p class="small text-muted">Otomatisasi cerdas untuk bisnis.</p>
+                            <a href="blog2.html" class="btn-sm-read">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Blog" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title"><a href="blog4.html">Strategi Pertumbuhan Digital</a></h5>
+                            <p class="small text-muted">Panduan bisnis di era digital.</p>
+                            <a href="blog4.html" class="btn-sm-read">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h3 class="text-white mb-3">Nexus<span>Digital</span></h3>
+                    <div class="mb-4"><h6 class="text-white">Kantor Pusat</h6><p class="opacity-75 small">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia</p></div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 rounded text-dark">
+                        <h5 class="mb-3" style="color: var(--nd-blue-dark);">Hubungi Kami</h5>
+                        <form id="footerForm">
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" placeholder="Nama Depan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" placeholder="Nama Belakang*"></div></div>
+                            <textarea class="footer-form-control" id="f_msg" rows="3" placeholder="Pesan*"></textarea>
+                            <button type="submit" class="btn btn-yellow text-dark px-4 py-2">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);"><div class="row small opacity-75"><div class="col-md-6">© 2026 PT NexusDigital Tbk.</div></div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/62895639068080" class="btn-float btn-wa-float" target="_blank" title="Chat via WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button id="backToTop" class="btn-float btn-top" onclick="topFunction()" title="Back to Top"><i class="bi bi-arrow-up"></i></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 1. AUTO TOC GENERATOR
+        document.addEventListener("DOMContentLoaded", function() {
+            const article = document.getElementById('articleContent');
+            const tocList = document.getElementById('tocList');
+            const headers = article.querySelectorAll('h2, h3');
+            
+            headers.forEach((header, index) => {
+                if (!header.id) header.id = 'toc-item-' + index;
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#' + header.id;
+                a.textContent = header.textContent;
+                if (header.tagName === 'H3') li.classList.add('toc-sub-item');
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        });
+
+        // Toggle TOC
+        function toggleToc() {
+            const list = document.getElementById('tocList');
+            const icon = document.getElementById('tocIcon');
+            list.classList.toggle('show');
+            icon.classList.toggle('bi-chevron-up');
+            icon.classList.toggle('bi-chevron-down');
+        }
+
+        // 2. BACK TO TOP
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                document.getElementById("backToTop").classList.add("show");
+            } else {
+                document.getElementById("backToTop").classList.remove("show");
+            }
+        };
+        function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        // 3. WA FORM
+        document.getElementById('footerForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            var name = document.getElementById('f_fname').value;
+            var msg = document.getElementById('f_msg').value;
+            window.open(`https://wa.me/62895639068080?text=Halo Nexus, saya ${name}. ${msg}`, '_blank');
+        });
+    </script>
+</body>
+</html>

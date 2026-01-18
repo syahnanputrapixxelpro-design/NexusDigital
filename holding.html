@@ -11,13 +11,14 @@
 
     <style>
         :root {
-            /* Warna NexusDigital */
+            /* Palette NexusDigital */
             --nd-blue-dark: #002855;
             --nd-blue-light: #004e92;
             --nd-yellow: #FFC107;
             --nd-green: #28a745;
             --nd-bg-light: #f4f7f6;
             --nd-text-muted: #6c757d;
+            --nd-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
         }
 
         body {
@@ -33,103 +34,39 @@
             color: var(--nd-blue-dark);
         }
 
-        /* --- NAVBAR STYLES --- */
-        .navbar {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 10px 0;
-            transition: all 0.3s;
-        }
-        
-        .navbar-brand {
-            padding: 0;
-            margin-right: 2rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .navbar-brand img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-
+        /* --- NAVBAR STYLES (STANDAR) --- */
+        .navbar { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px 0; transition: all 0.3s; }
+        .navbar-brand { padding: 0; margin-right: 2rem; display: flex; align-items: center; }
+        .navbar-brand img { height: 50px; width: auto; object-fit: contain; }
         .dropdown-toggle::after { display: none !important; }
-
         .navbar-nav .nav-item { position: static; padding: 0 8px; }
-        
-        .navbar-nav .nav-link {
-            color: var(--nd-blue-dark) !important;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 25px 5px !important;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-
-        /* Mega Menu Base */
-        .dropdown-menu-mega {
-            border: none;
-            border-top: 1px solid #f0f0f0;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            background: white;
-            margin-top: 0;
-            z-index: 1000;
-        }
-
+        .navbar-nav .nav-link { color: var(--nd-blue-dark) !important; font-weight: 600; font-size: 14px; padding: 25px 5px !important; position: relative; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+        .dropdown-menu-mega { border: none; border-top: 1px solid #f0f0f0; box-shadow: 0 15px 30px rgba(0,0,0,0.1); background: white; margin-top: 0; z-index: 1000; }
         .mega-item { display: flex; align-items: flex-start; padding: 10px; transition: transform 0.2s; }
         .mega-item:hover { transform: translateX(5px); }
         .mega-icon-box { font-size: 1.5rem; color: var(--nd-blue-dark); margin-right: 15px; width: 30px; text-align: center; }
         .mega-content-box h6 { font-weight: 700; color: var(--nd-blue-dark); font-size: 0.95rem; margin-bottom: 2px; }
         .mega-content-box p { font-size: 0.8rem; color: #888; margin-bottom: 0; line-height: 1.3; }
 
-        /* Desktop View */
         @media (min-width: 992px) {
-            .navbar-nav .nav-link::before {
-                content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0);
-                width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease;
-            }
+            .navbar-nav .nav-link::before { content: ''; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) scale(0); width: 6px; height: 6px; background-color: var(--nd-yellow); border-radius: 50%; transition: transform 0.3s ease; }
             .navbar-nav .nav-item:hover .nav-link::before, .navbar-nav .nav-link.active::before { transform: translateX(-50%) scale(1); }
-            
-            .dropdown-menu-mega {
-                display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px);
-            }
+            .dropdown-menu-mega { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0; width: 100%; padding: 30px 0; transition: all 0.3s ease; transform: translateY(10px); }
             .navbar-nav .nav-item:hover .dropdown-menu-mega { opacity: 1; visibility: visible; transform: translateY(0); }
         }
 
-        /* Mobile View */
         @media (max-width: 991px) {
-            .navbar-collapse {
-                background: white;
-                padding: 15px;
-                border-top: 1px solid #eee;
-                max-height: 80vh;
-                overflow-y: auto;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-                margin-top: 10px;
-                border-radius: 0 0 10px 10px;
-            }
-            .navbar-nav .nav-link {
-                padding: 15px 0 !important;
-                border-bottom: 1px solid #f5f5f5;
-                width: 100%;
-                justify-content: space-between; 
-            }
+            .navbar-collapse { background: white; padding: 15px; border-top: 1px solid #eee; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 10px; border-radius: 0 0 10px 10px; }
+            .navbar-nav .nav-link { padding: 15px 0 !important; border-bottom: 1px solid #f5f5f5; width: 100%; justify-content: space-between; }
             .navbar-nav .nav-link::before { display: none; }
-            .dropdown-menu-mega {
-                position: static; float: none; width: 100%; box-shadow: none; border: none; padding-left: 10px; background-color: #fcfcfc; margin-bottom: 10px; border-radius: 8px;
-            }
+            .dropdown-menu-mega { position: static; float: none; width: 100%; box-shadow: none; border: none; padding-left: 10px; background-color: #fcfcfc; margin-bottom: 10px; border-radius: 8px; }
             .mega-item { padding: 12px 0; border-bottom: 1px solid #eee; }
             .mega-item:last-child { border-bottom: none; }
             .dropdown-menu-mega .row > div { width: 100%; margin-bottom: 5px; }
             .border-end { border-right: none !important; }
-            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; }
+            .nav-right-icons { margin-top: 20px; justify-content: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; display: flex; align-items: center; }
         }
 
-        /* Language Dropdown */
         .lang-btn img { width: 20px; margin-right: 5px; border-radius: 2px; }
         .dropdown-item { cursor: pointer; display: flex; align-items: center; gap: 10px; }
         .dropdown-item img { width: 20px; border-radius: 2px; }
@@ -137,121 +74,117 @@
         .nav-right-icons .btn-link:hover { color: var(--nd-green); }
 
 
-        /* --- HALAMAN HOLDING SPECIFIC STYLES --- */
+        /* --- BODY CONTENT: PREMIUM STYLE --- */
         
         /* Hero Section */
         .page-hero {
-            background: linear-gradient(rgba(0, 40, 85, 0.85), rgba(0, 40, 85, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 160px 0 100px;
-            color: white;
-            text-align: left;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            height: 70vh; min-height: 500px;
+            display: flex; align-items: center;
             margin-top: 70px;
         }
-
-        .hero-title-main {
-            font-size: 3.5rem; font-weight: 700; color: white !important; margin-bottom: 15px;
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(0, 40, 85, 0.95) 0%, rgba(0, 40, 85, 0.6) 100%);
         }
-        .hero-subtitle {
-            font-size: 1.5rem; font-weight: 300; color: rgba(255,255,255,0.9) !important;
-        }
-        .breadcrumb-item a { color: var(--nd-yellow); text-decoration: none; }
-        .breadcrumb-item.active { color: rgba(255,255,255,0.7); }
-
-        /* Content Sections */
-        .section-padding { padding: 80px 0; }
+        .hero-content { position: relative; z-index: 2; color: white; }
         
-        .about-img-container { position: relative; padding-bottom: 20px; }
-        .about-img { border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; }
-        .about-logo-overlay {
-            position: absolute; top: 20px; right: 20px; background: white;
-            padding: 15px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 80px;
+        .hero-badge {
+            display: inline-block; padding: 6px 16px; background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; color: var(--nd-yellow); margin-bottom: 20px;
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+        .hero-title-main { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: white !important; }
+        .hero-subtitle { font-size: 1.25rem; font-weight: 300; opacity: 0.9; max-width: 600px; color: white !important; }
+
+        @media (max-width: 768px) {
+            .page-hero { height: auto; padding: 100px 0; text-align: center; }
+            .hero-title-main { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem; margin: 0 auto; }
+            .hero-badge { margin: 0 auto 15px auto; }
         }
 
-        .visimis-section { background-color: #fff; padding: 60px 0; border-top: 1px solid #eee; }
-        .mission-list li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-        .mission-list li::before {
-            content: "•"; color: var(--nd-yellow); font-weight: bold; font-size: 1.5em;
-            position: absolute; left: 0; top: -5px;
+        /* Sections General */
+        .section-padding { padding: 100px 0; }
+        @media (max-width: 768px) { .section-padding { padding: 60px 0; } }
+        
+        .section-subtitle {
+            color: var(--nd-blue-light); font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; font-size: 0.85rem; display: block; margin-bottom: 10px;
         }
 
-        .leader-section { background-color: var(--nd-bg-light); padding: 80px 0; }
-        .leader-img { max-height: 500px; object-fit: contain; filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.15)); }
-        .quote-box { border-left: 4px solid var(--nd-yellow); padding-left: 20px; font-style: italic; color: #555; margin-top: 20px; }
-
-        /* Timeline */
-        .nav-pills-custom .nav-link {
-            color: #aaa; background: transparent; font-weight: 700; font-size: 1.2rem;
-            padding: 10px 20px; border-bottom: 3px solid transparent; border-radius: 0;
-        }
-        .nav-pills-custom .nav-link.active {
-            color: var(--nd-blue-dark); background: transparent; border-bottom: 3px solid var(--nd-blue-dark);
-        }
-        .timeline-content-box {
-            background: white; border: 1px solid #eee; border-radius: 10px;
-            padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-top: 30px;
+        /* About */
+        .about-image-wrapper { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--nd-shadow); }
+        .about-quote {
+            background: white; border-left: 4px solid var(--nd-yellow); padding: 20px;
+            border-radius: 0 12px 12px 0; font-style: italic; color: var(--nd-blue-dark);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-top: 30px;
         }
 
-        /* Stats */
-        .stats-bar { background-color: var(--nd-blue-dark); color: white; padding: 60px 0; }
-        .stats-number { font-size: 3rem; font-weight: 700; color: var(--nd-yellow); margin-bottom: 0; line-height: 1; }
-        .stats-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; opacity: 0.8; }
+        /* Visi Misi Cards */
+        .vm-card {
+            background: white; padding: 40px; border-radius: 16px; height: 100%;
+            border: 1px solid #f1f5f9; transition: all 0.3s ease; position: relative; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .vm-card:hover { transform: translateY(-5px); box-shadow: var(--nd-shadow); border-color: transparent; }
+        .vm-icon { font-size: 2.5rem; color: var(--nd-blue-light); margin-bottom: 20px; }
+        .mission-item { display: flex; align-items: start; margin-bottom: 15px; }
+        .mission-item i { color: var(--nd-green); margin-right: 12px; font-size: 1.2rem; margin-top: -2px; }
 
-        /* Footer */
+        /* BOD Cards */
+        .bod-card {
+            background: white; border-radius: 16px; overflow: hidden; transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #f1f5f9;
+        }
+        .bod-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .bod-img-wrapper { height: 320px; overflow: hidden; position: relative; }
+        .bod-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; object-position: top; }
+        .bod-card:hover .bod-img { transform: scale(1.05); }
+        .bod-info { padding: 25px; text-align: center; }
+        .bod-role { 
+            display: inline-block; background: #e0f2fe; color: var(--nd-blue-light);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 10px;
+        }
+
+        /* Timeline Stepper */
+        .nav-pills-modern { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .nav-pills-modern .nav-link {
+            background: white; border: 1px solid #e2e8f0; color: #64748b;
+            border-radius: 50px; padding: 10px 25px; font-weight: 600; transition: 0.3s;
+        }
+        .nav-pills-modern .nav-link.active {
+            background: var(--nd-blue-dark); color: white; border-color: var(--nd-blue-dark);
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
+        }
+        .timeline-box {
+            background: white; border-radius: 20px; padding: 40px; text-align: center;
+            box-shadow: var(--nd-shadow); max-width: 800px; margin: 0 auto; border: 1px solid #f1f5f9;
+        }
+        .timeline-year {
+            font-size: 4rem; font-weight: 800; color: rgba(0, 40, 85, 0.1);
+            line-height: 1; margin-bottom: -20px; position: relative; z-index: 0;
+        }
+        .timeline-title { position: relative; z-index: 1; font-size: 1.5rem; margin-bottom: 15px; }
+
+        /* --- FOOTER (SAMA DENGAN INDEX) --- */
         footer { background-color: var(--nd-blue-dark); color: white; padding: 60px 0 20px; }
         footer a { color: #adb5bd; text-decoration: none; transition: 0.3s; }
         footer a:hover { color: var(--nd-yellow); }
         .btn-yellow { background-color: var(--nd-yellow); color: var(--nd-blue-dark); font-weight: 700; border: none; padding: 10px 25px; }
         .footer-form-control { border-radius: 5px; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; width: 100%; }
 
-        /* --- FLOATING BUTTONS STYLE --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
-
-        .btn-float {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
-            text-decoration: none;
-        }
-
-        /* Tombol WhatsApp */
+        /* Floating Buttons */
+        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-float { width: 55px; height: 55px; border-radius: 50%; border: none; color: white; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s; text-decoration: none; }
         .btn-wa { background-color: #25D366; }
         .btn-wa:hover { background-color: #20ba5a; transform: scale(1.1); color: white; }
-
-        /* Tombol Back to Top */
-        .btn-top {
-            background-color: var(--nd-blue-dark);
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.5rem;
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background-color: var(--nd-yellow);
-            color: var(--nd-blue-dark);
-            transform: translateY(-5px);
-        }
+        .btn-top { background-color: var(--nd-blue-dark); opacity: 0; visibility: hidden; font-size: 1.5rem; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background-color: var(--nd-yellow); color: var(--nd-blue-dark); transform: translateY(-5px); }
 
     </style>
 </head>
@@ -268,107 +201,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav_home">Beranda</a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p data-key="nav_holding_desc">Perusahaan induk TI global.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p data-key="nav_subholding_desc">Pilar solusi bisnis TI.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p data-key="nav_esg_desc">Komitmen berkelanjutan.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p data-key="nav_bpaas_desc">Business Process as a Service.</p></div></a></div>
-                                    <div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p data-key="nav_cloud_desc">Solusi infrastruktur digital.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Hubungan Investor <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_annual">Laporan Tahunan</h6><p>Annual Report</p></div></a></div>
-                                    <div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_share">Info Pemegang Saham</h6><p>Shareholder Info</p></div></a></div>
-                                    <div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6 data-key="nav_inv_info">Keterbukaan Informasi</h6><p>Disclosure of Info</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_article">Artikel <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6 data-key="nav_art_blog">Blog</h6><p data-key="nav_art_blog_desc">Artikel Opini dari Nexus.</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 border-end">
-                                        <div class="p-3">
-                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="nav_career_life">Hidup Sebagai Nexusian</h5>
-                                            <p class="small text-muted" data-key="nav_career_life_desc">Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI yang berkembang bersama kami.</p>
-                                            <a href="#" class="btn btn-sm btn-outline-primary mt-2" data-key="nav_career_cult">Lihat Budaya Kami</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="p-3">
-                                            <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="nav_career_latest">Lowongan Kerja Terbaru</h5>
-                                            <ul class="list-unstyled small text-muted">
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> Website Developer</li>
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> Accounting Officer</li>
-                                                <li class="mb-2"><i class="bi bi-chevron-right text-warning me-2"></i> General Affair</li>
-                                            </ul>
-                                            <a href="karir.html" class="btn btn-sm btn-yellow mt-2" data-key="nav_career_all">Lihat Semua Lowongan</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak <i class="bi bi-chevron-down ms-1 small" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-mega">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6 data-key="nav_con_biz">Bisnis & Kemitraan</h6><p>Business & Partnerships</p></div></a></div>
-                                    <div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6 data-key="nav_con_code">Kode Etik & Perilaku</h6><p>Code of Conduct</p></div></a></div>
-                                    <div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6 data-key="nav_con_wbs">Pelaporan Pelanggan</h6><p>Whistleblowing System</p></div></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_about">Tentang Kami</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-4"><a href="holding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-globe"></i></div><div class="mega-content-box"><h6>Nexus Holding</h6><p data-key="nav_holding_desc">Perusahaan induk TI global.</p></div></a></div><div class="col-lg-4"><a href="subholding.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-diagram-3"></i></div><div class="mega-content-box"><h6>Nexus Subholding</h6><p data-key="nav_subholding_desc">Pilar solusi bisnis TI.</p></div></a></div><div class="col-lg-4"><a href="sustainability.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-flower1"></i></div><div class="mega-content-box"><h6>Sustainability (ESG)</h6><p data-key="nav_esg_desc">Komitmen berkelanjutan.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_business">Bisnis</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bpaas.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-gear-wide-connected"></i></div><div class="mega-content-box"><h6>BPaaS Solutions</h6><p data-key="nav_bpaas_desc">Business Process as a Service.</p></div></a></div><div class="col-lg-4"><a href="cloud.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-cloud-check"></i></div><div class="mega-content-box"><h6>Cloud & Digital</h6><p data-key="nav_cloud_desc">Solusi infrastruktur digital.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_investor">Investor</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="laporan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="mega-content-box"><h6>Laporan Tahunan</h6><p>Annual Report</p></div></a></div><div class="col-lg-4"><a href="pemegang.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-pie-chart"></i></div><div class="mega-content-box"><h6>Pemegang Saham</h6><p>Shareholder Info</p></div></a></div><div class="col-lg-4"><a href="keterbukaan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-file-text"></i></div><div class="mega-content-box"><h6>Keterbukaan Info</h6><p>Disclosure of Info</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_article">Artikel</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="blog.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-journal-text"></i></div><div class="mega-content-box"><h6>Blog</h6><p>Artikel Opini dari Nexus.</p></div></a></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_career">Karir</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row"><div class="col-lg-6 border-end"><div class="p-3"><h5 data-key="nav_career_life">Hidup di Nexus</h5><a href="#" class="btn btn-sm btn-outline-primary mt-2">Lihat Budaya</a></div></div><div class="col-lg-6"><div class="p-3"><h5 data-key="nav_career_latest">Lowongan</h5><a href="karir.html" class="btn btn-sm btn-yellow mt-2">Lihat Semua</a></div></div></div></div></div></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-key="nav_contact">Kontak</a><div class="dropdown-menu dropdown-menu-mega"><div class="container"><div class="row justify-content-center"><div class="col-lg-4"><a href="bisnis.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-briefcase"></i></div><div class="mega-content-box"><h6>Bisnis</h6><p>Business Partnership</p></div></a></div><div class="col-lg-4"><a href="etik.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-book"></i></div><div class="mega-content-box"><h6>Kode Etik</h6><p>Code of Conduct</p></div></a></div><div class="col-lg-4"><a href="pelanggan.html" class="mega-item text-decoration-none"><div class="mega-icon-box"><i class="bi bi-megaphone"></i></div><div class="mega-content-box"><h6>WBS</h6><p>Whistleblowing System</p></div></a></div></div></div></div></li>
                 </ul>
-
                 <div class="nav-right-icons d-flex align-items-center">
                     <div class="dropdown">
                         <button class="btn btn-link dropdown-toggle text-decoration-none lang-btn" type="button" data-bs-toggle="dropdown" id="btnLanguage">
                             <img src="https://flagcdn.com/w20/id.png" alt="ID" id="imgLanguage"> <span id="textLanguage">ID</span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="min-width: 100px;">
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
                             <li><a class="dropdown-item" onclick="setLanguage('id')"><img src="https://flagcdn.com/w20/id.png" alt="ID"> Bahasa Indonesia</a></li>
                             <li><a class="dropdown-item" onclick="setLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</a></li>
-                            <li><a class="dropdown-item" onclick="setLanguage('jp')"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語 (Japanese)</a></li>
+                            <li><a class="dropdown-item" onclick="setLanguage('jp')"><img src="https://flagcdn.com/w20/jp.png" alt="JP"> 日本語</a></li>
                         </ul>
                     </div>
                 </div>
@@ -378,88 +226,77 @@
 
     <header class="page-hero">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html" data-key="nav_home">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="#" data-key="nav_about">Tentang Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Nexus Holding</li>
-                </ol>
-            </nav>
-            <div class="row mt-4">
-                <div class="col-lg-8">
-                    <h1 class="hero-title-main" data-key="holding_hero_title">Dorong Inovasi</h1>
-                    <h3 class="hero-subtitle" data-key="holding_hero_subtitle">Mitra Anda untuk Meningkatkan Bisnis di Era Digital</h3>
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content animate-up">
+                    <span class="hero-badge" data-key="holding_badge">Corporate Overview</span>
+                    <h1 class="hero-title-main" data-key="holding_hero_title">Driving Innovation,<br>Defining Future.</h1>
+                    <p class="hero-subtitle mb-0" data-key="holding_hero_subtitle">Induk perusahaan teknologi yang mengorkestrasi ekosistem digital untuk pertumbuhan bisnis yang berkelanjutan.</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="section-padding">
+    <section class="section-padding bg-white">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0 pe-lg-5">
-                    <h2 class="mb-4" data-key="holding_about_title">Tentang Perusahaan</h2>
-                    <p class="text-muted mb-3" data-key="holding_about_desc1">
-                        NexusDigital Tbk (IDX: NXDS) adalah perusahaan teknologi informasi terkemuka di Indonesia yang telah beroperasi selama lebih dari dua dekade. Kami berdedikasi untuk memberikan solusi TI yang kompetitif dan bernilai tambah bagi klien kami.
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6 pe-lg-5 animate-up delay-100">
+                    <span class="section-subtitle" data-key="about_subtitle">TENTANG KAMI</span>
+                    <h2 class="mb-4" data-key="holding_about_title">Membangun Fondasi Digital</h2>
+                    <p class="text-muted mb-4" data-key="holding_about_desc1">
+                        NexusDigital Tbk (IDX: NXDS) telah berdiri lebih dari dua dekade sebagai pilar utama transformasi digital di Indonesia. Kami tidak sekadar menyediakan layanan TI, kami membangun ekosistem.
                     </p>
                     <p class="text-muted" data-key="holding_about_desc2">
-                        Dengan dukungan tim ahli yang berpengalaman dan kemitraan strategis dengan perusahaan teknologi global, NexusDigital telah berkembang menjadi penyedia solusi digital yang terintegrasi.
+                        Melalui sinergi anak perusahaan yang bergerak di bidang Cloud, AI, dan Cybersecurity, kami menghadirkan solusi *end-to-end* yang memungkinkan klien kami untuk beradaptasi dan memimpin pasar.
                     </p>
-                    <p style="color: var(--nd-blue-dark); font-weight: 600; margin-top: 20px;">
-                        "Establish Digital Ecosystem, Navigating Innovation"
-                    </p>
+                    <div class="about-quote">
+                        <p class="mb-0 fw-semibold" data-key="hold_quote">"Establish Digital Ecosystem, Navigating Innovation"</p>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about-img-container">
-                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Office Building" class="img-fluid about-img">
-                        <div class="about-logo-overlay text-center">
-                            <i class="bi bi-building fw-bold fs-2" style="color: var(--nd-blue-dark);"></i>
-                        </div>
+                <div class="col-lg-6 animate-up delay-200">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="visimis-section">
+    <section class="section-padding" style="background-color: var(--nd-bg-light);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-5 mb-4">
-                    <h3 data-key="holding_vis_title">Visi</h3>
-                    <p class="lead" style="color: var(--nd-text-muted);" data-key="holding_vis_desc">
-                        Menjadi perusahaan penyedia solusi digital terdepan yang paling dikagumi di Asia Pasifik.
-                    </p>
+            <div class="row g-4">
+                <div class="col-md-5 animate-up">
+                    <div class="vm-card">
+                        <div class="vm-icon"><i class="bi bi-eye"></i></div>
+                        <h3 class="mb-3" data-key="holding_vis_title">Visi</h3>
+                        <p class="text-muted lead" data-key="holding_vis_desc">Menjadi perusahaan penyedia solusi digital terdepan yang paling dikagumi dan berdampak di Asia Pasifik.</p>
+                    </div>
                 </div>
-                <div class="col-lg-1 d-none d-lg-block border-end"></div>
-                <div class="col-lg-6 ps-lg-5">
-                    <h3 data-key="holding_mis_title">Misi</h3>
-                    <ul class="list-unstyled mission-list text-muted mt-3">
-                        <li data-key="holding_mis_list_1">Memberikan produk dan layanan TI yang kompetitif dan tepat guna untuk kepuasan pelanggan.</li>
-                        <li data-key="holding_mis_list_2">Menciptakan lingkungan kerja yang optimal bagi karyawan untuk berkembang dan berinovasi.</li>
-                        <li data-key="holding_mis_list_3">Memberikan nilai tambah yang berkelanjutan bagi pemegang saham dan pemangku kepentingan.</li>
-                        <li data-key="holding_mis_list_4">Berkontribusi positif terhadap masyarakat melalui pemanfaatan teknologi yang bertanggung jawab.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="leader-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 text-center mb-4 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO" class="img-fluid leader-img rounded">
-                </div>
-                <div class="col-lg-7">
-                    <h5 class="text-uppercase text-muted letter-spacing-2 mb-2" data-key="holding_leader_label">Pemimpin Kami</h5>
-                    <h2 class="mb-1">David Santoso</h2>
-                    <p class="text-success fw-bold mb-4" data-key="holding_leader_role">Presiden Direktur</p>
-                    
-                    <p class="text-muted" data-key="holding_leader_quote">
-                        "Inovasi bukan hanya tentang teknologi baru, tetapi tentang bagaimana teknologi tersebut dapat menciptakan nilai nyata bagi kehidupan manusia. Di NexusDigital, kami percaya bahwa kolaborasi dan integritas adalah kunci untuk membuka potensi masa depan."
-                    </p>
-                    <div class="quote-box">
-                        <small data-key="holding_leader_desc">Bergabung dengan NexusDigital sejak 2010, David memiliki lebih dari 25 tahun pengalaman dalam industri teknologi dan manajemen strategis.</small>
+                <div class="col-md-7 animate-up delay-100">
+                    <div class="vm-card">
+                        <div class="vm-icon"><i class="bi bi-bullseye"></i></div>
+                        <h3 class="mb-3" data-key="holding_mis_title">Misi</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mission-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span class="text-muted small" data-key="holding_mis_list_1">Layanan TI Terintegrasi & Berkualitas.</span>
+                                </div>
+                                <div class="mission-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span class="text-muted small" data-key="holding_mis_list_2">Lingkungan kerja inovatif & kolaboratif.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mission-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span class="text-muted small" data-key="holding_mis_list_3">Nilai tambah berkelanjutan bagi stakeholder.</span>
+                                </div>
+                                <div class="mission-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span class="text-muted small" data-key="holding_mis_list_4">Kontribusi sosial lewat teknologi.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -468,60 +305,53 @@
 
     <section class="section-padding bg-white">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 data-key="holding_time_title">Perjalanan Kami</h2>
-                <div style="height: 4px; width: 60px; background: var(--nd-green); margin: 15px auto;"></div>
+            <div class="text-center mb-5 animate-up">
+                <span class="section-subtitle" data-key="bod_subtitle">KEPEMIMPINAN</span>
+                <h2 data-key="holding_bod_title">Dewan Direksi</h2>
             </div>
-
-            <ul class="nav nav-pills nav-pills-custom justify-content-center mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item"><button class="nav-link" id="pills-2002-tab" data-bs-toggle="pill" data-bs-target="#pills-2002" type="button">2002</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-2008-tab" data-bs-toggle="pill" data-bs-target="#pills-2008" type="button">2008</button></li>
-                <li class="nav-item"><button class="nav-link active" id="pills-2015-tab" data-bs-toggle="pill" data-bs-target="#pills-2015" type="button">2015</button></li>
-                <li class="nav-item"><button class="nav-link" id="pills-2023-tab" data-bs-toggle="pill" data-bs-target="#pills-2023" type="button">2023</button></li>
-            </ul>
-
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade" id="pills-2002">
-                    <div class="timeline-content-box d-flex align-items-center">
-                        <div class="p-3"><h4 data-key="time_2002_t">Pendirian Perusahaan</h4><p data-key="time_2002_d">NexusDigital didirikan sebagai perusahaan penyedia perangkat keras komputer kecil di Jakarta.</p></div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 animate-up delay-100">
+                    <div class="bod-card">
+                        <div class="bod-img-wrapper"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CEO" class="bod-img"></div>
+                        <div class="bod-info"><span class="bod-role" data-key="role_ceo">President Director</span><h4 class="mb-2">Danu Santoso</h4><p class="small text-muted mb-0" data-key="desc_ceo">Visioner dengan 20+ tahun pengalaman di industri teknologi multinasional.</p></div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-2008">
-                    <div class="timeline-content-box d-flex align-items-center">
-                         <div class="p-3"><h4 data-key="time_2008_t">Ekspansi Layanan</h4><p data-key="time_2008_d">Mulai merambah ke bisnis System Integration dan menjalin kemitraan dengan IBM dan Microsoft.</p></div>
+                <div class="col-md-6 col-lg-4 animate-up delay-200">
+                    <div class="bod-card">
+                        <div class="bod-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CTO" class="bod-img"></div>
+                        <div class="bod-info"><span class="bod-role" data-key="role_cto">Director of Technology</span><h4 class="mb-2">Linda Kusuma</h4><p class="small text-muted mb-0" data-key="desc_cto">Arsitek sistem yang memimpin transformasi digital dan inovasi produk.</p></div>
                     </div>
                 </div>
-                <div class="tab-pane fade show active" id="pills-2015">
-                    <div class="timeline-content-box row g-0 align-items-center">
-                        <div class="col-md-5"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" alt="IPO"></div>
-                        <div class="col-md-7 p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-graph-up-arrow fs-2 text-primary me-3"></i>
-                                <h4 class="mb-0" data-key="time_2015_t">Penawaran Saham Perdana (IPO)</h4>
-                            </div>
-                            <ul class="text-muted">
-                                <li data-key="time_2015_d1">Resmi melantai di Bursa Efek Indonesia dengan kode saham NXDS.</li>
-                                <li data-key="time_2015_d2">Mengakuisisi dua perusahaan keamanan siber lokal.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-2023">
-                    <div class="timeline-content-box d-flex align-items-center">
-                         <div class="p-3"><h4 data-key="time_2023_t">Transformasi AI</h4><p data-key="time_2023_d">Meluncurkan divisi khusus Artificial Intelligence dan Cloud Computing.</p></div>
+                <div class="col-md-6 col-lg-4 animate-up delay-300">
+                    <div class="bod-card">
+                        <div class="bod-img-wrapper"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CFO" class="bod-img"></div>
+                        <div class="bod-info"><span class="bod-role" data-key="role_cfo">Director of Finance</span><h4 class="mb-2">Robert Tan</h4><p class="small text-muted mb-0" data-key="desc_cfo">Ahli strategi keuangan dengan rekam jejak investasi dan manajemen aset.</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats-bar">
+    <section class="section-padding" style="background-color: var(--nd-bg-light);">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 mb-4 mb-md-0"><div class="stats-number">3</div><div class="stats-label" data-key="stat_country">Negara Operasional</div></div>
-                <div class="col-md-3 mb-4 mb-md-0"><div class="stats-number">8</div><div class="stats-label" data-key="stat_subs">Anak Perusahaan</div></div>
-                <div class="col-md-3 mb-4 mb-md-0"><div class="stats-number">1787</div><div class="stats-label" data-key="stat_emp">Karyawan Profesional</div></div>
-                <div class="col-md-3"><div class="stats-number">798+</div><div class="stats-label" data-key="stat_client">Klien Enterprise</div></div>
+            <div class="text-center mb-5 animate-up">
+                <span class="section-subtitle">MILESTONE</span>
+                <h2 data-key="holding_time_title">Perjalanan Kami</h2>
+            </div>
+
+            <ul class="nav nav-pills-modern mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-2002">2002</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-2008">2008</button></li>
+                <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-2015">2015</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-2023">2023</button></li>
+            </ul>
+
+            <div class="tab-content text-center" id="pills-tabContent">
+                <div class="tab-pane fade" id="pills-2002"><div class="timeline-box animate-up"><div class="timeline-year">2002</div><h3 class="timeline-title" data-key="time_2002_t">Pendirian Perusahaan</h3><p class="text-muted" data-key="time_2002_d">Lahir sebagai penyedia perangkat keras di garasi kecil Jakarta dengan mimpi besar.</p></div></div>
+                <div class="tab-pane fade" id="pills-2008"><div class="timeline-box animate-up"><div class="timeline-year">2008</div><h3 class="timeline-title" data-key="time_2008_t">Ekspansi Layanan</h3><p class="text-muted" data-key="time_2008_d">Transformasi menjadi System Integrator dan menjalin kemitraan strategis dengan raksasa teknologi.</p></div></div>
+                <div class="tab-pane fade show active" id="pills-2015"><div class="timeline-box animate-up"><div class="timeline-year">2015</div><h3 class="timeline-title" data-key="time_2015_t">Go Public (IPO)</h3><p class="text-muted" data-key="time_2015_d">Resmi melantai di Bursa Efek Indonesia (NXDS) dan melakukan akuisisi strategis untuk memperkuat posisi pasar.</p></div></div>
+                <div class="tab-pane fade" id="pills-2023"><div class="timeline-box animate-up"><div class="timeline-year">2023</div><h3 class="timeline-title" data-key="time_2023_t">Era Kecerdasan Buatan</h3><p class="text-muted" data-key="time_2023_d">Meluncurkan divisi AI & Cloud Computing untuk menjawab tantangan industri 4.0.</p></div></div>
             </div>
         </div>
     </section>
@@ -531,154 +361,83 @@
             <div class="row gy-5">
                 <div class="col-lg-4">
                     <h3 class="text-white mb-3">Nexus<span>Digital</span></h3>
-                    <div class="mb-4">
-                        <h6 class="text-white" data-key="foot_hq">Kantor Pusat</h6>
-                        <p class="opacity-75 small" data-key="foot_addr_hq">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia</p>
-                    </div>
-                    <div class="mb-4">
-                        <h6 class="text-white" data-key="foot_branch">Kantor Pusat Jakarta</h6>
-                        <p class="opacity-75 small" data-key="foot_addr_branch">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909</p>
-                    </div>
+                    <div class="mb-4"><h6 class="text-white" data-key="foot_hq">Kantor Pusat</h6><p class="opacity-75 small" data-key="foot_addr_hq">Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia</p></div>
+                    <div class="mb-4"><h6 class="text-white" data-key="foot_branch">Kantor Pusat Jakarta</h6><p class="opacity-75 small" data-key="foot_addr_branch">Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909</p></div>
                 </div>
-
                 <div class="col-lg-8">
                     <div class="bg-white p-4 rounded text-dark">
                         <h5 class="mb-3" style="color: var(--nd-blue-dark);" data-key="foot_contact">Hubungi Kami</h5>
                         <p class="small text-muted mb-4" data-key="foot_form_desc">Anda memiliki pertanyaan seputar bisnis dan kolaborasi?</p>
-                        
                         <form id="footerForm">
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" data-key-ph="ph_fname" placeholder="Nama Depan*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" data-key-ph="ph_lname" placeholder="Nama Belakang*"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" data-key-ph="ph_job" placeholder="Jabatan*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" data-key-ph="ph_comp" placeholder="Nama Perusahaan*"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" data-key-ph="ph_email" placeholder="Email*"></div>
-                                <div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" data-key-ph="ph_phone" placeholder="Nomor HP*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"></div>
-                            </div>
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_fname" data-key-ph="ph_fname" placeholder="Nama Depan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_lname" data-key-ph="ph_lname" placeholder="Nama Belakang*"></div></div>
+                            <div class="row"><div class="col-md-6"><input type="text" class="footer-form-control" id="f_job" data-key-ph="ph_job" placeholder="Jabatan*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_comp" data-key-ph="ph_comp" placeholder="Nama Perusahaan*"></div></div>
+                            <div class="row"><div class="col-md-6"><input type="email" class="footer-form-control" id="f_email" data-key-ph="ph_email" placeholder="Email*"></div><div class="col-md-6"><input type="text" class="footer-form-control" id="f_phone" data-key-ph="ph_phone" placeholder="Nomor HP*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"></div></div>
                             <textarea class="footer-form-control" id="f_msg" rows="3" data-key-ph="ph_msg" placeholder="Pesan*"></textarea>
-                            
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="privacyCheck">
-                                <label class="form-check-label small" for="privacyCheck">
-                                    <span data-key="foot_privacy_agree">Saya setuju dengan</span> 
-                                    <a href="#" data-key="foot_privacy_link">Kebijakan Privasi</a>
-                                </label>
-                            </div>
-                            
+                            <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="privacyCheck"><label class="form-check-label small" for="privacyCheck"><span data-key="foot_privacy_agree">Saya setuju dengan</span> <a href="#" data-key="foot_privacy_link">Kebijakan Privasi</a></label></div>
                             <button type="submit" class="btn btn-yellow text-dark px-4 py-2" data-key="btn_send">Kirim Pesan</button>
                         </form>
                     </div>
                 </div>
             </div>
-            
-            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
-            
-            <div class="row align-items-center small opacity-75">
-                <div class="col-md-6" data-key="foot_copy">© 2026 PT NexusDigital Tbk. All rights reserved.</div>
-                <div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end">
-                    <a href="#" data-key="foot_pol">Kebijakan Privasi</a>
-                    <a href="#" data-key="foot_term">Syarat dan Ketentuan</a>
-                    <div class="d-flex gap-2 ms-3">
-                        <i class="bi bi-linkedin"></i>
-                        <i class="bi bi-instagram"></i>
-                        <i class="bi bi-youtube"></i>
-                    </div>
-                </div>
-            </div>
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);"><div class="row align-items-center small opacity-75"><div class="col-md-6" data-key="foot_copy">© 2026 PT NexusDigital Tbk. All rights reserved.</div><div class="col-md-6 text-md-end mt-3 mt-md-0 d-flex gap-3 justify-content-md-end"><a href="#" data-key="foot_pol">Kebijakan Privasi</a><a href="#" data-key="foot_term">Syarat dan Ketentuan</a><div class="d-flex gap-2 ms-3"><i class="bi bi-linkedin"></i><i class="bi bi-instagram"></i><i class="bi bi-youtube"></i></div></div></div>
         </div>
     </footer>
 
     <div class="floating-buttons">
-        <a href="https://wa.me/62895639068080" class="btn-float btn-wa" target="_blank" title="Chat via WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-        <button id="backToTop" class="btn-float btn-top" onclick="topFunction()" title="Back to Top">
-            <i class="bi bi-arrow-up"></i>
-        </button>
+        <a href="https://wa.me/62895639068080" class="btn-float btn-wa" target="_blank" title="Chat via WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button id="backToTop" class="btn-float btn-top" onclick="topFunction()" title="Back to Top"><i class="bi bi-arrow-up"></i></button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
         const translations = {
             id: {
-                // GLOBAL (NAVBAR & FOOTER)
                 nav_home: "Beranda", nav_about: "Tentang Kami", nav_holding_desc: "Perusahaan induk TI global.", nav_subholding_desc: "Pilar solusi bisnis TI.", nav_esg_desc: "Komitmen berkelanjutan.",
                 nav_business: "Bisnis", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Solusi infrastruktur digital.",
                 nav_investor: "Hubungan Investor", nav_inv_annual: "Laporan Tahunan", nav_inv_share: "Info Pemegang Saham", nav_inv_info: "Keterbukaan Informasi",
-                nav_article: "Artikel", nav_art_blog: "Blog", nav_art_blog_desc: "Artikel Opini dari Nexus.",
-                nav_career: "Karir", nav_career_life: "Hidup Sebagai Nexusian", nav_career_life_desc: "Temukan pencapaian pribadi dan peluang pertumbuhan dalam lanskap industri TI.", nav_career_cult: "Lihat Budaya Kami", nav_career_latest: "Lowongan Kerja Terbaru", nav_career_all: "Lihat Semua Lowongan",
-                nav_contact: "Kontak", nav_con_biz: "Bisnis & Kemitraan", nav_con_code: "Kode Etik & Perilaku", nav_con_wbs: "Pelaporan Pelanggan",
-                foot_hq: "Kantor Pusat", foot_branch: "Kantor Pusat Jakarta", foot_contact: "Hubungi Kami", foot_form_desc: "Anda memiliki pertanyaan seputar bisnis dan kolaborasi?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
+                nav_article: "Artikel", nav_career: "Karir", nav_career_life: "Hidup di Nexus", nav_career_latest: "Lowongan", nav_contact: "Kontak", nav_con_biz: "Bisnis", nav_con_code: "Kode Etik", nav_con_wbs: "WBS",
+                
+                holding_badge: "Profil Perusahaan", holding_hero_title: "Dorong Inovasi,<br>Tentukan Masa Depan.", holding_hero_subtitle: "Induk perusahaan teknologi yang mengorkestrasi ekosistem digital untuk pertumbuhan bisnis yang berkelanjutan.",
+                about_subtitle: "TENTANG KAMI", holding_about_title: "Membangun Fondasi Digital", holding_about_desc1: "NexusDigital Tbk (IDX: NXDS) telah berdiri lebih dari dua dekade sebagai pilar utama transformasi digital di Indonesia. Kami tidak sekadar menyediakan layanan TI, kami membangun ekosistem.", holding_about_desc2: "Melalui sinergi anak perusahaan yang bergerak di bidang Cloud, AI, dan Cybersecurity, kami menghadirkan solusi *end-to-end* yang memungkinkan klien kami untuk beradaptasi dan memimpin pasar.", hold_quote: "\"Establish Digital Ecosystem, Navigating Innovation\"",
+                holding_vis_title: "Visi", holding_vis_desc: "Menjadi perusahaan penyedia solusi digital terdepan yang paling dikagumi dan berdampak di Asia Pasifik.",
+                holding_mis_title: "Misi", holding_mis_list_1: "Layanan TI Terintegrasi & Berkualitas.", holding_mis_list_2: "Lingkungan kerja inovatif & kolaboratif.", holding_mis_list_3: "Nilai tambah berkelanjutan bagi stakeholder.", holding_mis_list_4: "Kontribusi sosial lewat teknologi.",
+                bod_subtitle: "KEPEMIMPINAN", holding_bod_title: "Dewan Direksi", role_ceo: "President Director", desc_ceo: "Visioner dengan 20+ tahun pengalaman di industri teknologi multinasional.", role_cto: "Director of Technology", desc_cto: "Arsitek sistem yang memimpin transformasi digital dan inovasi produk.", role_cfo: "Director of Finance", desc_cfo: "Ahli strategi keuangan dengan rekam jejak investasi dan manajemen aset.",
+                holding_time_title: "Perjalanan Kami", time_2002_t: "Pendirian Perusahaan", time_2002_d: "Lahir sebagai penyedia perangkat keras di garasi kecil Jakarta dengan mimpi besar.", time_2008_t: "Ekspansi Layanan", time_2008_d: "Transformasi menjadi System Integrator dan menjalin kemitraan strategis dengan raksasa teknologi.", time_2015_t: "Go Public (IPO)", time_2015_d: "Resmi melantai di Bursa Efek Indonesia (NXDS) dan melakukan akuisisi strategis untuk memperkuat posisi pasar.", time_2023_t: "Era Kecerdasan Buatan", time_2023_d: "Meluncurkan divisi AI & Cloud Computing untuk menjawab tantangan industri 4.0.",
+                foot_hq: "Kantor Pusat", foot_contact: "Hubungi Kami", foot_form_desc: "Anda memiliki pertanyaan seputar bisnis dan kolaborasi?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP Lantai 7, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
                 ph_fname: "Nama Depan*", ph_lname: "Nama Belakang*", ph_job: "Jabatan*", ph_comp: "Nama Perusahaan*", ph_email: "Email*", ph_phone: "Nomor HP*", ph_msg: "Pesan*",
-                foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan",
-
-                // KHUSUS HALAMAN HOLDING
-                holding_hero_title: "Dorong Inovasi", holding_hero_subtitle: "Mitra Anda untuk Meningkatkan Bisnis di Era Digital",
-                holding_about_title: "Tentang Perusahaan", holding_about_desc1: "NexusDigital Tbk (IDX: NXDS) adalah perusahaan teknologi informasi terkemuka di Indonesia yang telah beroperasi selama lebih dari dua dekade. Kami berdedikasi untuk memberikan solusi TI yang kompetitif dan bernilai tambah bagi klien kami.", holding_about_desc2: "Dengan dukungan tim ahli yang berpengalaman dan kemitraan strategis dengan perusahaan teknologi global, NexusDigital telah berkembang menjadi penyedia solusi digital yang terintegrasi.",
-                holding_vis_title: "Visi", holding_vis_desc: "Menjadi perusahaan penyedia solusi digital terdepan yang paling dikagumi di Asia Pasifik.",
-                holding_mis_title: "Misi", holding_mis_list_1: "Memberikan produk dan layanan TI yang kompetitif dan tepat guna untuk kepuasan pelanggan.", holding_mis_list_2: "Menciptakan lingkungan kerja yang optimal bagi karyawan untuk berkembang dan berinovasi.", holding_mis_list_3: "Memberikan nilai tambah yang berkelanjutan bagi pemegang saham dan pemangku kepentingan.", holding_mis_list_4: "Berkontribusi positif terhadap masyarakat melalui pemanfaatan teknologi yang bertanggung jawab.",
-                holding_leader_label: "Pemimpin Kami", holding_leader_role: "Presiden Direktur", holding_leader_quote: "\"Inovasi bukan hanya tentang teknologi baru, tetapi tentang bagaimana teknologi tersebut dapat menciptakan nilai nyata bagi kehidupan manusia. Di NexusDigital, kami percaya bahwa kolaborasi dan integritas adalah kunci untuk membuka potensi masa depan.\"", holding_leader_desc: "Bergabung dengan NexusDigital sejak 2010, David memiliki lebih dari 25 tahun pengalaman dalam industri teknologi dan manajemen strategis.",
-                holding_time_title: "Perjalanan Kami",
-                time_2002_t: "Pendirian Perusahaan", time_2002_d: "NexusDigital didirikan sebagai perusahaan penyedia perangkat keras komputer kecil di Jakarta.",
-                time_2008_t: "Ekspansi Layanan", time_2008_d: "Mulai merambah ke bisnis System Integration dan menjalin kemitraan dengan IBM dan Microsoft.",
-                time_2015_t: "Penawaran Saham Perdana (IPO)", time_2015_d1: "Resmi melantai di Bursa Efek Indonesia dengan kode saham NXDS.", time_2015_d2: "Mengakuisisi dua perusahaan keamanan siber lokal.",
-                time_2023_t: "Transformasi AI", time_2023_d: "Meluncurkan divisi khusus Artificial Intelligence dan Cloud Computing.",
-                stat_country: "Negara Operasional", stat_subs: "Anak Perusahaan", stat_emp: "Karyawan Profesional", stat_client: "Klien Enterprise"
+                foot_privacy_agree: "Saya setuju dengan", foot_privacy_link: "Kebijakan Privasi", btn_send: "Kirim Pesan", foot_copy: "© 2026 PT NexusDigital Tbk. Hak Cipta Dilindungi.", foot_pol: "Kebijakan Privasi", foot_term: "Syarat dan Ketentuan"
             },
             en: {
-                // GLOBAL
                 nav_home: "Home", nav_about: "About Us", nav_holding_desc: "Global IT holding company.", nav_subholding_desc: "IT business solutions pillar.", nav_esg_desc: "Sustainable commitment.",
                 nav_business: "Business", nav_bpaas_desc: "Business Process as a Service.", nav_cloud_desc: "Digital infrastructure solutions.",
                 nav_investor: "Investor Relations", nav_inv_annual: "Annual Report", nav_inv_share: "Shareholder Info", nav_inv_info: "Disclosure of Info",
-                nav_article: "Articles", nav_art_blog: "Blogs", nav_art_blog_desc: "Opinion Articles from Nexus.",
-                nav_career: "Career", nav_career_life: "Life as a Nexusian", nav_career_life_desc: "Discover personal achievement and growth opportunities in the evolving IT industry landscape.", nav_career_cult: "View Our Culture", nav_career_latest: "Latest Job Vacancies", nav_career_all: "View All Vacancies",
-                nav_contact: "Contact Us", nav_con_biz: "Business & Partnerships", nav_con_code: "Code of Conduct", nav_con_wbs: "Whistleblowing System",
-                foot_hq: "Headquarters", foot_branch: "Jakarta Office", foot_contact: "Contact Us", foot_form_desc: "Do you have questions about business and collaboration?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
+                nav_article: "Articles", nav_career: "Career", nav_career_life: "Life at Nexus", nav_career_latest: "Jobs", nav_contact: "Contact", nav_con_biz: "Business", nav_con_code: "Ethics", nav_con_wbs: "WBS",
+                
+                holding_badge: "Corporate Overview", holding_hero_title: "Driving Innovation,<br>Defining Future.", holding_hero_subtitle: "The parent technology company orchestrating the digital ecosystem for sustainable business growth.",
+                about_subtitle: "ABOUT US", holding_about_title: "Building Digital Foundations", holding_about_desc1: "NexusDigital Tbk (IDX: NXDS) has stood for over two decades as a main pillar of digital transformation in Indonesia. We don't just provide IT services; we build ecosystems.", holding_about_desc2: "Through the synergy of subsidiaries in Cloud, AI, and Cybersecurity, we deliver end-to-end solutions that enable our clients to adapt and lead the market.", hold_quote: "\"Establish Digital Ecosystem, Navigating Innovation\"",
+                holding_vis_title: "Vision", holding_vis_desc: "To be the leading, most admired, and impactful digital solutions provider in Asia Pacific.",
+                holding_mis_title: "Mission", holding_mis_list_1: "Integrated & Quality IT Services.", holding_mis_list_2: "Innovative & collaborative work environment.", holding_mis_list_3: "Sustainable added value for stakeholders.", holding_mis_list_4: "Social contribution through technology.",
+                bod_subtitle: "LEADERSHIP", holding_bod_title: "Board of Directors", role_ceo: "President Director", desc_ceo: "Visionary with 20+ years experience in multinational tech industry.", role_cto: "Director of Technology", desc_cto: "System architect leading digital transformation and product innovation.", role_cfo: "Director of Finance", desc_cfo: "Financial strategist with a track record in investment and asset management.",
+                holding_time_title: "Our Journey", time_2002_t: "Company Establishment", time_2002_d: "Born as a hardware provider in a small Jakarta garage with big dreams.", time_2008_t: "Service Expansion", time_2008_d: "Transformed into a System Integrator and established strategic partnerships with tech giants.", time_2015_t: "Go Public (IPO)", time_2015_d: "Officially listed on Indonesia Stock Exchange (NXDS) and acquired strategic firms to strengthen market position.", time_2023_t: "Artificial Intelligence Era", time_2023_d: "Launched AI & Cloud Computing division to answer Industry 4.0 challenges.",
+                foot_hq: "Headquarters", foot_contact: "Contact Us", foot_form_desc: "Do you have questions about business and collaboration?", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
                 ph_fname: "First Name*", ph_lname: "Last Name*", ph_job: "Position*", ph_comp: "Company Name*", ph_email: "Email*", ph_phone: "Phone Number*", ph_msg: "Message*",
-                foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions",
-
-                // HOLDING PAGE SPECIFIC
-                holding_hero_title: "Driving Innovation", holding_hero_subtitle: "Your Partner to Enhance Business in the Digital Era",
-                holding_about_title: "About The Company", holding_about_desc1: "NexusDigital Tbk (IDX: NXDS) is a leading information technology company in Indonesia that has been operating for over two decades. We are dedicated to providing competitive and value-added IT solutions for our clients.", holding_about_desc2: "With the support of an experienced team of experts and strategic partnerships with global technology companies, NexusDigital has grown into an integrated digital solutions provider.",
-                holding_vis_title: "Vision", holding_vis_desc: "To be the leading and most admired digital solutions provider company in Asia Pacific.",
-                holding_mis_title: "Mission", holding_mis_list_1: "Provide competitive and appropriate IT products and services for customer satisfaction.", holding_mis_list_2: "Create an optimal working environment for employees to develop and innovate.", holding_mis_list_3: "Provide sustainable added value for shareholders and stakeholders.", holding_mis_list_4: "Contribute positively to society through responsible use of technology.",
-                holding_leader_label: "Our Leader", holding_leader_role: "President Director", holding_leader_quote: "\"Innovation is not just about new technology, but about how that technology can create real value for human life. At NexusDigital, we believe that collaboration and integrity are the keys to unlocking future potential.\"", holding_leader_desc: "Joining NexusDigital since 2010, David has over 25 years of experience in the technology industry and strategic management.",
-                holding_time_title: "Our Journey",
-                time_2002_t: "Company Establishment", time_2002_d: "NexusDigital was founded as a small computer hardware provider in Jakarta.",
-                time_2008_t: "Service Expansion", time_2008_d: "Expanded into System Integration business and established partnerships with IBM and Microsoft.",
-                time_2015_t: "Initial Public Offering (IPO)", time_2015_d1: "Officially listed on the Indonesia Stock Exchange with ticker code NXDS.", time_2015_d2: "Acquired two local cyber security firms.",
-                time_2023_t: "AI Transformation", time_2023_d: "Launched a dedicated Artificial Intelligence and Cloud Computing division.",
-                stat_country: "Operational Countries", stat_subs: "Subsidiaries", stat_emp: "Professional Employees", stat_client: "Enterprise Clients"
+                foot_privacy_agree: "I agree to the", foot_privacy_link: "Privacy Policy", btn_send: "Send Message", foot_copy: "© 2026 PT NexusDigital Tbk. All rights reserved.", foot_pol: "Privacy Policy", foot_term: "Terms and Conditions"
             },
             jp: {
-                // GLOBAL
                 nav_home: "ホーム", nav_about: "会社概要", nav_holding_desc: "グローバルIT持株会社。", nav_subholding_desc: "ITビジネスソリューションの柱。", nav_esg_desc: "持続可能なコミットメント。",
                 nav_business: "事業内容", nav_bpaas_desc: "BPaaSソリューション。", nav_cloud_desc: "デジタルインフラソリューション。",
                 nav_investor: "IR情報", nav_inv_annual: "年次報告書", nav_inv_share: "株主情報", nav_inv_info: "情報開示",
-                nav_article: "記事", nav_art_blog: "ブログ", nav_art_blog_desc: "Nexusからのオピニオン記事。",
-                nav_career: "採用情報", nav_career_life: "Nexusianとしての生活", nav_career_life_desc: "進化するIT業界で、個人の達成と成長の機会を見つけましょう。", nav_career_cult: "私たちの文化を見る", nav_career_latest: "最新の求人情報", nav_career_all: "すべての求人を見る",
-                nav_contact: "お問い合わせ", nav_con_biz: "ビジネス＆パートナーシップ", nav_con_code: "行動規範", nav_con_wbs: "内部通報システム",
-                foot_hq: "本社", foot_branch: "ジャカルタオフィス", foot_contact: "お問い合わせ", foot_form_desc: "ビジネスやコラボレーションに関するご質問はありますか？", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
+                nav_article: "記事", nav_career: "採用情報", nav_career_life: "Nexusでの生活", nav_career_latest: "求人", nav_contact: "お問い合わせ", nav_con_biz: "ビジネス", nav_con_code: "行動規範", nav_con_wbs: "内部通報",
+                
+                holding_badge: "企業概要", holding_hero_title: "イノベーションの推進、<br>未来の定義。", holding_hero_subtitle: "持続可能なビジネス成長のためにデジタルエコシステムを調整する親会社。",
+                about_subtitle: "私たちについて", holding_about_title: "デジタル基盤の構築", holding_about_desc1: "NexusDigital Tbk (IDX: NXDS) は、20年以上にわたりインドネシアのデジタルトランスフォーメーションの主要な柱として存在しています。単にITサービスを提供するだけでなく、エコシステムを構築します。", holding_about_desc2: "クラウド、AI、サイバーセキュリティの子会社のシナジーを通じて、クライアントが適応し市場をリードするためのエンドツーエンドのソリューションを提供します。", hold_quote: "「デジタルエコシステムの構築、イノベーションのナビゲート」",
+                holding_vis_title: "ビジョン", holding_vis_desc: "アジア太平洋地域で最も賞賛され、影響力のある主要なデジタルソリューションプロバイダーになること。",
+                holding_mis_title: "ミッション", holding_mis_list_1: "統合された高品質なITサービス。", holding_mis_list_2: "革新的で協力的な職場環境。", holding_mis_list_3: "ステークホルダーへの持続可能な付加価値。", holding_mis_list_4: "技術を通じた社会貢献。",
+                bod_subtitle: "リーダーシップ", holding_bod_title: "取締役会", role_ceo: "代表取締役社長", desc_ceo: "多国籍ハイテク業界で20年以上の経験を持つビジョナリー。", role_cto: "最高技術責任者", desc_cto: "デジタルトランスフォーメーションと製品イノベーションを主導するシステムアーキテクト。", role_cfo: "最高財務責任者", desc_cfo: "投資と資産管理の実績を持つ金融ストラテジスト。",
+                holding_time_title: "私たちの歩み", time_2002_t: "会社設立", time_2002_d: "ジャカルタの小さなガレージでハードウェアプロバイダーとして設立されました。", time_2008_t: "サービスの拡大", time_2008_d: "システムインテグレーターへと変貌し、ハイテク大手との戦略的パートナーシップを確立しました。", time_2015_t: "新規株式公開 (IPO)", time_2015_d: "インドネシア証券取引所 (NXDS) に正式に上場し、市場地位を強化するために戦略的買収を行いました。", time_2023_t: "人工知能の時代", time_2023_d: "インダストリー4.0の課題に応えるため、AI＆クラウドコンピューティング部門を立ち上げました。",
+                foot_hq: "本社", foot_contact: "お問い合わせ", foot_form_desc: "ビジネスやコラボレーションに関するご質問はありますか？", foot_addr_hq: "Graha Nexus, Jl. Scientia Boulevard<br>Gading Serpong, Tangerang - Indonesia", foot_addr_branch: "Graha BIP 7th Floor, Jl. Jend. Gatot Subroto<br>Jakarta 12930, Indonesia<br>+62 21 522 9909",
                 ph_fname: "名*", ph_lname: "姓*", ph_job: "役職*", ph_comp: "会社名*", ph_email: "Eメール*", ph_phone: "電話番号*", ph_msg: "メッセージ*",
-                foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約",
-
-                // HOLDING PAGE SPECIFIC
-                holding_hero_title: "イノベーションの推進", holding_hero_subtitle: "デジタル時代におけるビジネス強化のパートナー",
-                holding_about_title: "会社について", holding_about_desc1: "NexusDigital Tbk (IDX: NXDS) は、20年以上にわたり事業を展開しているインドネシアの大手情報技術企業です。私たちは、クライアントに競争力のある付加価値の高いITソリューションを提供することに専念しています。", holding_about_desc2: "経験豊富な専門家チームのサポートとグローバルテクノロジー企業との戦略的パートナーシップにより、NexusDigitalは統合デジタルソリューションプロバイダーへと成長しました。",
-                holding_vis_title: "ビジョン", holding_vis_desc: "アジア太平洋地域で最も賞賛される主要なデジタルソリューションプロバイダーになること。",
-                holding_mis_title: "ミッション", holding_mis_list_1: "顧客満足のために、競争力のある適切なIT製品とサービスを提供する。", holding_mis_list_2: "従業員が成長し革新するための最適な職場環境を創造する。", holding_mis_list_3: "株主およびステークホルダーに持続可能な付加価値を提供する。", holding_mis_list_4: "責任ある技術利用を通じて社会に積極的に貢献する。",
-                holding_leader_label: "私たちのリーダー", holding_leader_role: "代表取締役社長", holding_leader_quote: "「イノベーションとは新しい技術のことだけでなく、その技術が人間の生活に真の価値を創造する方法のことです。NexusDigitalでは、コラボレーションと誠実さが未来の可能性を切り開く鍵であると信じています。」", holding_leader_desc: "2010年にNexusDigitalに入社したDavidは、テクノロジー業界と戦略的管理において25年以上の経験を持っています。",
-                holding_time_title: "私たちの歩み",
-                time_2002_t: "会社設立", time_2002_d: "NexusDigitalはジャカルタで小型コンピュータハードウェアプロバイダーとして設立されました。",
-                time_2008_t: "サービスの拡大", time_2008_d: "システムインテグレーション事業に進出し、IBMおよびMicrosoftとのパートナーシップを確立しました。",
-                time_2015_t: "新規株式公開 (IPO)", time_2015_d1: "ティッカーコードNXDSでインドネシア証券取引所に正式に上場。", time_2015_d2: "現地のサイバーセキュリティ企業2社を買収。",
-                time_2023_t: "AIトランスフォーメーション", time_2023_d: "人工知能およびクラウドコンピューティング専任部門を立ち上げました。",
-                stat_country: "事業展開国", stat_subs: "子会社", stat_emp: "専門従業員", stat_client: "エンタープライズクライアント"
+                foot_privacy_agree: "私は同意します", foot_privacy_link: "プライバシーポリシー", btn_send: "メッセージを送信", foot_copy: "© 2026 PT NexusDigital Tbk. 無断複写・転載を禁じます。", foot_pol: "プライバシーポリシー", foot_term: "利用規約"
             }
         };
 
@@ -689,7 +448,6 @@
             document.getElementById('imgLanguage').src = flagMap[lang];
             document.getElementById('textLanguage').innerText = textMap[lang];
 
-            // 1. Translate Text Content (innerHTML to allow <br>)
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
@@ -702,7 +460,6 @@
                 }
             });
 
-            // 2. Translate Placeholders
             document.querySelectorAll('[data-key-ph]').forEach(el => {
                 const key = el.getAttribute('data-key-ph');
                 if (translations[lang] && translations[lang][key]) {
@@ -711,44 +468,21 @@
             });
         }
 
-        // --- 2. LOGIKA WA FORM FOOTER ---
-        document.getElementById('footerForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah reload
-
-            var fname = document.getElementById('f_fname').value;
-            var lname = document.getElementById('f_lname').value;
-            var job = document.getElementById('f_job').value;
-            var comp = document.getElementById('f_comp').value;
-            var email = document.getElementById('f_email').value;
-            var phone = document.getElementById('f_phone').value;
+        document.getElementById('footerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('f_fname').value;
             var msg = document.getElementById('f_msg').value;
-
-            var waMessage = "Halo NexusDigital, saya ingin berdiskusi (via Halaman Holding):%0a%0a" +
-                            "*Nama:* " + fname + " " + lname + "%0a" +
-                            "*Jabatan:* " + job + "%0a" +
-                            "*Perusahaan:* " + comp + "%0a" +
-                            "*Email:* " + email + "%0a" +
-                            "*No. HP:* " + phone + "%0a" +
-                            "*Pesan:* " + msg + "%0a%0a" +
-                            "(Dikirim dari Footer Website)";
-
-            var waNumber = "62895639068080";
-            var waURL = "https://wa.me/" + waNumber + "?text=" + waMessage;
-            window.open(waURL, '_blank');
+            window.open(`https://wa.me/62895639068080?text=Halo Nexus (Holding), saya ${name}. ${msg}`, '_blank');
         });
 
-        // --- 3. LOGIKA BACK TO TOP ---
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
+        window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 document.getElementById("backToTop").classList.add("show");
             } else {
                 document.getElementById("backToTop").classList.remove("show");
             }
-        }
-        function topFunction() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+        };
+        function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
     </script>
 </body>
 </html>
